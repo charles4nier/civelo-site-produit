@@ -1,0 +1,37 @@
+.offer {
+	display: grid;
+
+	&__item {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: 1rem;
+		align-items: start;
+		padding-block: 1.05rem;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+
+		&:last-child {
+			border-bottom: 0;
+		}
+	}
+
+	&__ref {
+		font-family: $font-mono;
+		font-size: 0.72rem;
+		color: $color-laiton;
+		padding-top: 0.28rem;
+		letter-spacing: 0.05em;
+	}
+
+	strong {
+		display: block;
+		font-weight: 600;
+		font-size: 0.98rem;
+		margin-bottom: 0.18rem;
+	}
+
+	span span {
+		font-size: 0.89rem;
+		color: rgba($color-papier-vif, 0.7);
+		line-height: 1.5;
+	}
+}

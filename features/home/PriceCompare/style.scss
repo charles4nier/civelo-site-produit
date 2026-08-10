@@ -1,0 +1,68 @@
+.price-compare {
+	display: grid;
+	gap: 1.15rem;
+	margin-top: 0.5rem;
+
+	&__row {
+		display: grid;
+		grid-template-columns: minmax(9rem, auto) 1fr;
+		gap: 1rem;
+		align-items: center;
+	}
+
+	&__label {
+		font-size: 0.9rem;
+		font-weight: 500;
+
+		small {
+			display: block;
+			font-weight: 400;
+			color: $color-gris;
+			font-size: 0.78rem;
+		}
+	}
+
+	&__track {
+		height: 34px;
+		border-radius: 3px;
+		background: rgba(255, 255, 255, 0.09);
+		position: relative;
+		overflow: hidden;
+	}
+
+	&__fill {
+		height: 100%;
+		display: flex;
+		align-items: center;
+		padding-inline: 0.8rem;
+		font-family: $font-mono;
+		font-size: 0.78rem;
+		color: #fff;
+		border-radius: 3px;
+		white-space: nowrap;
+
+		&--us {
+			background: $color-laiton;
+			width: 32%;
+		}
+
+		&--a {
+			background: rgba(255, 255, 255, 0.28);
+			width: 45%;
+		}
+
+		&--b {
+			background: rgba(255, 255, 255, 0.28);
+			width: 100%;
+		}
+	}
+
+	&__note {
+		margin-top: 2rem;
+		font-family: $font-mono;
+		font-size: 0.78rem;
+		color: rgba(255, 255, 255, 0.55);
+		max-width: 60ch;
+		line-height: 1.6;
+	}
+}

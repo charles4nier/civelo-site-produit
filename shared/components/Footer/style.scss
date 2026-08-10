@@ -1,0 +1,25 @@
+.footer {
+	background: $color-email-fonce;
+	color: rgba($color-papier-vif, 0.62);
+	padding-block: 2.5rem;
+	border-top: 1px solid rgba(255, 255, 255, 0.12);
+	font-size: 0.85rem;
+
+	&__inner {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.5rem;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	a {
+		color: rgba($color-papier-vif, 0.62);
+	}
+
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.25rem;
+	}
+}

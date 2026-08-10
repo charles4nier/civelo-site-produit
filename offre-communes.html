@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sites internet de communes — conception, hébergement en France et conformité RGAA</title>
+<meta name="description" content="Un site complet pour votre commune : 3 500 € à la mise en ligne, puis 59 € par mois pour l'hébergement en France, les mises à jour et la veille réglementaire.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --email:#12386B;
+  --email-fonce:#0A1F3D;
+  --email-clair:#1B4E90;
+  --papier:#EDEEE9;
+  --papier-vif:#F6F7F3;
+  --laiton:#B0842A;
+  --laiton-clair:#D8AC4E;
+  --encre:#14161A;
+  --gris:#5A6472;
+  --trait:#D2D4CC;
+
+  --f-display:"Bricolage Grotesque",system-ui,sans-serif;
+  --f-corps:"Instrument Sans",system-ui,sans-serif;
+  --f-mono:"DM Mono",ui-monospace,monospace;
+
+  --marge:clamp(1.25rem,5vw,5rem);
+  --max:1180px;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--papier);
+  color:var(--encre);
+  font-family:var(--f-corps);
+  font-size:clamp(1rem,0.96rem + 0.2vw,1.0625rem);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:var(--f-display);font-weight:700;letter-spacing:-0.025em;line-height:1.05;margin:0}
+p{margin:0}
+a{color:inherit}
+img{max-width:100%;display:block}
+
+.zone{max-width:var(--max);margin-inline:auto;padding-inline:var(--marge)}
+.section{padding-block:clamp(3.5rem,8vw,7rem)}
+.section--sombre{background:var(--email-fonce);color:var(--papier-vif)}
+.section--bleu{background:var(--email);color:var(--papier-vif)}
+
+/* — lien d'évitement — */
+.evitement{
+  position:absolute;left:-9999px;top:0;background:var(--encre);color:#fff;
+  padding:.75rem 1.25rem;z-index:100;font-family:var(--f-mono);font-size:.8rem;
+}
+.evitement:focus{left:0}
+
+/* — SIGNATURE : la plaque de rue émaillée — */
+.plaque{
+  display:inline-block;
+  background:var(--email);
+  color:#fff;
+  padding:.6rem 1.15rem .55rem;
+  border-radius:5px;
+  box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.92), 0 1px 0 rgba(0,0,0,.18);
+  font-family:var(--f-mono);
+  font-size:.7rem;
+  font-weight:500;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  background-image:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,0) 46%);
+}
+.plaque--laiton{background:var(--laiton);background-image:linear-gradient(160deg,rgba(255,255,255,.22),rgba(255,255,255,0) 46%)}
+.plaque--claire{background:var(--papier-vif);color:var(--email-fonce);box-shadow:inset 0 0 0 1.5px var(--email),0 1px 0 rgba(0,0,0,.1)}
+
+/* — en-tête — */
+.barre{
+  position:sticky;top:0;z-index:50;
+  background:rgba(237,238,233,.86);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--trait);
+}
+.barre__int{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.85rem}
+.marque{font-family:var(--f-display);font-weight:800;font-size:1.05rem;letter-spacing:-.03em;text-decoration:none}
+.marque span{color:var(--laiton)}
+.barre nav{display:none;gap:1.75rem;font-size:.875rem}
+@media(min-width:900px){.barre nav{display:flex}}
+.barre nav a{text-decoration:none;color:var(--gris);padding-block:.25rem}
+.barre nav a:hover{color:var(--encre)}
+
+/* — boutons — */
+.btn{
+  display:inline-block;font-family:var(--f-corps);font-weight:600;font-size:.9375rem;
+  padding:.8rem 1.4rem;border-radius:4px;text-decoration:none;border:1.5px solid transparent;
+  transition:background .18s ease,color .18s ease,border-color .18s ease;
+}
+.btn--plein{background:var(--email);color:#fff}
+.btn--plein:hover{background:var(--email-clair)}
+.btn--laiton{background:var(--laiton);color:#fff}
+.btn--laiton:hover{background:var(--laiton-clair)}
+.btn--ligne{border-color:currentColor}
+.btn--ligne:hover{background:var(--encre);color:var(--papier-vif);border-color:var(--encre)}
+.section--sombre .btn--ligne:hover,.section--bleu .btn--ligne:hover{background:var(--papier-vif);color:var(--email-fonce);border-color:var(--papier-vif)}
+
+:where(a,button,summary):focus-visible{outline:3px solid var(--laiton);outline-offset:3px;border-radius:2px}
+
+/* — héros — */
+.heros{padding-block:clamp(3rem,7vw,5.5rem) clamp(3rem,7vw,6rem);position:relative;overflow:hidden}
+.heros__grille{display:grid;gap:clamp(2.5rem,5vw,4rem);align-items:start}
+@media(min-width:960px){.heros__grille{grid-template-columns:1.15fr .85fr}}
+.heros h1{
+  font-size:clamp(2.4rem,1.4rem + 4.2vw,4.3rem);
+  margin-block:1.4rem 1.3rem;
+  max-width:15ch;
+}
+.heros h1 em{font-style:normal;color:var(--email);position:relative;white-space:nowrap}
+.heros h1 em::after{
+  content:"";position:absolute;left:0;right:0;bottom:.06em;height:.1em;
+  background:var(--laiton);opacity:.85;
+}
+.chapo{font-size:clamp(1.05rem,1rem + .35vw,1.2rem);color:var(--gris);max-width:46ch;line-height:1.55}
+.heros__actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:2rem}
+.heros__note{margin-top:1.5rem;font-family:var(--f-mono);font-size:.78rem;color:var(--gris);letter-spacing:.02em}
+
+/* — carte devis — */
+.devis{
+  background:var(--papier-vif);
+  border:1px solid var(--trait);
+  border-radius:8px;
+  padding:clamp(1.5rem,3vw,2rem);
+  box-shadow:0 1px 2px rgba(20,22,26,.05),0 12px 28px -18px rgba(20,22,26,.3);
+}
+.devis__titre{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gris);padding-bottom:1rem;border-bottom:1px solid var(--trait)}
+.ligne{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding-block:1.15rem;border-bottom:1px solid var(--trait)}
+.ligne:last-of-type{border-bottom:0}
+.ligne__lib{font-weight:500;font-size:.95rem}
+.ligne__det{display:block;font-weight:400;font-size:.82rem;color:var(--gris);margin-top:.2rem;max-width:26ch}
+.ligne__prix{font-family:var(--f-display);font-weight:700;font-size:clamp(1.5rem,1.2rem + 1vw,1.95rem);letter-spacing:-.03em;white-space:nowrap}
+.ligne__prix small{font-family:var(--f-mono);font-size:.68rem;font-weight:400;letter-spacing:.06em;color:var(--gris);display:block;text-align:right;margin-top:.1rem}
+.devis__pied{margin-top:1.25rem;padding-top:1.25rem;border-top:2px solid var(--email);font-size:.82rem;color:var(--gris);line-height:1.5}
+
+/* — bandeau de preuves — */
+.preuves{border-block:1px solid var(--trait);background:var(--papier-vif)}
+.preuves__int{display:grid;gap:1px;background:var(--trait)}
+@media(min-width:720px){.preuves__int{grid-template-columns:repeat(4,1fr)}}
+.preuve{background:var(--papier-vif);padding:1.5rem clamp(1rem,3vw,1.75rem)}
+.preuve dt{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--laiton);margin-bottom:.5rem}
+.preuve dd{margin:0;font-weight:500;font-size:.94rem;line-height:1.4}
+
+/* — titres de section — */
+.entete{max-width:62ch;margin-bottom:clamp(2.25rem,4vw,3.25rem)}
+.entete h2{font-size:clamp(1.85rem,1.4rem + 1.9vw,2.9rem);margin-block:1.1rem .9rem}
+.entete p{color:var(--gris);font-size:1.05rem}
+.section--sombre .entete p,.section--bleu .entete p{color:rgba(246,247,243,.75)}
+
+/* — grilles — */
+.grille{display:grid;gap:clamp(1rem,2vw,1.5rem)}
+.grille--2{grid-template-columns:1fr}
+.grille--3{grid-template-columns:1fr}
+@media(min-width:700px){.grille--2{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:880px){.grille--3{grid-template-columns:repeat(3,1fr)}}
+
+.bloc{
+  background:var(--papier-vif);border:1px solid var(--trait);border-radius:7px;
+  padding:clamp(1.35rem,2.5vw,1.8rem);
+}
+.section--sombre .bloc{background:rgba(255,255,255,.045);border-color:rgba(255,255,255,.14)}
+.bloc h3{font-size:1.15rem;margin-bottom:.6rem;letter-spacing:-.02em}
+.bloc p{font-size:.93rem;color:var(--gris);line-height:1.55}
+.section--sombre .bloc p{color:rgba(246,247,243,.72)}
+
+/* — listes de livrables — */
+.livrables{list-style:none;padding:0;margin:0;display:grid;gap:0}
+.livrables li{
+  display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:start;
+  padding-block:1.05rem;border-bottom:1px solid var(--trait);
+}
+.section--sombre .livrables li{border-color:rgba(255,255,255,.13)}
+.livrables li:last-child{border-bottom:0}
+.livrables .ref{font-family:var(--f-mono);font-size:.72rem;color:var(--laiton);padding-top:.28rem;letter-spacing:.05em}
+.livrables strong{display:block;font-weight:600;font-size:.98rem;margin-bottom:.18rem}
+.livrables span{font-size:.89rem;color:var(--gris);line-height:1.5}
+.section--sombre .livrables span{color:rgba(246,247,243,.7)}
+
+/* — modèles — */
+.modele{background:var(--papier-vif);border:1px solid var(--trait);border-radius:7px;overflow:hidden}
+.modele__apercu{height:150px;position:relative;border-bottom:1px solid var(--trait)}
+.modele__corps{padding:1.35rem}
+.modele h3{font-size:1.2rem;margin-bottom:.45rem}
+.modele p{font-size:.9rem;color:var(--gris);line-height:1.55}
+.modele__var{margin-top:1rem;padding-top:.9rem;border-top:1px dashed var(--trait);font-family:var(--f-mono);font-size:.72rem;color:var(--gris);letter-spacing:.03em}
+.ap-bourg{background:linear-gradient(150deg,#12386B,#1B4E90)}
+.ap-vallee{background:linear-gradient(150deg,#20473C,#37705C)}
+.ap-coteaux{background:linear-gradient(150deg,#6B3A16,#A0662C)}
+.modele__apercu::after{
+  content:"";position:absolute;inset:18px;border:1px solid rgba(255,255,255,.4);border-radius:3px;
+}
+.modele__apercu::before{
+  content:"";position:absolute;left:34px;right:34px;top:38px;height:7px;border-radius:2px;
+  background:rgba(255,255,255,.8);
+  box-shadow:0 22px 0 -1px rgba(255,255,255,.45),0 38px 0 -1px rgba(255,255,255,.45),0 54px 0 -1px rgba(255,255,255,.28);
+}
+
+/* — étapes (séquence réelle) — */
+.etapes{list-style:none;padding:0;margin:0;display:grid;gap:0;counter-reset:e}
+.etape{
+  display:grid;grid-template-columns:auto 1fr;gap:clamp(1rem,3vw,2rem);
+  padding-block:clamp(1.5rem,3vw,2rem);border-top:1px solid var(--trait);
+}
+.etape:last-child{border-bottom:1px solid var(--trait)}
+.etape__num{font-family:var(--f-mono);font-size:.75rem;color:var(--laiton);letter-spacing:.1em;padding-top:.35rem}
+.etape h3{font-size:1.2rem;margin-bottom:.45rem}
+.etape p{color:var(--gris);font-size:.95rem;max-width:60ch}
+.etape__delai{display:inline-block;margin-top:.7rem;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;color:var(--email);background:rgba(18,56,107,.07);padding:.3rem .6rem;border-radius:3px}
+
+/* — comparatif — */
+.barres{display:grid;gap:1.15rem;margin-top:.5rem}
+.barre-prix{display:grid;grid-template-columns:minmax(9rem,auto) 1fr;gap:1rem;align-items:center}
+.barre-prix__lib{font-size:.9rem;font-weight:500}
+.barre-prix__lib small{display:block;font-weight:400;color:var(--gris);font-size:.78rem}
+.barre-prix__piste{height:34px;border-radius:3px;background:rgba(255,255,255,.09);position:relative;overflow:hidden}
+.barre-prix__rem{height:100%;display:flex;align-items:center;padding-inline:.8rem;font-family:var(--f-mono);font-size:.78rem;color:#fff;border-radius:3px;white-space:nowrap}
+.rem-nous{background:var(--laiton);width:32%}
+.rem-a{background:rgba(255,255,255,.28);width:45%}
+.rem-b{background:rgba(255,255,255,.28);width:100%}
+
+/* — questions — */
+.question{border-bottom:1px solid var(--trait)}
+.question:first-of-type{border-top:1px solid var(--trait)}
+.question summary{
+  cursor:pointer;list-style:none;padding-block:1.25rem;
+  font-family:var(--f-display);font-weight:500;font-size:1.05rem;letter-spacing:-.015em;
+  display:grid;grid-template-columns:1fr auto;gap:1rem;align-items:center;
+}
+.question summary::-webkit-details-marker{display:none}
+.question summary::after{content:"+";font-family:var(--f-mono);color:var(--laiton);font-size:1.15rem}
+.question[open] summary::after{content:"–"}
+.question p{padding-bottom:1.4rem;color:var(--gris);font-size:.95rem;max-width:68ch}
+
+/* — appel final — */
+.final{text-align:center}
+.final h2{font-size:clamp(1.9rem,1.4rem + 2.2vw,3.1rem);max-width:19ch;margin-inline:auto}
+.final p{margin-top:1.1rem;color:rgba(246,247,243,.78);max-width:52ch;margin-inline:auto}
+.final__actions{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;margin-top:2rem}
+
+/* — pied — */
+.pied{background:var(--email-fonce);color:rgba(246,247,243,.62);padding-block:2.5rem;border-top:1px solid rgba(255,255,255,.12);font-size:.85rem}
+.pied__int{display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:space-between;align-items:center}
+.pied a{color:rgba(246,247,243,.62)}
+.pied ul{list-style:none;display:flex;flex-wrap:wrap;gap:1.25rem;padding:0;margin:0}
+
+/* — apparition — */
+@media(prefers-reduced-motion:no-preference){
+  .anim{opacity:0;transform:translateY(14px);animation:monte .7s cubic-bezier(.2,.7,.3,1) forwards}
+  .anim:nth-child(2){animation-delay:.08s}
+  .anim:nth-child(3){animation-delay:.16s}
+  @keyframes monte{to{opacity:1;transform:none}}
+}
+</style>
+</head>
+<body>
+
+<a class="evitement" href="#contenu">Aller au contenu</a>
+
+<header class="barre">
+  <div class="zone barre__int">
+    <a class="marque" href="#">Commune<span>.</span>site</a>
+    <nav aria-label="Navigation principale">
+      <a href="#prestation">La prestation</a>
+      <a href="#modeles">Les modèles</a>
+      <a href="#hebergement">Hébergement</a>
+      <a href="#deroulement">Déroulement</a>
+      <a href="#questions">Questions</a>
+    </nav>
+    <a class="btn btn--plein" href="#contact">Demander une démonstration</a>
+  </div>
+</header>
+
+<main id="contenu">
+
+<!-- HÉROS -->
+<section class="heros">
+  <div class="zone heros__grille">
+    <div>
+      <p class="plaque anim">Sites internet de communes</p>
+      <h1 class="anim">Le site de votre commune, <em>conforme</em> et tenu à jour.</h1>
+      <p class="chapo anim">Conception, hébergement en France et accessibilité numérique. Nous livrons le site, les documents réglementaires et la formation de votre secrétariat — puis nous nous en occupons.</p>
+      <div class="heros__actions anim">
+        <a class="btn btn--plein" href="#contact">Demander une démonstration</a>
+        <a class="btn btn--ligne" href="#prestation">Voir ce qui est compris</a>
+      </div>
+      <p class="heros__note anim">Conçu pour les communes de moins de 3 500 habitants</p>
+    </div>
+
+    <div class="devis anim">
+      <p class="devis__titre">Tarif — commune rurale</p>
+      <div class="ligne">
+        <span class="ligne__lib">Conception et mise en ligne
+          <span class="ligne__det">Une seule fois. Dépense d'investissement.</span>
+        </span>
+        <span class="ligne__prix">3 500 €<small>à la livraison</small></span>
+      </div>
+      <div class="ligne">
+        <span class="ligne__lib">Hébergement, maintenance et veille
+          <span class="ligne__det">Facturé à terme échu, mensuel ou trimestriel.</span>
+        </span>
+        <span class="ligne__prix">59 €<small>par mois</small></span>
+      </div>
+      <p class="devis__pied">La commune reste propriétaire de son nom de domaine, de ses contenus et du site livré. Aucun frais de sortie, aucune rétention de données.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVES -->
+<section class="preuves">
+  <dl class="zone preuves__int">
+    <div class="preuve"><dt>Accessibilité</dt><dd>Conçu selon le RGAA 4.1 et sa méthode d'audit</dd></div>
+    <div class="preuve"><dt>Hébergement</dt><dd>Serveurs en France, hors juridiction extraterritoriale</dd></div>
+    <div class="preuve"><dt>Documents</dt><dd>Déclaration, schéma pluriannuel et plan d'action fournis</dd></div>
+    <div class="preuve"><dt>Réversibilité</dt><dd>Code, base et fichiers livrés sur simple demande</dd></div>
+  </dl>
+</section>
+
+<!-- LE CONTEXTE -->
+<section class="section" id="contexte">
+  <div class="zone">
+    <div class="entete">
+      <p class="plaque plaque--laiton">Le contexte</p>
+      <h2>L'accessibilité numérique n'est pas une option pour une commune.</h2>
+      <p>Les sites des collectivités territoriales sont soumis au Référentiel général d'amélioration de l'accessibilité. L'obligation ne porte pas seulement sur le site : elle porte aussi sur les documents que vous devez publier.</p>
+    </div>
+
+    <div class="grille grille--2">
+      <div class="bloc">
+        <h3>Trois documents obligatoires</h3>
+        <p>Une déclaration d'accessibilité indiquant votre niveau de conformité réel, un schéma pluriannuel de mise en accessibilité sur trois ans, et un plan d'action annuel. Ils doivent être publiés et tenus à jour.</p>
+      </div>
+      <div class="bloc">
+        <h3>Une mention sur chaque page</h3>
+        <p>Chaque page doit porter la mention « Accessibilité : totalement, partiellement ou non conforme », renvoyant vers la déclaration. C'est le premier élément qu'un contrôle vérifie, et l'un des plus souvent absents.</p>
+      </div>
+      <div class="bloc">
+        <h3>La conformité n'est pas le tout ou rien</h3>
+        <p>Le référentiel prévoit trois niveaux. Une commune partiellement conforme qui publie honnêtement son taux et son plan d'action est en règle. Ce qui est reproché, c'est le silence, pas l'imperfection.</p>
+      </div>
+      <div class="bloc">
+        <h3>La responsabilité reste à la commune</h3>
+        <p>La déclaration est publiée au nom de la collectivité et l'engage. Nous la préparons, l'appuyons sur un audit réel et vous la remettons ; votre référent accessibilité la valide et la publie.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LA PRESTATION -->
+<section class="section section--sombre" id="prestation">
+  <div class="zone">
+    <div class="entete">
+      <p class="plaque plaque--claire">3 500 € — une seule fois</p>
+      <h2>Ce que comprend la mise en ligne.</h2>
+      <p>Un devis détaillé, ligne par ligne, présentable en conseil municipal. Aucune option cachée.</p>
+    </div>
+
+    <ul class="livrables">
+      <li><span class="ref">01</span><span><strong>Conception du site</strong><span>Sur l'un de nos trois modèles, décliné à vos couleurs, votre blason et vos photographies. Structure adaptée à la façon dont un habitant cherche l'information, pas à l'organigramme de la mairie.</span></span></li>
+      <li><span class="ref">02</span><span><strong>Reprise des contenus existants</strong><span>Récupération, mise en forme et vérification des textes, délibérations et documents de votre site actuel.</span></span></li>
+      <li><span class="ref">03</span><span><strong>Rubrique « Mes démarches » à jour du droit national</strong><span>État civil, urbanisme, recensement, élections. Délais légaux et renvois vers les services officiels. Nous la maintenons ensuite pour vous.</span></span></li>
+      <li><span class="ref">04</span><span><strong>Audit d'accessibilité et déclaration</strong><span>Audit selon la méthode d'échantillonnage officielle, déclaration d'accessibilité rédigée, schéma pluriannuel et plan d'action de la première année.</span></span></li>
+      <li><span class="ref">05</span><span><strong>Mentions légales et politique de confidentialité</strong><span>Rédigées, publiées, et conformes à vos obligations d'éditeur de service public.</span></span></li>
+      <li><span class="ref">06</span><span><strong>Formation du secrétariat</strong><span>Deux heures sur site ou à distance, plus un guide de publication écrit. Ajouter une actualité doit prendre cinq minutes.</span></span></li>
+      <li><span class="ref">07</span><span><strong>Nom de domaine et mise en ligne</strong><span>Nous configurons le domaine au nom de la commune, le certificat de sécurité et les redirections depuis l'ancien site.</span></span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- L'ABONNEMENT -->
+<section class="section" id="abonnement">
+  <div class="zone">
+    <div class="entete">
+      <p class="plaque plaque--laiton">59 € par mois</p>
+      <h2>Puis nous nous en occupons.</h2>
+      <p>Un site de commune se dégrade par le contenu, pas par le code. L'abonnement paie le travail qui maintient votre conformité dans le temps.</p>
+    </div>
+
+    <div class="grille grille--3">
+      <div class="bloc">
+        <h3>Hébergement en France</h3>
+        <p>Infrastructure française certifiée, redondée, avec engagement de disponibilité. Sauvegardes quotidiennes et copie conservée hors du serveur principal.</p>
+      </div>
+      <div class="bloc">
+        <h3>Mises à jour de sécurité</h3>
+        <p>Correctifs appliqués sur l'ensemble de notre parc dès leur publication. Vous n'avez rien à faire, rien à surveiller, rien à décider.</p>
+      </div>
+      <div class="bloc">
+        <h3>Contrôle d'accessibilité à la publication</h3>
+        <p>Les erreurs les plus fréquentes sont bloquées à la saisie : image sans description, hiérarchie de titres cassée, PDF scanné sans texte, intitulé de lien vide de sens.</p>
+      </div>
+      <div class="bloc">
+        <h3>Veille réglementaire</h3>
+        <p>Quand le référentiel ou une démarche administrative évolue, nous mettons à jour votre site. La rubrique « Mes démarches » suit le droit sans que vous ayez à la relire.</p>
+      </div>
+      <div class="bloc">
+        <h3>Suivi annuel de conformité</h3>
+        <p>Contrôle du contenu publié dans l'année, mise à jour de la déclaration d'accessibilité et rédaction du plan d'action de l'année suivante.</p>
+      </div>
+      <div class="bloc">
+        <h3>Assistance</h3>
+        <p>Par téléphone et par courriel, en français, aux horaires d'ouverture d'une mairie. Vous parlez à la personne qui a construit votre site.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LES MODÈLES -->
+<section class="section section--bleu" id="modeles">
+  <div class="zone">
+    <div class="entete">
+      <p class="plaque plaque--claire">Les modèles</p>
+      <h2>Trois structures, déclinées à votre commune.</h2>
+      <p>Le modèle fixe l'organisation des pages. Les couleurs, les typographies et le traitement des images sont ensuite ajustés à votre identité — deux communes voisines n'auront jamais le même site.</p>
+    </div>
+
+    <div class="grille grille--3">
+      <article class="modele">
+        <div class="modele__apercu ap-bourg" role="img" aria-label="Aperçu schématique du modèle Le Bourg"></div>
+        <div class="modele__corps">
+          <h3>Le Bourg</h3>
+          <p>Structure dense, orientée services. L'accès aux démarches et aux actualités municipales domine la page d'accueil. Pour les communes dont le site est d'abord un outil administratif.</p>
+          <p class="modele__var">Variantes : 3 palettes · 3 couples typographiques</p>
+        </div>
+      </article>
+      <article class="modele">
+        <div class="modele__apercu ap-vallee" role="img" aria-label="Aperçu schématique du modèle La Vallée"></div>
+        <div class="modele__corps">
+          <h3>La Vallée</h3>
+          <p>Large place à l'image et au patrimoine, avec carte interactive des points d'intérêt. Pour les communes qui reçoivent des visiteurs et veulent valoriser leur territoire.</p>
+          <p class="modele__var">Variantes : 3 palettes · 3 couples typographiques</p>
+        </div>
+      </article>
+      <article class="modele">
+        <div class="modele__apercu ap-coteaux" role="img" aria-label="Aperçu schématique du modèle Les Coteaux"></div>
+        <div class="modele__corps">
+          <h3>Les Coteaux</h3>
+          <p>Mise en page sobre et très lisible, gros caractères, navigation courte. Pour les communes dont la population est âgée ou peu à l'aise avec l'informatique.</p>
+          <p class="modele__var">Variantes : 3 palettes · 3 couples typographiques</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- HÉBERGEMENT -->
+<section class="section" id="hebergement">
+  <div class="zone">
+    <div class="entete">
+      <p class="plaque plaque--laiton">Souveraineté</p>
+      <h2>Vos données restent en France.</h2>
+      <p>Les données de vos administrés — formulaires de contact, signalements, inscriptions — ne quittent pas le territoire national et ne relèvent d'aucune législation extraterritoriale.</p>
+    </div>
+
+    <div class="grille grille--2">
+      <div class="bloc">
+        <h3>Hébergeur français, certifié</h3>
+        <p>Serveurs situés en France, opérés par un prestataire français certifié ISO 27001 et agréé hébergeur de données de santé. Infrastructure redondée avec engagement contractuel de disponibilité.</p>
+      </div>
+      <div class="bloc">
+        <h3>Aucun transfert hors Union européenne</h3>
+        <p>Pas de dépendance à un cadre de transfert international, pas de sous-traitant soumis au CLOUD Act. Votre chaîne de traitement s'arrête en France, ce qui simplifie votre registre.</p>
+      </div>
+      <div class="bloc">
+        <h3>Sous-traitance RGPD documentée</h3>
+        <p>Contrat de sous-traitance conforme à l'article 28 du règlement, liste des sous-traitants ultérieurs, localisation des données et durées de conservation. Prêt à être versé à votre registre des traitements.</p>
+      </div>
+      <div class="bloc">
+        <h3>Réversibilité contractuelle</h3>
+        <p>À tout moment et sans frais, nous vous remettons l'intégralité du site : code source, base de données et fichiers. Le nom de domaine est déposé à votre nom depuis le premier jour.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARATIF -->
+<section class="section section--sombre" id="prix">
+  <div class="zone">
+    <div class="entete">
+      <p class="plaque plaque--claire">Le prix, en clair</p>
+      <h2>Un socle déjà éprouvé, pas un site reparti de zéro.</h2>
+      <p>Nous avons développé une base spécialisée pour les communes rurales, déjà auditée en accessibilité. Vous ne payez pas la conception d'un site : vous payez son adaptation à votre commune et sa mise en conformité.</p>
+    </div>
+
+    <div class="barres">
+      <div class="barre-prix">
+        <span class="barre-prix__lib">Notre prestation<small>Conception, conformité, formation</small></span>
+        <div class="barre-prix__piste"><div class="barre-prix__rem rem-nous">3 500 €</div></div>
+      </div>
+      <div class="barre-prix">
+        <span class="barre-prix__lib">Devis constatés<small>Agences généralistes, prestation seule</small></span>
+        <div class="barre-prix__piste"><div class="barre-prix__rem rem-a">à partir de 5 000 €</div></div>
+      </div>
+      <div class="barre-prix">
+        <span class="barre-prix__lib">Devis constatés<small>Agences spécialisées collectivités</small></span>
+        <div class="barre-prix__piste"><div class="barre-prix__rem rem-b">jusqu'à 11 000 €</div></div>
+      </div>
+    </div>
+
+    <p style="margin-top:2rem;font-family:var(--f-mono);font-size:.78rem;color:rgba(246,247,243,.55);max-width:60ch;line-height:1.6">Fourchettes relevées sur des devis présentés à des communes comparables. Demandez à tout prestataire consulté de s'engager par écrit sur la conformité RGAA de sa livraison — la question est rarement posée.</p>
+  </div>
+</section>
+
+<!-- DÉROULEMENT -->
+<section class="section" id="deroulement">
+  <div class="zone">
+    <div class="entete">
+      <p class="plaque plaque--laiton">Déroulement</p>
+      <h2>De la première réunion à la mise en ligne.</h2>
+      <p>Une séquence courte, calée sur le rythme d'un conseil municipal.</p>
+    </div>
+
+    <ol class="etapes">
+      <li class="etape">
+        <span class="etape__num">01</span>
+        <div>
+          <h3>Démonstration et choix du modèle</h3>
+          <p>Une heure, sur place ou à distance. Nous montrons un site existant, vous choisissez la structure et les couleurs. Nous repartons avec la liste de vos contenus actuels.</p>
+          <span class="etape__delai">1 réunion</span>
+        </div>
+      </li>
+      <li class="etape">
+        <span class="etape__num">02</span>
+        <div>
+          <h3>Devis et délibération</h3>
+          <p>Nous remettons un devis détaillé, ligne par ligne, directement présentable en conseil. La dépense de conception relève de l'investissement, l'abonnement du fonctionnement.</p>
+          <span class="etape__delai">Selon votre calendrier de conseil</span>
+        </div>
+      </li>
+      <li class="etape">
+        <span class="etape__num">03</span>
+        <div>
+          <h3>Conception et reprise des contenus</h3>
+          <p>Nous montons le site, reprenons vos textes et documents, et vous soumettons une version de recette que vous pouvez faire relire par vos adjoints.</p>
+          <span class="etape__delai">3 à 4 semaines</span>
+        </div>
+      </li>
+      <li class="etape">
+        <span class="etape__num">04</span>
+        <div>
+          <h3>Audit, formation, mise en ligne</h3>
+          <p>Audit d'accessibilité, publication des documents réglementaires, formation du secrétariat, bascule du nom de domaine et redirections depuis l'ancien site.</p>
+          <span class="etape__delai">1 semaine</span>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- QUESTIONS -->
+<section class="section" id="questions" style="background:var(--papier-vif);border-top:1px solid var(--trait)">
+  <div class="zone">
+    <div class="entete">
+      <p class="plaque plaque--laiton">Questions fréquentes</p>
+      <h2>Ce que demandent les secrétaires de mairie.</h2>
+    </div>
+
+    <details class="question">
+      <summary>Comment la commune règle-t-elle l'abonnement ?</summary>
+      <p>Par mandat administratif, sur facture émise en euros avec TVA française. L'abonnement est facturé à terme échu — mensuellement ou trimestriellement, selon ce qui arrange votre secrétariat — conformément au principe du paiement après service fait.</p>
+    </details>
+    <details class="question">
+      <summary>À qui appartient le site une fois livré ?</summary>
+      <p>À la commune. Le nom de domaine est déposé à son nom avec son SIRET dès le départ, les contenus lui appartiennent, et le site livré lui est cédé. Si vous changez de prestataire, nous vous remettons le code source, la base de données et les fichiers, sans frais.</p>
+    </details>
+    <details class="question">
+      <summary>Faut-il passer par une mise en concurrence ?</summary>
+      <p>Les montants en jeu se situent très en deçà des seuils de procédure formalisée de la commande publique. Nous vous fournissons un devis détaillé et les pièces habituellement demandées ; votre secrétariat vérifiera le seuil applicable à votre situation.</p>
+    </details>
+    <details class="question">
+      <summary>Que se passe-t-il si nous arrêtons l'abonnement ?</summary>
+      <p>La prestation d'hébergement et de maintenance prend fin, et nous vous remettons l'intégralité du site pour que vous puissiez le faire héberger ailleurs. Ce que la commune a acheté lui reste acquis : nous ne retenons ni les contenus, ni le domaine, ni le code.</p>
+    </details>
+    <details class="question">
+      <summary>Garantissez-vous une conformité RGAA totale ?</summary>
+      <p>Nous garantissons un socle conçu selon le référentiel et audité, les documents réglementaires rédigés et publiés, et un contrôle automatique à chaque publication. En revanche, les contenus que la mairie ajoute relèvent d'elle : un PDF scanné ou une image sans description dégrade la conformité. C'est pourquoi nous bloquons ces cas à la saisie et formons votre secrétariat.</p>
+    </details>
+    <details class="question">
+      <summary>Notre secrétariat pourra-t-il publier seul ?</summary>
+      <p>Oui. L'interface ne présente que les champs nécessaires, avec des contrôles qui empêchent les erreurs les plus courantes. La formation dure deux heures et un guide écrit reste à disposition. Si vous préférez que nous publiions à votre place, c'est également possible.</p>
+    </details>
+    <details class="question">
+      <summary>Que devient notre référencement Google ?</summary>
+      <p>Nous mettons en place les redirections depuis les adresses de votre ancien site, afin que les pages déjà indexées et les liens présents sur d'autres sites continuent de fonctionner.</p>
+    </details>
+  </div>
+</section>
+
+<!-- APPEL FINAL -->
+<section class="section section--bleu final" id="contact">
+  <div class="zone">
+    <p class="plaque plaque--claire">Prendre contact</p>
+    <h2 style="margin-top:1.3rem">Voyons ce que donnerait le site de votre commune.</h2>
+    <p>Une démonstration d'une heure, sans engagement. Nous vous montrons un site existant et repartons avec vos contenus actuels pour vous remettre un devis précis.</p>
+    <div class="final__actions">
+      <a class="btn btn--laiton" href="mailto:contact@exemple.fr">Demander une démonstration</a>
+      <a class="btn btn--ligne" href="tel:+33000000000">Nous appeler</a>
+    </div>
+    <p style="margin-top:1.75rem;font-family:var(--f-mono);font-size:.75rem;color:rgba(246,247,243,.55)">Réponse sous 48 heures ouvrées</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="pied">
+  <div class="zone pied__int">
+    <p>Commune.site — sites internet pour collectivités territoriales</p>
+    <ul>
+      <li><a href="#">Mentions légales</a></li>
+      <li><a href="#">Politique de confidentialité</a></li>
+      <li><a href="#">Accessibilité : partiellement conforme</a></li>
+      <li><a href="#">Plan du site</a></li>
+    </ul>
+  </div>
+</footer>
+
+</body>
+</html>

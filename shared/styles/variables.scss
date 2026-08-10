@@ -1,0 +1,30 @@
+/* =========================
+   🎨 Palette Commune.site
+   ========================= */
+
+$color-email: #12386b;
+$color-email-fonce: #0a1f3d;
+$color-email-clair: #1b4e90;
+$color-papier: #edeee9;
+$color-papier-vif: #f6f7f3;
+$color-laiton: #b0842a;
+$color-laiton-clair: #d8ac4e;
+$color-encre: #14161a;
+$color-gris: #5a6472;
+$color-trait: #d2d4cc;
+
+/* --- Typographie --- */
+$font-display: 'Bricolage Grotesque', system-ui, sans-serif;
+$font-body: 'Instrument Sans', system-ui, sans-serif;
+$font-mono: 'DM Mono', ui-monospace, monospace;
+
+/* --- Mise en page --- */
+$container-max-width: 1180px;
+$container-padding-x: clamp(1.25rem, 5vw, 5rem);
+$section-padding-y: clamp(3.5rem, 8vw, 7rem);
+
+$breakpoint-sm: 700px;
+$breakpoint-md: 900px;
+$breakpoint-lg: 960px;
+
+$transition-smooth: all 0.18s ease;

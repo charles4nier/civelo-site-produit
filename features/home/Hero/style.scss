@@ -1,0 +1,140 @@
+.hero {
+	padding-block: clamp(3rem, 7vw, 5.5rem) clamp(3rem, 7vw, 6rem);
+	position: relative;
+	overflow: hidden;
+
+	&__grid {
+		display: grid;
+		gap: clamp(2.5rem, 5vw, 4rem);
+		align-items: start;
+
+		@media (min-width: $breakpoint-lg) {
+			grid-template-columns: 1.15fr 0.85fr;
+		}
+	}
+
+	&__eyebrow {
+		margin-bottom: 1.4rem;
+	}
+
+	&__title {
+		font-size: clamp(2.4rem, 1.4rem + 4.2vw, 4.3rem);
+		margin-block: 1.4rem 1.3rem;
+		max-width: 15ch;
+
+		em {
+			font-style: normal;
+			color: $color-email;
+			position: relative;
+			white-space: nowrap;
+
+			&::after {
+				content: '';
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 0.06em;
+				height: 0.1em;
+				background: $color-laiton;
+				opacity: 0.85;
+			}
+		}
+	}
+
+	&__lead {
+		font-size: clamp(1.05rem, 1rem + 0.35vw, 1.2rem);
+		color: $color-gris;
+		max-width: 46ch;
+		line-height: 1.55;
+	}
+
+	&__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 2rem;
+	}
+
+	&__note {
+		margin-top: 1.5rem;
+		font-family: $font-mono;
+		font-size: 0.78rem;
+		color: $color-gris;
+		letter-spacing: 0.02em;
+	}
+
+	&__quote {
+		background: $color-papier-vif;
+		border: 1px solid $color-trait;
+		border-radius: 8px;
+		padding: clamp(1.5rem, 3vw, 2rem);
+		box-shadow:
+			0 1px 2px rgba(20, 22, 26, 0.05),
+			0 12px 28px -18px rgba(20, 22, 26, 0.3);
+	}
+
+	&__quote-title {
+		font-family: $font-mono;
+		font-size: 0.7rem;
+		letter-spacing: 0.14em;
+		text-transform: uppercase;
+		color: $color-gris;
+		padding-bottom: 1rem;
+		border-bottom: 1px solid $color-trait;
+	}
+
+	&__quote-line {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 1rem;
+		padding-block: 1.15rem;
+		border-bottom: 1px solid $color-trait;
+
+		&:last-of-type {
+			border-bottom: 0;
+		}
+	}
+
+	&__quote-label {
+		font-weight: 500;
+		font-size: 0.95rem;
+	}
+
+	&__quote-detail {
+		display: block;
+		font-weight: 400;
+		font-size: 0.82rem;
+		color: $color-gris;
+		margin-top: 0.2rem;
+		max-width: 26ch;
+	}
+
+	&__quote-price {
+		font-family: $font-display;
+		font-weight: 700;
+		font-size: clamp(1.5rem, 1.2rem + 1vw, 1.95rem);
+		letter-spacing: -0.03em;
+		white-space: nowrap;
+
+		small {
+			font-family: $font-mono;
+			font-size: 0.68rem;
+			font-weight: 400;
+			letter-spacing: 0.06em;
+			color: $color-gris;
+			display: block;
+			text-align: right;
+			margin-top: 0.1rem;
+		}
+	}
+
+	&__quote-footer {
+		margin-top: 1.25rem;
+		padding-top: 1.25rem;
+		border-top: 2px solid $color-email;
+		font-size: 0.82rem;
+		color: $color-gris;
+		line-height: 1.5;
+	}
+}

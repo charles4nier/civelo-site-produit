@@ -1,0 +1,48 @@
+.faq {
+	background: $color-papier-vif;
+	border-top: 1px solid $color-trait;
+
+	&__item {
+		border-bottom: 1px solid $color-trait;
+
+		&:first-of-type {
+			border-top: 1px solid $color-trait;
+		}
+
+		summary {
+			cursor: pointer;
+			list-style: none;
+			padding-block: 1.25rem;
+			font-family: $font-display;
+			font-weight: 500;
+			font-size: 1.05rem;
+			letter-spacing: -0.015em;
+			display: grid;
+			grid-template-columns: 1fr auto;
+			gap: 1rem;
+			align-items: center;
+
+			&::-webkit-details-marker {
+				display: none;
+			}
+
+			&::after {
+				content: '+';
+				font-family: $font-mono;
+				color: $color-laiton;
+				font-size: 1.15rem;
+			}
+		}
+
+		&[open] summary::after {
+			content: '–';
+		}
+
+		p {
+			padding-bottom: 1.4rem;
+			color: $color-gris;
+			font-size: 0.95rem;
+			max-width: 68ch;
+		}
+	}
+}
