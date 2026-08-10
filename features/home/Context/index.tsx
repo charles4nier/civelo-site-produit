@@ -1,3 +1,6 @@
+import Section from '@shared/components/Section';
+import InfoCard from '@shared/components/InfoCard';
+
 const BLOCKS = [
 	{
 		title: 'Trois documents obligatoires',
@@ -19,28 +22,25 @@ const BLOCKS = [
 
 export default function Context() {
 	return (
-		<section className="section" id="contexte">
-			<div className="container">
-				<div className="entete">
-					<p className="badge badge--brass">Le contexte</p>
-					<h2>L&apos;accessibilité numérique n&apos;est pas une option pour une commune.</h2>
-					<p>
-						Les sites des collectivités territoriales sont soumis au Référentiel général
-						d&apos;amélioration de l&apos;accessibilité. L&apos;obligation ne porte pas
-						seulement sur le site : elle porte aussi sur les documents que vous devez
-						publier.
-					</p>
-				</div>
-
-				<div className="grid grid--2">
-					{BLOCKS.map((block) => (
-						<div key={block.title} className="block">
-							<h3>{block.title}</h3>
-							<p>{block.text}</p>
-						</div>
-					))}
-				</div>
+		<Section
+			eyebrow="Le contexte"
+			title="L'accessibilité numérique n'est pas une option pour une commune."
+			intro={
+				<p>
+					Les sites des collectivités territoriales sont soumis au Référentiel général
+					d&apos;amélioration de l&apos;accessibilité. L&apos;obligation ne porte pas
+					seulement sur le site : elle porte aussi sur les documents que vous devez
+					publier.
+				</p>
+			}
+		>
+			<div className="grid grid--2">
+				{BLOCKS.map((block) => (
+					<InfoCard key={block.title} title={block.title}>
+						{block.text}
+					</InfoCard>
+				))}
 			</div>
-		</section>
+		</Section>
 	);
 }

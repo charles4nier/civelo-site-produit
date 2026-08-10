@@ -1,4 +1,4 @@
-import { Bricolage_Grotesque, Instrument_Sans, DM_Mono } from 'next/font/google';
+import { Space_Grotesk, DM_Sans } from 'next/font/google';
 import type { Metadata, Viewport } from 'next';
 import { defaultMetadata } from '@shared/config/seo';
 
@@ -7,25 +7,18 @@ import '@shared/styles/index.scss';
 import Header from '@shared/components/Header';
 import Footer from '@shared/components/Footer';
 
-const bricolage = Bricolage_Grotesque({
+const spaceGrotesk = Space_Grotesk({
 	subsets: ['latin'],
-	weight: ['500', '700', '800'],
+	weight: ['500', '600', '700'],
 	variable: '--font-display',
 	display: 'swap'
 });
 
-const instrument = Instrument_Sans({
+const dmSans = DM_Sans({
 	subsets: ['latin'],
-	weight: ['400', '500', '600'],
+	weight: ['400', '500', '700'],
 	style: ['normal', 'italic'],
 	variable: '--font-body',
-	display: 'swap'
-});
-
-const dmMono = DM_Mono({
-	subsets: ['latin'],
-	weight: ['400', '500'],
-	variable: '--font-mono',
 	display: 'swap'
 });
 
@@ -40,7 +33,7 @@ export const viewport: Viewport = {
 
 export default function Layout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="fr" className={`${bricolage.variable} ${instrument.variable} ${dmMono.variable}`}>
+		<html lang="fr" className={`${spaceGrotesk.variable} ${dmSans.variable}`}>
 			<body>
 				<a className="skip-link" href="#contenu">
 					Aller au contenu

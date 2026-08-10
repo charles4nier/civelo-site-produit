@@ -1,6 +1,8 @@
+import Image from 'next/image';
+import Section from '@shared/components/Section';
 import './style.scss';
 
-const CLASS_NAME = 'models';
+const CLASS_NAME = 'model-card';
 
 const MODELS = [
 	{
@@ -25,15 +27,18 @@ const MODELS = [
 
 export default function Models() {
 	return (
-		<section className="section section--blue" id="modeles">
-			<div className="container">
-				<div className="entete">
-					<p className="badge badge--light">Les modèles</p>
-					<h2>Trois identités, pensées pour rester simples à comprendre.</h2>
+		<Section
+			id="modeles"
+			tinted
+			eyebrow="Les modèles"
+			title="Trois identités, pensées pour rester simples à comprendre."
+			intro={
+				<>
 					<p>
-						La structure des pages reste la même d&apos;une commune à l&apos;autre — c&apos;est
-						le style qui distingue votre site : couleurs, ambiance, typographie. Chaque style
-						se décline ensuite à vos couleurs, votre blason et vos photographies.
+						La structure des pages reste la même d&apos;une commune à l&apos;autre —
+						c&apos;est le style qui distingue votre site : couleurs, ambiance, typographie.
+						Chaque style se décline ensuite à vos couleurs, votre blason et vos
+						photographies.
 					</p>
 					<p>
 						Beaucoup de sites de mairies sont devenus trop compliqués : menus surchargés,
@@ -41,33 +46,34 @@ export default function Models() {
 						travail a été fait en amont pour que chaque habitant comprenne en un coup
 						d&apos;œil où cliquer, quel que soit le style choisi.
 					</p>
-				</div>
-
-				<div className="grid grid--3">
-					{MODELS.map((model) => (
-						<a
-							key={model.slug}
-							className={CLASS_NAME}
-							href={model.href}
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							<article>
-								<div
-									className={`${CLASS_NAME}__preview ${CLASS_NAME}__preview--${model.slug}`}
-									role="img"
-									aria-label={`Aperçu du ${model.name}`}
-								/>
-								<div className={`${CLASS_NAME}__body`}>
-									<h3>{model.name}</h3>
-									<p>{model.text}</p>
-									<p className={`${CLASS_NAME}__variants`}>Voir la démo en ligne →</p>
-								</div>
-							</article>
-						</a>
-					))}
-				</div>
+				</>
+			}
+		>
+			<div className="grid grid--3">
+				{MODELS.map((model) => (
+					<a
+						key={model.slug}
+						className={`card-soft ${CLASS_NAME}`}
+						href={model.href}
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<div className={`${CLASS_NAME}__image`}>
+							<Image
+								src={`/${model.slug}.jpg`}
+								alt={`Aperçu du ${model.name}`}
+								fill
+								sizes="(min-width: 1024px) 33vw, 100vw"
+							/>
+						</div>
+						<div className={`${CLASS_NAME}__body`}>
+							<h3>{model.name}</h3>
+							<p>{model.text}</p>
+							<span>Voir la démo en ligne →</span>
+						</div>
+					</a>
+				))}
 			</div>
-		</section>
+		</Section>
 	);
 }

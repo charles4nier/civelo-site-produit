@@ -1,3 +1,4 @@
+import Section from '@shared/components/Section';
 import './style.scss';
 
 const CLASS_NAME = 'faq';
@@ -35,20 +36,18 @@ const QUESTIONS = [
 
 export default function FAQ() {
 	return (
-		<section className={`section ${CLASS_NAME}`} id="questions">
-			<div className="container">
-				<div className="entete">
-					<p className="badge badge--brass">Questions fréquentes</p>
-					<h2>Ce que demandent les secrétaires de mairie.</h2>
-				</div>
-
+		<Section id="faq" tinted eyebrow="Questions fréquentes" title="Ce que demandent les secrétaires de mairie.">
+			<div className={`${CLASS_NAME}__list`}>
 				{QUESTIONS.map((item) => (
 					<details key={item.q} className={`${CLASS_NAME}__item`}>
-						<summary>{item.q}</summary>
+						<summary>
+							{item.q}
+							<span>+</span>
+						</summary>
 						<p>{item.a}</p>
 					</details>
 				))}
 			</div>
-		</section>
+		</Section>
 	);
 }

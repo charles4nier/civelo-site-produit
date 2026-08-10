@@ -1,68 +1,41 @@
-.price-compare {
-	display: grid;
-	gap: 1.15rem;
-	margin-top: 0.5rem;
+.price-cards {
+	&__item {
+		padding: 1.75rem;
 
-	&__row {
-		display: grid;
-		grid-template-columns: minmax(9rem, auto) 1fr;
-		gap: 1rem;
-		align-items: center;
+		&--us {
+			border-color: $color-primary;
+		}
 	}
 
 	&__label {
-		font-size: 0.9rem;
-		font-weight: 500;
-
-		small {
-			display: block;
-			font-weight: 400;
-			color: $color-gris;
-			font-size: 0.78rem;
-		}
+		font-family: $font-display;
+		font-size: 0.875rem;
+		font-weight: 600;
 	}
 
-	&__track {
-		height: 34px;
-		border-radius: 3px;
-		background: rgba(255, 255, 255, 0.09);
-		position: relative;
-		overflow: hidden;
+	&__detail {
+		margin-top: 0.5rem;
+		font-size: 0.875rem;
+		color: $color-muted-foreground;
 	}
 
-	&__fill {
-		height: 100%;
-		display: flex;
-		align-items: center;
-		padding-inline: 0.8rem;
-		font-family: $font-mono;
-		font-size: 0.78rem;
-		color: #fff;
-		border-radius: 3px;
-		white-space: nowrap;
+	&__amount {
+		margin-top: 1.5rem;
+		font-family: $font-display;
+		font-weight: 700;
+		font-size: 1.5rem;
+		color: $color-muted-foreground;
 
-		&--us {
-			background: $color-laiton;
-			width: 32%;
-		}
-
-		&--a {
-			background: rgba(255, 255, 255, 0.28);
-			width: 45%;
-		}
-
-		&--b {
-			background: rgba(255, 255, 255, 0.28);
-			width: 100%;
+		&--accent {
+			color: $color-foreground;
 		}
 	}
 
 	&__note {
 		margin-top: 2rem;
-		font-family: $font-mono;
-		font-size: 0.78rem;
-		color: rgba(255, 255, 255, 0.55);
-		max-width: 60ch;
-		line-height: 1.6;
+		max-width: 48rem;
+		font-size: 0.875rem;
+		line-height: 1.625;
+		color: $color-muted-foreground;
 	}
 }

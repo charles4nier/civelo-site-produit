@@ -1,25 +1,28 @@
 .footer {
-	background: $color-email-fonce;
-	color: rgba($color-papier-vif, 0.62);
-	padding-block: 2.5rem;
-	border-top: 1px solid rgba(255, 255, 255, 0.12);
-	font-size: 0.85rem;
+	background: $color-surface;
+	border-top: 1px solid $color-border;
 
 	&__inner {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 1.5rem;
-		justify-content: space-between;
 		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		padding-block: 2.5rem;
 	}
 
-	a {
-		color: rgba($color-papier-vif, 0.62);
+	&__brand {
+		font-family: $font-display;
+		font-weight: 700;
+		font-size: 0.875rem;
+
+		span {
+			color: $color-primary;
+		}
 	}
 
-	ul {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 1.25rem;
+	&__tagline {
+		font-size: 0.875rem;
+		color: $color-muted-foreground;
 	}
 }

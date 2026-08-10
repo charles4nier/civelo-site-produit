@@ -1,0 +1,40 @@
+.numbered-row {
+	display: grid;
+	gap: 0.75rem;
+	border-top: 1px solid $color-border;
+	padding-block: 1.75rem;
+
+	@media (min-width: $breakpoint-md) {
+		grid-template-columns: 4rem 1fr 10rem;
+		gap: 2rem;
+	}
+
+	&__index {
+		font-family: $font-display;
+		font-size: 0.875rem;
+		font-weight: 500;
+		color: $color-primary;
+	}
+
+	h3 {
+		font-size: 1.125rem;
+		font-weight: 600;
+	}
+
+	p {
+		margin-top: 0.5rem;
+		max-width: 42rem;
+		font-size: 0.875rem;
+		line-height: 1.625;
+		color: $color-muted-foreground;
+	}
+
+	&__meta {
+		font-size: 0.875rem;
+		color: $color-muted-foreground;
+
+		@media (min-width: $breakpoint-md) {
+			text-align: right;
+		}
+	}
+}

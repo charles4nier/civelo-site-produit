@@ -1,47 +1,45 @@
 .header {
 	position: sticky;
 	top: 0;
-	z-index: 50;
-	background: rgba($color-papier, 0.86);
-	backdrop-filter: blur(10px);
-	border-bottom: 1px solid $color-trait;
+	z-index: 40;
+	background: $color-background-85;
+	backdrop-filter: blur(8px);
+	border-bottom: 1px solid $color-border;
 
 	&__inner {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		gap: 1rem;
-		padding-block: 0.85rem;
+		padding-block: 1rem;
 	}
 
 	&__brand {
 		font-family: $font-display;
-		font-weight: 800;
-		font-size: 1.05rem;
-		letter-spacing: -0.03em;
-		text-decoration: none;
+		font-weight: 700;
+		font-size: 1rem;
+		letter-spacing: -0.02em;
 
 		span {
-			color: $color-laiton;
+			color: $color-primary;
 		}
 	}
 
 	&__nav {
 		display: none;
-		gap: 1.75rem;
-		font-size: 0.875rem;
+		gap: 2rem;
 
 		@media (min-width: $breakpoint-md) {
 			display: flex;
 		}
 
 		a {
-			text-decoration: none;
-			color: $color-gris;
-			padding-block: 0.25rem;
+			font-size: 0.875rem;
+			color: $color-muted-foreground;
+			transition: $transition-smooth;
 
 			&:hover {
-				color: $color-encre;
+				color: $color-foreground;
 			}
 		}
 	}

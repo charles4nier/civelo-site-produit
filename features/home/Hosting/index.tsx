@@ -1,3 +1,6 @@
+import Section from '@shared/components/Section';
+import InfoCard from '@shared/components/InfoCard';
+
 const BLOCKS = [
 	{
 		title: 'Hébergeur français, certifié',
@@ -19,27 +22,24 @@ const BLOCKS = [
 
 export default function Hosting() {
 	return (
-		<section className="section" id="hebergement">
-			<div className="container">
-				<div className="entete">
-					<p className="badge badge--brass">Souveraineté</p>
-					<h2>Vos données restent en France.</h2>
-					<p>
-						Les données de vos administrés — formulaires de contact, signalements,
-						inscriptions — ne quittent pas le territoire national et ne relèvent d&apos;aucune
-						législation extraterritoriale.
-					</p>
-				</div>
-
-				<div className="grid grid--2">
-					{BLOCKS.map((block) => (
-						<div key={block.title} className="block">
-							<h3>{block.title}</h3>
-							<p>{block.text}</p>
-						</div>
-					))}
-				</div>
+		<Section
+			eyebrow="Souveraineté"
+			title="Vos données restent en France."
+			intro={
+				<p>
+					Les données de vos administrés — formulaires de contact, signalements,
+					inscriptions — ne quittent pas le territoire national et ne relèvent d&apos;aucune
+					législation extraterritoriale.
+				</p>
+			}
+		>
+			<div className="grid grid--2">
+				{BLOCKS.map((block) => (
+					<InfoCard key={block.title} title={block.title}>
+						{block.text}
+					</InfoCard>
+				))}
 			</div>
-		</section>
+		</Section>
 	);
 }

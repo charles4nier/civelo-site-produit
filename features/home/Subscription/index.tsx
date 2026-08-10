@@ -1,3 +1,6 @@
+import Section from '@shared/components/Section';
+import InfoCard from '@shared/components/InfoCard';
+
 const ITEMS = [
 	{
 		title: 'Hébergement en France',
@@ -27,26 +30,23 @@ const ITEMS = [
 
 export default function Subscription() {
 	return (
-		<section className="section" id="abonnement">
-			<div className="container">
-				<div className="entete">
-					<p className="badge badge--brass">59 € par mois</p>
-					<h2>Puis nous nous en occupons.</h2>
-					<p>
-						Un site de commune se dégrade par le contenu, pas par le code. L&apos;abonnement
-						paie le travail qui maintient votre conformité dans le temps.
-					</p>
-				</div>
-
-				<div className="grid grid--3">
-					{ITEMS.map((item) => (
-						<div key={item.title} className="block">
-							<h3>{item.title}</h3>
-							<p>{item.text}</p>
-						</div>
-					))}
-				</div>
+		<Section
+			eyebrow="59 € par mois"
+			title="Puis nous nous en occupons."
+			intro={
+				<p>
+					Un site de commune se dégrade par le contenu, pas par le code. L&apos;abonnement
+					paie le travail qui maintient votre conformité dans le temps.
+				</p>
+			}
+		>
+			<div className="grid grid--3">
+				{ITEMS.map((item) => (
+					<InfoCard key={item.title} title={item.title}>
+						{item.text}
+					</InfoCard>
+				))}
 			</div>
-		</section>
+		</Section>
 	);
 }

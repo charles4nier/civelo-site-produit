@@ -1,6 +1,5 @@
-import './style.scss';
-
-const CLASS_NAME = 'offer';
+import Section from '@shared/components/Section';
+import NumberedRow from '@shared/components/NumberedRow';
 
 const DELIVERABLES = [
 	{
@@ -42,29 +41,20 @@ const DELIVERABLES = [
 
 export default function Offer() {
 	return (
-		<section className="section section--dark" id="prestation">
-			<div className="container">
-				<div className="entete">
-					<p className="badge badge--light">2 900 € — une seule fois</p>
-					<h2>Ce que comprend la mise en ligne.</h2>
-					<p>
-						Un devis détaillé, ligne par ligne, présentable en conseil municipal. Aucune
-						option cachée.
-					</p>
-				</div>
-
-				<ul className={CLASS_NAME}>
-					{DELIVERABLES.map((item) => (
-						<li key={item.ref} className={`${CLASS_NAME}__item`}>
-							<span className={`${CLASS_NAME}__ref`}>{item.ref}</span>
-							<span>
-								<strong>{item.title}</strong>
-								<span>{item.text}</span>
-							</span>
-						</li>
-					))}
-				</ul>
-			</div>
-		</section>
+		<Section
+			id="prestation"
+			tinted
+			eyebrow="2 900 € — une seule fois"
+			title="Ce que comprend la mise en ligne."
+			intro={<p>Un devis détaillé, ligne par ligne, présentable en conseil municipal. Aucune option cachée.</p>}
+		>
+			<ul className="bordered-list">
+				{DELIVERABLES.map((item) => (
+					<NumberedRow key={item.ref} index={item.ref} title={item.title}>
+						{item.text}
+					</NumberedRow>
+				))}
+			</ul>
+		</Section>
 	);
 }

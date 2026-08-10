@@ -1,30 +1,35 @@
 /* =========================
-   🎨 Palette Commune.site
+   🎨 Palette Commune.site (refonte studiocommune)
    ========================= */
 
-$color-email: #12386b;
-$color-email-fonce: #0a1f3d;
-$color-email-clair: #1b4e90;
-$color-papier: #edeee9;
-$color-papier-vif: #f6f7f3;
-$color-laiton: #b0842a;
-$color-laiton-clair: #d8ac4e;
-$color-encre: #14161a;
-$color-gris: #5a6472;
-$color-trait: #d2d4cc;
+$color-background: oklch(0.99 0.002 110);
+$color-foreground: oklch(0.16 0.018 250);
+$color-surface: oklch(0.965 0.008 110);
+$color-card: oklch(1 0 0);
+$color-primary: oklch(0.78 0.22 128);
+$color-primary-foreground: oklch(0.16 0.018 250);
+$color-muted-foreground: oklch(0.46 0.025 250);
+$color-teal: oklch(0.72 0.16 200);
+$color-border: oklch(0.16 0.018 250 / 0.14);
+$color-background-85: oklch(0.99 0.002 110 / 0.85);
+
+$gradient-accent: linear-gradient(100deg, $color-primary, $color-teal);
+$shadow-soft:
+	0 1px 2px oklch(0.16 0.018 250 / 0.04),
+	0 12px 32px -18px oklch(0.16 0.018 250 / 0.18);
 
 /* --- Typographie --- */
-$font-display: 'Bricolage Grotesque', system-ui, sans-serif;
-$font-body: 'Instrument Sans', system-ui, sans-serif;
-$font-mono: 'DM Mono', ui-monospace, monospace;
+$font-display: 'Space Grotesk', system-ui, sans-serif;
+$font-body: 'DM Sans', system-ui, sans-serif;
 
 /* --- Mise en page --- */
-$container-max-width: 1180px;
-$container-padding-x: clamp(1.25rem, 5vw, 5rem);
-$section-padding-y: clamp(3.5rem, 8vw, 7rem);
+$radius: 0.5rem;
+$container-max-width: 1152px;
+$container-padding-x: 1.5rem;
+$section-padding-y: clamp(5rem, 8vw, 7rem);
 
-$breakpoint-sm: 700px;
-$breakpoint-md: 900px;
-$breakpoint-lg: 960px;
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
 
 $transition-smooth: all 0.18s ease;

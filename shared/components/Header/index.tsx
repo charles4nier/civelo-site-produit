@@ -3,11 +3,10 @@ import './style.scss';
 const CLASS_NAME = 'header';
 
 const NAV_LINKS = [
-	{ href: '#prestation', label: 'La prestation' },
-	{ href: '#modeles', label: 'Les modèles' },
-	{ href: '#hebergement', label: 'Hébergement' },
-	{ href: '#deroulement', label: 'Déroulement' },
-	{ href: '#questions', label: 'Questions' }
+	{ href: '#prestation', label: 'Prestation' },
+	{ href: '#modeles', label: 'Modèles' },
+	{ href: '#tarif', label: 'Tarif' },
+	{ href: '#faq', label: 'Questions' }
 ];
 
 export default function Header() {
@@ -24,7 +23,7 @@ export default function Header() {
 						</a>
 					))}
 				</nav>
-				<a className="btn btn--solid" href="#contact">
+				<a className="btn-primary btn-primary--sm" href="#contact">
 					Demander une démonstration
 				</a>
 			</div>

@@ -1,6 +1,5 @@
-import './style.scss';
-
-const CLASS_NAME = 'process';
+import Section from '@shared/components/Section';
+import NumberedRow from '@shared/components/NumberedRow';
 
 const STEPS = [
 	{
@@ -31,27 +30,18 @@ const STEPS = [
 
 export default function Process() {
 	return (
-		<section className="section" id="deroulement">
-			<div className="container">
-				<div className="entete">
-					<p className="badge badge--brass">Déroulement</p>
-					<h2>De la première réunion à la mise en ligne.</h2>
-					<p>Une séquence courte, calée sur le rythme d&apos;un conseil municipal.</p>
-				</div>
-
-				<ol className={CLASS_NAME}>
-					{STEPS.map((step) => (
-						<li key={step.num} className={`${CLASS_NAME}__step`}>
-							<span className={`${CLASS_NAME}__num`}>{step.num}</span>
-							<div>
-								<h3>{step.title}</h3>
-								<p>{step.text}</p>
-								<span className={`${CLASS_NAME}__delay`}>{step.delay}</span>
-							</div>
-						</li>
-					))}
-				</ol>
-			</div>
-		</section>
+		<Section
+			eyebrow="Déroulement"
+			title="De la première réunion à la mise en ligne."
+			intro={<p>Une séquence courte, calée sur le rythme d&apos;un conseil municipal.</p>}
+		>
+			<ol className="bordered-list">
+				{STEPS.map((step) => (
+					<NumberedRow key={step.num} index={step.num} title={step.title} meta={step.delay}>
+						{step.text}
+					</NumberedRow>
+				))}
+			</ol>
+		</Section>
 	);
 }

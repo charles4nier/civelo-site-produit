@@ -1,5 +1,5 @@
 import Hero from './Hero';
-import Proof from './Proof';
+import Tarif from './Tarif';
 import Context from './Context';
 import Offer from './Offer';
 import Subscription from './Subscription';
@@ -14,7 +14,7 @@ export default function Home() {
 	return (
 		<>
 			<Hero />
-			<Proof />
+			<Tarif />
 			<Context />
 			<Offer />
 			<Subscription />
