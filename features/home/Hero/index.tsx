@@ -17,7 +17,6 @@ export default function Hero() {
 			/>
 			<div className={`container ${CLASS_NAME}__inner`}>
 				<p className={`${CLASS_NAME}__badge`}>Le premium, à la portée des petites communes</p>
-				<p className="eyebrow">Sites internet de communes</p>
 				<h1 className={`${CLASS_NAME}__title`}>
 					Création de site internet pour les petites communes,{' '}
 					<span className="text-gradient-accent">conforme et tenu à jour</span>.
