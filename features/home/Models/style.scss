@@ -45,4 +45,10 @@
 	&:hover span {
 		color: $color-primary;
 	}
+
+	&__note {
+		margin-top: 2rem;
+		font-size: 0.875rem;
+		color: $color-muted-foreground;
+	}
 }

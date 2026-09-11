@@ -22,20 +22,24 @@ export default function Hero() {
 					<span className="text-gradient-accent">conforme et tenu à jour</span>.
 				</h1>
 				<p className={`${CLASS_NAME}__lead`}>
-					Conception, hébergement en France et accessibilité numérique. Nous livrons le
-					site, les documents réglementaires et la formation de votre secrétariat.
+					Un site moderne, simple à administrer et conçu pour les besoins des communes de
+					moins de 5 000 habitants.
 				</p>
-				<div className={`${CLASS_NAME}__actions`}>
-					<a className="btn-primary" href="#contact">
-						Demander une démonstration →
+				<p className={`${CLASS_NAME}__lead`}>
+					Civelo s&apos;occupe de la création, de la reprise de vos contenus et de la mise
+					en ligne. Votre secrétariat est formé pour gérer simplement les informations du
+					quotidien.
+				</p>
+				<p className={`${CLASS_NAME}__price`}>2 900 € TTC pour la création du site</p>
+				<p className={`${CLASS_NAME}__price`}>puis 59 € TTC / mois</p>
+				<div className="actions-row">
+					<a className="btn-link" href="#modeles">
+						Découvrir les modèles
 					</a>
-					<a className="btn-link" href="#prestation">
-						Voir ce qui est compris
+					<a className="btn-primary" href="#contact">
+						Demander une présentation →
 					</a>
 				</div>
-				<p className={`${CLASS_NAME}__note`}>
-					Conçu pour les communes de moins de 5 000 habitants
-				</p>
 			</div>
 		</section>
 	);

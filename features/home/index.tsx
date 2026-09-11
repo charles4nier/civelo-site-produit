@@ -1,28 +1,28 @@
 import Hero from './Hero';
-import Tarif from './Tarif';
-import Context from './Context';
-import Offer from './Offer';
-import Subscription from './Subscription';
+import SiteMairie from './SiteMairie';
 import Models from './Models';
-import Hosting from './Hosting';
+import Offer from './Offer';
 import Reversibilite from './Reversibilite';
+import Subscription from './Subscription';
+import PenseMairie from './PenseMairie';
+import Accessibilite from './Accessibilite';
+import Secretariat from './Secretariat';
 import Process from './Process';
-import FAQ from './FAQ';
 import FinalCTA from './FinalCTA';
 
 export default function Home() {
 	return (
 		<>
 			<Hero />
-			<Tarif />
-			<Context />
-			<Offer />
-			<Subscription />
+			<SiteMairie />
 			<Models />
-			<Hosting />
+			<Offer />
 			<Reversibilite />
+			<Subscription />
+			<PenseMairie />
+			<Accessibilite />
+			<Secretariat />
 			<Process />
-			<FAQ />
 			<FinalCTA />
 		</>
 	);

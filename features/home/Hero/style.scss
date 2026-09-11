@@ -47,19 +47,22 @@
 		font-size: 1.125rem;
 		line-height: 1.625;
 		color: $color-muted-foreground;
+
+		+ & {
+			margin-top: 0.75rem;
+		}
 	}
 
-	&__actions {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		gap: 1.5rem;
-		margin-top: 2.5rem;
+	&__price {
+		margin-top: 0.25rem;
+		font-family: $font-display;
+		font-size: 1.125rem;
+		font-weight: 700;
+		color: $color-foreground;
+
+		&:first-of-type {
+			margin-top: 1.75rem;
+		}
 	}
 
-	&__note {
-		margin-top: 3rem;
-		font-size: 0.875rem;
-		color: $color-muted-foreground;
-	}
 }

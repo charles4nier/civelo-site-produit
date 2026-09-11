@@ -3,10 +3,10 @@ import './style.scss';
 const CLASS_NAME = 'header';
 
 const NAV_LINKS = [
-	{ href: '#prestation', label: 'Prestation' },
 	{ href: '#modeles', label: 'Modèles' },
-	{ href: '#tarif', label: 'Tarif' },
-	{ href: '#faq', label: 'Questions' }
+	{ href: '#prestation', label: 'Prestation' },
+	{ href: '#accessibilite', label: 'Accessibilité' },
+	{ href: '#contact', label: 'Contact' }
 ];
 
 export default function Header() {

@@ -10,22 +10,22 @@ const MODELS = [
 		// Image conservée sous son ancien nom de fichier (public/civique.jpg) —
 		// seuls le nom affiché et le lien de démo changent.
 		image: 'civique',
-		name: 'Thème Édito',
-		text: 'Palette bleu institutionnel, sobre et rassurant. L’identité classique d’un site de collectivité, pour les communes qui veulent une image officielle et sans ambiguïté.',
+		name: 'Édito',
+		text: 'Une présentation sobre et institutionnelle qui met en avant les informations municipales et les actualités.',
 		href: 'https://edito.civelo.fr/'
 	},
 	{
 		slug: 'accueillant',
 		image: 'ludique',
-		name: 'Thème Accueillant',
-		text: 'Palette vive et chaleureuse, formes arrondies, mise en avant de la vie locale. Pour les communes qui veulent un site accueillant et proche de leurs habitants.',
+		name: 'Accueillant',
+		text: 'Une présentation plus visuelle pour mettre en valeur la commune, sa vie locale et ses services.',
 		href: 'https://accueillant.civelo.fr/'
 	},
 	{
 		slug: 'app',
 		image: 'prestige',
-		name: 'Thème App',
-		text: 'Palette sobre et raffinée, teintes naturelles. Pour les communes qui veulent mettre en valeur leur patrimoine avec une identité haut de gamme.',
+		name: 'App',
+		text: 'Une navigation directe et moderne, pensée pour permettre aux habitants de trouver rapidement l’information recherchée.',
 		href: 'https://app.civelo.fr/'
 	}
 ];
@@ -36,23 +36,7 @@ export default function Models() {
 			id="modeles"
 			tinted
 			eyebrow="Les modèles"
-			title="Trois identités, pensées pour rester simples à comprendre."
-			intro={
-				<>
-					<p>
-						La structure des pages reste la même d&apos;une commune à l&apos;autre —
-						c&apos;est le style qui distingue votre site : couleurs, ambiance, typographie.
-						Chaque style se décline ensuite à vos couleurs, votre blason et vos
-						photographies.
-					</p>
-					<p>
-						Beaucoup de sites de mairies sont devenus trop compliqués : menus surchargés,
-						information difficile à trouver, démarches noyées sous les rubriques. Ici, le
-						travail a été fait en amont pour que chaque habitant comprenne en un coup
-						d&apos;œil où cliquer, quel que soit le style choisi.
-					</p>
-				</>
-			}
+			title="Choisissez le site qui ressemble à votre commune."
 		>
 			<div className="grid grid--3">
 				{MODELS.map((model) => (
@@ -66,7 +50,7 @@ export default function Models() {
 						<div className={`${CLASS_NAME}__image`}>
 							<Image
 								src={`/${model.image}.jpg`}
-								alt={`Aperçu du ${model.name}`}
+								alt={`Aperçu du modèle ${model.name}`}
 								fill
 								sizes="(min-width: 1024px) 33vw, 100vw"
 							/>
@@ -74,11 +58,15 @@ export default function Models() {
 						<div className={`${CLASS_NAME}__body`}>
 							<h3>{model.name}</h3>
 							<p>{model.text}</p>
-							<span>Voir la démo en ligne →</span>
+							<span>Voir la démo →</span>
 						</div>
 					</a>
 				))}
 			</div>
+			<p className={`${CLASS_NAME}__note`}>
+				Les trois modèles disposent des mêmes fonctionnalités. La différence se trouve
+				principalement dans leur présentation et leur navigation.
+			</p>
 		</Section>
 	);
 }
