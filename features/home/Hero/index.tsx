@@ -36,12 +36,7 @@ export default function Hero() {
 					</p>
 				</Reveal>
 
-				<Reveal delay={150} className={`${CLASS_NAME}__price-row`}>
-					<p className={`${CLASS_NAME}__price`}>2 900 € TTC pour la création du site</p>
-					<p className={`${CLASS_NAME}__price-sub`}>puis 59 € TTC / mois</p>
-				</Reveal>
-
-				<Reveal delay={250} className="actions-row">
+				<Reveal delay={150} className="actions-row">
 					<a className="btn-primary btn-primary--on-dark" href="#modeles">
 						Découvrir les modèles
 					</a>
