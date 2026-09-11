@@ -10,21 +10,21 @@ const MODELS = [
 		// Image conservée sous son ancien nom de fichier (public/civique.jpg) —
 		// seuls le nom affiché et le lien de démo changent.
 		image: 'civique',
-		name: 'Style Édito',
+		name: 'Thème Édito',
 		text: 'Palette bleu institutionnel, sobre et rassurant. L’identité classique d’un site de collectivité, pour les communes qui veulent une image officielle et sans ambiguïté.',
 		href: 'https://edito.civelo.fr/'
 	},
 	{
 		slug: 'accueillant',
 		image: 'ludique',
-		name: 'Style Accueillant',
+		name: 'Thème Accueillant',
 		text: 'Palette vive et chaleureuse, formes arrondies, mise en avant de la vie locale. Pour les communes qui veulent un site accueillant et proche de leurs habitants.',
 		href: 'https://accueillant.civelo.fr/'
 	},
 	{
 		slug: 'app',
 		image: 'prestige',
-		name: 'Style App',
+		name: 'Thème App',
 		text: 'Palette sobre et raffinée, teintes naturelles. Pour les communes qui veulent mettre en valeur leur patrimoine avec une identité haut de gamme.',
 		href: 'https://app.civelo.fr/'
 	}
