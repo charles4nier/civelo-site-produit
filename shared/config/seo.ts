@@ -16,7 +16,7 @@ export const siteConfig = {
 export const defaultMetadata = {
 	metadataBase: new URL(siteConfig.url),
 	title: {
-		default: 'Civelo — Sites internet pour communes',
+		default: 'Civelo — Création de sites internet pour communes',
 		template: `%s | ${siteConfig.name}`
 	},
 	description: siteConfig.description,
