@@ -1,44 +1,19 @@
 .section {
-	border-top: 1px solid $color-border;
+	border-bottom: 1px solid $color-border;
 	background: $color-background;
-	padding-block: 5rem;
+	padding-block: $section-padding-y-mobile;
 
 	@media (min-width: $breakpoint-md) {
-		padding-block: 7rem;
+		padding-block: $section-padding-y-desktop;
 	}
 
 	&--tinted {
-		background: $color-surface;
+		background: $color-sand;
 	}
 
-	&__title {
-		margin-top: 1.25rem;
-		max-width: 48rem;
-		font-size: 1.875rem;
-		line-height: 1.1;
-
-		@media (min-width: $breakpoint-md) {
-			font-size: 2.75rem;
-		}
-	}
-
-	&__intro {
-		margin-top: 1.5rem;
-		max-width: 42rem;
-		font-size: 1rem;
-		line-height: 1.625;
-		color: $color-muted-foreground;
-
-		> * + * {
-			margin-top: 1rem;
-		}
-	}
-
-	&__content {
-		margin-top: 3.5rem;
-
-		> * + * {
-			margin-top: 2rem;
-		}
+	&--dark {
+		border-bottom-color: transparent;
+		background: $color-foreground;
+		color: $color-background;
 	}
 }

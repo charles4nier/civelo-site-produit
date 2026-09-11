@@ -1,5 +1,10 @@
 import Section from '@shared/components/Section';
-import InfoCard from '@shared/components/InfoCard';
+import Eyebrow from '@shared/components/Eyebrow';
+import SectionTitle from '@shared/components/SectionTitle';
+import Reveal from '@shared/components/Reveal';
+import './style.scss';
+
+const CLASS_NAME = 'offer-item';
 
 const DELIVERABLES = [
 	{
@@ -22,28 +27,31 @@ const DELIVERABLES = [
 
 export default function Offer() {
 	return (
-		<Section
-			id="prestation"
-			tinted
-			eyebrow="Ce que comprend la prestation"
-			title="2 900 € TTC pour créer votre nouveau site."
-			intro={
-				<p>
+		<Section id="prestation">
+			<Reveal>
+				<Eyebrow>Ce que comprend la prestation</Eyebrow>
+				<SectionTitle>2 900 € TTC pour créer votre nouveau site.</SectionTitle>
+				<p className="section-intro">
 					Un tarif clair pour passer de votre site actuel à un nouveau site prêt à être
 					utilisé par la commune.
 				</p>
-			}
-		>
-			<div className="grid grid--2">
-				{DELIVERABLES.map((item) => (
-					<InfoCard key={item.title} title={item.title}>
-						{item.text}
-					</InfoCard>
+			</Reveal>
+			<div className="grid grid--2 offer-item__grid">
+				{DELIVERABLES.map((item, i) => (
+					<Reveal key={item.title} delay={i * 90}>
+						<div className={CLASS_NAME}>
+							<span className={`${CLASS_NAME}__index`}>{String(i + 1).padStart(2, '0')}</span>
+							<h3>{item.title}</h3>
+							<p>{item.text}</p>
+						</div>
+					</Reveal>
 				))}
 			</div>
-			<p>
-				<strong>À la livraison, votre commune dispose d’un site complet et opérationnel.</strong>
-			</p>
+			<Reveal delay={120}>
+				<p className="offer-highlight">
+					À la livraison, votre commune dispose d’un site complet et opérationnel.
+				</p>
+			</Reveal>
 		</Section>
 	);
 }

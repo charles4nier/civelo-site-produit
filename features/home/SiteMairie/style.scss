@@ -1,0 +1,13 @@
+.site-mairie__figure {
+	margin-top: 4rem;
+	overflow: hidden;
+	border-radius: $radius-lg;
+	border: 1px solid $color-border;
+	background: $color-sand;
+
+	img {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+	}
+}

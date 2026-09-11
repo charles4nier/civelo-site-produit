@@ -1,5 +1,8 @@
 import Section from '@shared/components/Section';
-import InfoCard from '@shared/components/InfoCard';
+import Eyebrow from '@shared/components/Eyebrow';
+import SectionTitle from '@shared/components/SectionTitle';
+import Reveal from '@shared/components/Reveal';
+import './style.scss';
 
 const ITEMS = [
 	{
@@ -22,29 +25,31 @@ const ITEMS = [
 
 export default function Subscription() {
 	return (
-		<Section
-			eyebrow="Les services inclus"
-			title="Puis 59 € TTC / mois."
-			intro={
-				<p>
+		<Section tinted>
+			<Reveal>
+				<Eyebrow>Les services inclus</Eyebrow>
+				<SectionTitle>Puis 59 € TTC / mois.</SectionTitle>
+				<p className="section-intro">
 					Une fois le site en ligne, Civelo assure les services techniques nécessaires à son
 					fonctionnement.
 				</p>
-			}
-		>
-			<div className="grid grid--2">
-				{ITEMS.map((item) => (
-					<InfoCard key={item.title} title={item.title}>
-						{item.text}
-					</InfoCard>
+			</Reveal>
+			<div className="services-grid">
+				{ITEMS.map((item, i) => (
+					<Reveal key={item.title} delay={i * 90}>
+						<div className="services-item">
+							<h3>{item.title}</h3>
+							<p>{item.text}</p>
+						</div>
+					</Reveal>
 				))}
 			</div>
-			<p>
-				<strong>
+			<Reveal delay={120}>
+				<p className="section-intro section-intro--sm">
 					Le site vous appartient. Les 59 € / mois correspondent aux services que Civelo
 					assure autour de lui.
-				</strong>
-			</p>
+				</p>
+			</Reveal>
 		</Section>
 	);
 }

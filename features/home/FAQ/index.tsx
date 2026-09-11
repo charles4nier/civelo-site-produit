@@ -1,7 +1,8 @@
 import Section from '@shared/components/Section';
+import Eyebrow from '@shared/components/Eyebrow';
+import SectionTitle from '@shared/components/SectionTitle';
+import Reveal from '@shared/components/Reveal';
 import './style.scss';
-
-const CLASS_NAME = 'faq';
 
 const QUESTIONS = [
 	{
@@ -36,16 +37,24 @@ const QUESTIONS = [
 
 export default function FAQ() {
 	return (
-		<Section id="faq" tinted eyebrow="Questions fréquentes" title="Ce que demandent les secrétaires de mairie.">
-			<div className={`${CLASS_NAME}__list`}>
-				{QUESTIONS.map((item) => (
-					<details key={item.q} className={`${CLASS_NAME}__item`}>
-						<summary>
-							{item.q}
-							<span>+</span>
-						</summary>
-						<p>{item.a}</p>
-					</details>
+		<Section id="faq">
+			<Reveal>
+				<Eyebrow>Questions fréquentes</Eyebrow>
+				<SectionTitle>Ce que demandent les secrétaires de mairie.</SectionTitle>
+			</Reveal>
+			<div className="faq-list">
+				{QUESTIONS.map((item, i) => (
+					<Reveal key={item.q} delay={i * 60}>
+						<details className="faq-item">
+							<summary>
+								<span>{item.q}</span>
+								<span className="faq-item__icon" aria-hidden>
+									+
+								</span>
+							</summary>
+							<p>{item.a}</p>
+						</details>
+					</Reveal>
 				))}
 			</div>
 		</Section>

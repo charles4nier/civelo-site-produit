@@ -1,4 +1,4 @@
-import { Space_Grotesk, DM_Sans } from 'next/font/google';
+import { Instrument_Serif, Plus_Jakarta_Sans } from 'next/font/google';
 import type { Metadata, Viewport } from 'next';
 import { defaultMetadata } from '@shared/config/seo';
 
@@ -7,17 +7,17 @@ import '@shared/styles/index.scss';
 import Header from '@shared/components/Header';
 import Footer from '@shared/components/Footer';
 
-const spaceGrotesk = Space_Grotesk({
+const instrumentSerif = Instrument_Serif({
 	subsets: ['latin'],
-	weight: ['500', '600', '700'],
+	weight: ['400'],
+	style: ['normal', 'italic'],
 	variable: '--font-display',
 	display: 'swap'
 });
 
-const dmSans = DM_Sans({
+const plusJakartaSans = Plus_Jakarta_Sans({
 	subsets: ['latin'],
-	weight: ['400', '500', '700'],
-	style: ['normal', 'italic'],
+	weight: ['300', '400', '500', '600', '700'],
 	variable: '--font-body',
 	display: 'swap'
 });
@@ -37,7 +37,7 @@ export const viewport: Viewport = {
 
 export default function Layout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="fr" className={`${spaceGrotesk.variable} ${dmSans.variable}`}>
+		<html lang="fr" className={`${instrumentSerif.variable} ${plusJakartaSans.variable}`}>
 			<body>
 				<a className="skip-link" href="#contenu">
 					Aller au contenu

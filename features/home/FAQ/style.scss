@@ -1,43 +1,54 @@
-.faq {
-	&__list {
-		border-top: 1px solid $color-border;
+.faq-list {
+	margin-top: 4rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1px;
+	overflow: hidden;
+	border-radius: $radius-md;
+	border: 1px solid $color-border;
+	background: $color-border;
+}
+
+.faq-item {
+	background: $color-background;
+
+	summary {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1.5rem;
+		padding: 1.5rem 2rem;
+		cursor: pointer;
+		list-style: none;
+		font-family: $font-display;
+		font-size: 1.25rem;
+		color: $color-foreground;
+		transition: color 0.2s ease;
+
+		&::-webkit-details-marker {
+			display: none;
+		}
+
+		&:hover {
+			color: $color-copper;
+		}
 	}
 
-	&__item {
-		border-bottom: 1px solid $color-border;
-		padding-block: 1.5rem;
+	&__icon {
+		flex-shrink: 0;
+		font-size: 1.25rem;
+		color: $color-copper;
+		transition: transform 0.3s ease;
+	}
 
-		summary {
-			display: flex;
-			cursor: pointer;
-			list-style: none;
-			align-items: center;
-			justify-content: space-between;
-			gap: 1.5rem;
-			font-family: $font-display;
-			font-size: 1rem;
-			font-weight: 600;
+	&[open] &__icon {
+		transform: rotate(45deg);
+	}
 
-			&::-webkit-details-marker {
-				display: none;
-			}
-
-			span {
-				color: $color-primary;
-				transition: $transition-smooth;
-			}
-		}
-
-		&[open] summary span {
-			transform: rotate(45deg);
-		}
-
-		p {
-			margin-top: 1rem;
-			max-width: 48rem;
-			font-size: 0.875rem;
-			line-height: 1.625;
-			color: $color-muted-foreground;
-		}
+	p {
+		padding: 0 2rem 1.75rem;
+		max-width: 42rem;
+		line-height: 1.625;
+		color: $color-muted-foreground;
 	}
 }

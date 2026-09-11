@@ -1,0 +1,43 @@
+.reversibilite {
+	&__statement {
+		margin-top: 4rem;
+		border-top: 1px solid color-mix(in oklch, white 15%, transparent);
+		padding-top: 3rem;
+		font-family: $font-display;
+		font-size: clamp(1.6rem, 3.4vw, 2.6rem);
+		line-height: 1.25;
+		color: $color-copper-soft;
+	}
+
+	&__grid {
+		margin-top: 3rem;
+	}
+
+	&__card {
+		display: flex;
+		height: 100%;
+		flex-direction: column;
+		gap: 1.25rem;
+		border: 1px solid color-mix(in oklch, white 12%, transparent);
+		background: color-mix(in oklch, white 4%, transparent);
+		border-radius: $radius-md;
+		padding: 1.75rem;
+		transition: $transition-smooth;
+
+		svg {
+			color: $color-copper-soft;
+		}
+
+		span {
+			font-family: $font-display;
+			font-size: 1.25rem;
+			color: $color-background;
+		}
+
+		&:hover {
+			transform: translateY(-4px);
+			border-color: color-mix(in oklch, $color-copper-soft 40%, transparent);
+			background: color-mix(in oklch, white 7%, transparent);
+		}
+	}
+}

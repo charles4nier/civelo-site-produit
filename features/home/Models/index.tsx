@@ -1,5 +1,8 @@
 import Image from 'next/image';
 import Section from '@shared/components/Section';
+import Eyebrow from '@shared/components/Eyebrow';
+import SectionTitle from '@shared/components/SectionTitle';
+import Reveal from '@shared/components/Reveal';
 import './style.scss';
 
 const CLASS_NAME = 'model-card';
@@ -32,41 +35,43 @@ const MODELS = [
 
 export default function Models() {
 	return (
-		<Section
-			id="modeles"
-			tinted
-			eyebrow="Les modèles"
-			title="Choisissez le site qui ressemble à votre commune."
-		>
-			<div className="grid grid--3">
-				{MODELS.map((model) => (
-					<a
-						key={model.slug}
-						className={`card-soft ${CLASS_NAME}`}
-						href={model.href}
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						<div className={`${CLASS_NAME}__image`}>
-							<Image
-								src={`/${model.image}.jpg`}
-								alt={`Aperçu du modèle ${model.name}`}
-								fill
-								sizes="(min-width: 1024px) 33vw, 100vw"
-							/>
-						</div>
-						<div className={`${CLASS_NAME}__body`}>
-							<h3>{model.name}</h3>
-							<p>{model.text}</p>
-							<span>Voir la démo →</span>
-						</div>
-					</a>
+		<Section id="modeles" tinted>
+			<Reveal>
+				<Eyebrow>Les modèles</Eyebrow>
+				<SectionTitle>Choisissez le site qui ressemble à votre commune.</SectionTitle>
+			</Reveal>
+			<div className={`grid grid--3 ${CLASS_NAME}__grid`}>
+				{MODELS.map((model, i) => (
+					<Reveal key={model.slug} as="article" delay={i * 110}>
+						<a
+							className={CLASS_NAME}
+							href={model.href}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							<div className={`${CLASS_NAME}__image`}>
+								<Image
+									src={`/${model.image}.jpg`}
+									alt={`Aperçu du modèle ${model.name}`}
+									fill
+									sizes="(min-width: 1024px) 33vw, 100vw"
+								/>
+							</div>
+							<div className={`${CLASS_NAME}__body`}>
+								<h3>{model.name}</h3>
+								<p>{model.text}</p>
+								<span className="link-arrow">Voir la démo →</span>
+							</div>
+						</a>
+					</Reveal>
 				))}
 			</div>
-			<p className={`${CLASS_NAME}__note`}>
-				Les trois modèles disposent des mêmes fonctionnalités. La différence se trouve
-				principalement dans leur présentation et leur navigation.
-			</p>
+			<Reveal delay={120}>
+				<p className={`${CLASS_NAME}__note`}>
+					Les trois modèles disposent des mêmes fonctionnalités. La différence se trouve
+					principalement dans leur présentation et leur navigation.
+				</p>
+			</Reveal>
 		</Section>
 	);
 }

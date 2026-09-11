@@ -1,0 +1,35 @@
+.services-grid {
+	margin-top: 4rem;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 1px;
+	overflow: hidden;
+	border-radius: $radius-md;
+	border: 1px solid $color-border;
+	background: $color-border;
+
+	@media (min-width: $breakpoint-sm) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+.services-item {
+	height: 100%;
+	background: $color-background;
+	padding: 2rem;
+	transition: background-color 0.5s ease;
+
+	h3 {
+		font-size: 1.5rem;
+	}
+
+	p {
+		margin-top: 0.75rem;
+		line-height: 1.625;
+		color: $color-muted-foreground;
+	}
+
+	&:hover {
+		background: color-mix(in oklch, $color-copper-soft 15%, transparent);
+	}
+}

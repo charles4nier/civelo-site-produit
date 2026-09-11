@@ -1,0 +1,21 @@
+.secretariat__figure {
+	margin-top: 2.5rem;
+	overflow: hidden;
+	border-radius: $radius-lg;
+	border: 1px solid $color-border;
+
+	img {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+		transition: transform 0.9s ease-out;
+	}
+
+	&:hover img {
+		transform: scale(1.03);
+	}
+}
+
+.secretariat__lines {
+	white-space: pre-line;
+}
