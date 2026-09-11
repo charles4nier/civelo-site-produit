@@ -1,0 +1,15 @@
+{
+	// Worker "assets-only" : pas de script serveur (`main`), juste les
+	// fichiers statiques générés par `next build` (output: 'export', voir
+	// next.config.mjs) servis directement par Cloudflare — gratuit et
+	// illimité en requêtes sur le plan Workers Free.
+	"name": "civelo-site-produit",
+	"compatibility_date": "2026-09-11",
+	"assets": {
+		"directory": "./out",
+		// Sert le vrai fichier 404.html généré par Next (page non trouvée),
+		// plutôt que de retomber sur index.html (ce dernier comportement,
+		// "single-page-application", ne convient qu'à une SPA côté client).
+		"not_found_handling": "404-page"
+	}
+}
