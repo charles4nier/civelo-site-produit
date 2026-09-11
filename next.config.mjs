@@ -6,16 +6,21 @@ const __dirname = path.dirname(__filename);
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+	// Export statique pour Cloudflare Pages — pas de serveur Node à héberger,
+	// juste des fichiers. `output: 'export'` produit un dossier `out/`
+	// (`next build`) au lieu de démarrer un serveur (`next start`, inutilisable
+	// ici). Contrepartie : l'API d'optimisation d'image de Next (qui tourne
+	// côté serveur) n'existe plus — `images.unoptimized: true` sert les
+	// fichiers de `public/` tels quels. Acceptable ici : seulement 4 images
+	// (~3,3 Mo au total), 2 usages de `next/image` dans tout le site.
+	output: 'export',
 	images: {
-		formats: ['image/avif', 'image/webp'],
-		deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
-		imageSizes: [16, 32, 48, 64, 96, 128, 256, 384]
+		unoptimized: true
 	},
 	sassOptions: {
 		includePaths: [path.join(__dirname, 'shared/styles')],
 		prependData: `@import "variables.scss";`
 	},
-	compress: true,
 	eslint: {
 		ignoreDuringBuilds: true
 	},
