@@ -17,6 +17,19 @@
 		}
 	}
 
+	&__badge {
+		display: inline-block;
+		margin-bottom: 0.75rem;
+		padding: 0.3rem 0.85rem;
+		border-radius: 999px;
+		background: $color-primary;
+		color: $color-foreground;
+		font-family: $font-display;
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.02em;
+	}
+
 	&__title {
 		margin-top: 1.5rem;
 		max-width: 48rem;
