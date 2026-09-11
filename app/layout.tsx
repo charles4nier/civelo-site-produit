@@ -1,4 +1,4 @@
-import { Instrument_Serif, Plus_Jakarta_Sans } from 'next/font/google';
+import { Fraunces, Plus_Jakarta_Sans } from 'next/font/google';
 import type { Metadata, Viewport } from 'next';
 import { defaultMetadata } from '@shared/config/seo';
 
@@ -7,9 +7,13 @@ import '@shared/styles/index.scss';
 import Header from '@shared/components/Header';
 import Footer from '@shared/components/Footer';
 
-const instrumentSerif = Instrument_Serif({
+// Remplace Instrument Serif (délicat, lisait "carton d'invitation d'hôtel
+// de charme") — Fraunces à graisse 600 garde un serif chaleureux et
+// distinctif, mais avec assez de poids pour rester crédible côté logiciel
+// pour une administration, pas une marque lifestyle.
+const fraunces = Fraunces({
 	subsets: ['latin'],
-	weight: ['400'],
+	weight: ['500', '600'],
 	style: ['normal', 'italic'],
 	variable: '--font-display',
 	display: 'swap'
@@ -37,7 +41,7 @@ export const viewport: Viewport = {
 
 export default function Layout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="fr" className={`${instrumentSerif.variable} ${plusJakartaSans.variable}`}>
+		<html lang="fr" className={`${fraunces.variable} ${plusJakartaSans.variable}`}>
 			<body>
 				<a className="skip-link" href="#contenu">
 					Aller au contenu

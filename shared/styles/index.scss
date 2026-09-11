@@ -102,10 +102,10 @@ h1,
 h2,
 h3 {
 	font-family: $font-display;
-	font-weight: 400; // Instrument Serif n'a pas de graisse grasse — sans ce
-	// reset explicite, le gras par défaut du navigateur sur h1-h3 force un
-	// gras synthétique (traits épaissis artificiellement par le moteur de
-	// rendu), qui casse le rendu fin voulu par la police.
+	// 600 explicite : Fraunces n'a que 500/600 chargés (voir layout.tsx) —
+	// sans ce reset, le gras par défaut du navigateur sur h1-h3 forcerait un
+	// gras synthétique au lieu de la vraie graisse 600 de la police.
+	font-weight: 600;
 	letter-spacing: -0.01em;
 }
 
