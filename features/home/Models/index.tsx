@@ -6,22 +6,27 @@ const CLASS_NAME = 'model-card';
 
 const MODELS = [
 	{
-		slug: 'civique',
-		name: 'Style Civique',
+		slug: 'edito',
+		// Image conservée sous son ancien nom de fichier (public/civique.jpg) —
+		// seuls le nom affiché et le lien de démo changent.
+		image: 'civique',
+		name: 'Style Édito',
 		text: 'Palette bleu institutionnel, sobre et rassurant. L’identité classique d’un site de collectivité, pour les communes qui veulent une image officielle et sans ambiguïté.',
-		href: 'https://saint-hilaire-bonneval-demo.vercel.app/'
+		href: 'https://edito.civelo.fr/'
 	},
 	{
-		slug: 'ludique',
-		name: 'Style Ludique',
+		slug: 'accueillant',
+		image: 'ludique',
+		name: 'Style Accueillant',
 		text: 'Palette vive et chaleureuse, formes arrondies, mise en avant de la vie locale. Pour les communes qui veulent un site accueillant et proche de leurs habitants.',
-		href: 'https://commune-ludique-style.vercel.app/'
+		href: 'https://accueillant.civelo.fr/'
 	},
 	{
-		slug: 'prestige',
-		name: 'Style Prestige',
+		slug: 'app',
+		image: 'prestige',
+		name: 'Style App',
 		text: 'Palette sobre et raffinée, teintes naturelles. Pour les communes qui veulent mettre en valeur leur patrimoine avec une identité haut de gamme.',
-		href: 'https://commune-prestige-style-demo.vercel.app/'
+		href: 'https://app.civelo.fr/'
 	}
 ];
 
@@ -60,7 +65,7 @@ export default function Models() {
 					>
 						<div className={`${CLASS_NAME}__image`}>
 							<Image
-								src={`/${model.slug}.jpg`}
+								src={`/${model.image}.jpg`}
 								alt={`Aperçu du ${model.name}`}
 								fill
 								sizes="(min-width: 1024px) 33vw, 100vw"
