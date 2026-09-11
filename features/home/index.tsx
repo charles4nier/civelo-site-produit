@@ -8,6 +8,7 @@ import PenseMairie from './PenseMairie';
 import Accessibilite from './Accessibilite';
 import Secretariat from './Secretariat';
 import Process from './Process';
+import FAQ from './FAQ';
 import FinalCTA from './FinalCTA';
 
 export default function Home() {
@@ -23,6 +24,7 @@ export default function Home() {
 			<Accessibilite />
 			<Secretariat />
 			<Process />
+			<FAQ />
 			<FinalCTA />
 		</>
 	);

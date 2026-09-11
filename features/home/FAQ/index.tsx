@@ -9,10 +9,6 @@ const QUESTIONS = [
 		a: "Par mandat administratif, sur facture émise en euros avec TVA française. L'abonnement est facturé à terme échu — mensuellement ou trimestriellement, selon ce qui arrange votre secrétariat — conformément au principe du paiement après service fait."
 	},
 	{
-		q: 'À qui appartient le site une fois livré ?',
-		a: "À la commune. Le nom de domaine est déposé à son nom avec son SIRET dès le départ, les contenus lui appartiennent, et le site livré lui est cédé. Si vous changez de prestataire, nous vous remettons le code source, la base de données et les fichiers, sans frais."
-	},
-	{
 		q: 'Faut-il passer par une mise en concurrence ?',
 		a: "Les montants en jeu se situent très en deçà des seuils de procédure formalisée de la commande publique. Nous vous fournissons un devis détaillé et les pièces habituellement demandées ; votre secrétariat vérifiera le seuil applicable à votre situation."
 	},
@@ -21,12 +17,16 @@ const QUESTIONS = [
 		a: "La prestation d'hébergement et de maintenance prend fin, et nous vous remettons l'intégralité du site pour que vous puissiez le faire héberger ailleurs. Ce que la commune a acheté lui reste acquis : nous ne retenons ni les contenus, ni le domaine, ni le code."
 	},
 	{
-		q: 'Garantissez-vous une conformité RGAA totale ?',
-		a: "Nous garantissons un socle conçu selon le référentiel et audité, les documents réglementaires rédigés et publiés, et un contrôle automatique à chaque publication. En revanche, les contenus que la mairie ajoute relèvent d'elle : un PDF scanné ou une image sans description dégrade la conformité. C'est pourquoi nous bloquons ces cas à la saisie et formons votre secrétariat."
+		q: 'Où sont hébergées les données de la commune ?',
+		a: "En France, sur une infrastructure certifiée SecNumCloud par l'ANSSI — le niveau de certification recherché par les administrations les plus exigeantes en matière de cybersécurité. Aucun transfert hors de l'Union européenne, aucun sous-traitant soumis au CLOUD Act américain : votre chaîne de traitement s'arrête en France, ce qui simplifie votre registre des traitements."
 	},
 	{
-		q: 'Notre secrétariat pourra-t-il publier seul ?',
-		a: "Oui. L'interface ne présente que les champs nécessaires, avec des contrôles qui empêchent les erreurs les plus courantes. La formation dure deux heures et un guide écrit reste à disposition. Si vous préférez que nous publiions à votre place, c'est également possible."
+		q: 'Disposez-vous des documents RGPD nécessaires ?',
+		a: "Oui. Un contrat de sous-traitance conforme à l'article 28 du RGPD, avec la liste des sous-traitants ultérieurs, la localisation des données et les durées de conservation — prêt à être versé à votre registre des traitements."
+	},
+	{
+		q: 'Garantissez-vous une conformité RGAA totale ?',
+		a: "Nous garantissons un socle conçu selon le référentiel et audité, les documents réglementaires rédigés et publiés, et un contrôle automatique à chaque publication. En revanche, les contenus que la mairie ajoute relèvent d'elle : un PDF scanné ou une image sans description dégrade la conformité. C'est pourquoi nous bloquons ces cas à la saisie et formons votre secrétariat."
 	},
 	{
 		q: 'Que devient notre référencement Google ?',

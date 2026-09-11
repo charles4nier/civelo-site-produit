@@ -5,7 +5,7 @@ const CLASS_NAME = 'header';
 const NAV_LINKS = [
 	{ href: '#modeles', label: 'Modèles' },
 	{ href: '#prestation', label: 'Prestation' },
-	{ href: '#accessibilite', label: 'Accessibilité' },
+	{ href: '#faq', label: 'Questions' },
 	{ href: '#contact', label: 'Contact' }
 ];
 
