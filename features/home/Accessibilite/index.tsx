@@ -1,9 +1,7 @@
-import Image from 'next/image';
 import Section from '@shared/components/Section';
 import Eyebrow from '@shared/components/Eyebrow';
 import SectionTitle from '@shared/components/SectionTitle';
 import Reveal from '@shared/components/Reveal';
-import './style.scss';
 
 export default function Accessibilite() {
 	return (
@@ -12,14 +10,6 @@ export default function Accessibilite() {
 				<Reveal>
 					<Eyebrow>Accessibilité numérique</Eyebrow>
 					<SectionTitle>L&apos;accessibilité intégrée au projet.</SectionTitle>
-					<div className="accessibilite__badge">
-						<Image
-							src="/accessibilite-badge.png"
-							alt="Emblème d’accessibilité numérique"
-							width={912}
-							height={912}
-						/>
-					</div>
 				</Reveal>
 				<Reveal delay={120} className="prose-lead">
 					<p>
