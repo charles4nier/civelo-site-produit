@@ -13,7 +13,7 @@ export default function Tarif() {
 	return (
 		<section id="tarif" className={CLASS_NAME}>
 			<div className="container">
-				<p className="eyebrow">Tarif — commune rurale</p>
+				<p className="eyebrow">Tarif — petite commune</p>
 				<div className={`${CLASS_NAME}__cards`}>
 					<div className={`card-soft ${CLASS_NAME}__card`}>
 						<div>
