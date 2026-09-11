@@ -42,7 +42,7 @@ export default function Hero() {
 				</Reveal>
 
 				<Reveal delay={250} className="actions-row">
-					<a className="btn-primary" href="#modeles">
+					<a className="btn-primary btn-primary--on-dark" href="#modeles">
 						Découvrir les modèles
 					</a>
 					<a className="btn-outline btn-outline--on-dark" href="#contact">
