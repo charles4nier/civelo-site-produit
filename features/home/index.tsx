@@ -5,7 +5,7 @@ import Offer from './Offer';
 import Subscription from './Subscription';
 import Models from './Models';
 import Hosting from './Hosting';
-import PriceCompare from './PriceCompare';
+import Reversibilite from './Reversibilite';
 import Process from './Process';
 import FAQ from './FAQ';
 import FinalCTA from './FinalCTA';
@@ -20,7 +20,7 @@ export default function Home() {
 			<Subscription />
 			<Models />
 			<Hosting />
-			<PriceCompare />
+			<Reversibilite />
 			<Process />
 			<FAQ />
 			<FinalCTA />

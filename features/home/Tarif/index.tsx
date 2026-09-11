@@ -23,7 +23,7 @@ export default function Tarif() {
 							</p>
 						</div>
 						<p className={`${CLASS_NAME}__price`}>
-							2 900 € <span>à la livraison</span>
+							2 900 € TTC <span>à la livraison</span>
 						</p>
 					</div>
 					<div className={`card-soft ${CLASS_NAME}__card`}>
@@ -34,13 +34,13 @@ export default function Tarif() {
 							</p>
 						</div>
 						<p className={`${CLASS_NAME}__price`}>
-							59 € <span>par mois</span>
+							59 € TTC <span>par mois</span>
 						</p>
 					</div>
 				</div>
 				<p className={`${CLASS_NAME}__note`}>
-					La commune reste propriétaire de son nom de domaine, de ses contenus et du site
-					livré. Aucun frais de sortie, aucune rétention de données.
+					Tarifs TTC. La commune reste propriétaire de son nom de domaine, de ses contenus
+					et du site livré. Aucun frais de sortie, aucune rétention de données.
 				</p>
 				<dl className={`${CLASS_NAME}__garanties`}>
 					{GARANTIES.map((g) => (

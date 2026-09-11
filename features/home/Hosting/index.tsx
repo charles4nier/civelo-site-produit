@@ -15,8 +15,8 @@ const BLOCKS = [
 		text: "Contrat de sous-traitance conforme à l'article 28 du règlement, liste des sous-traitants ultérieurs, localisation des données et durées de conservation. Prêt à être versé à votre registre des traitements."
 	},
 	{
-		title: 'Réversibilité contractuelle',
-		text: 'À tout moment et sans frais, nous vous remettons l’intégralité du site : code source, base de données et fichiers. Le nom de domaine est déposé à votre nom depuis le premier jour.'
+		title: 'Infrastructure certifiée SecNumCloud',
+		text: "L'hébergement s'appuie sur une zone d'infrastructure certifiée SecNumCloud par l'ANSSI — le niveau de certification recherché par les administrations les plus exigeantes en matière de cybersécurité."
 	}
 ];
 
