@@ -14,7 +14,7 @@ export default function Header() {
 		<header className={CLASS_NAME}>
 			<div className={`container ${CLASS_NAME}__inner`}>
 				<a className={`${CLASS_NAME}__brand`} href="/">
-					Commune<span>.</span>site
+					Civelo
 				</a>
 				<nav className={`${CLASS_NAME}__nav`} aria-label="Navigation principale">
 					{NAV_LINKS.map((link) => (

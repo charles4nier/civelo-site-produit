@@ -18,7 +18,7 @@ export default function Hero() {
 			<div className={`container ${CLASS_NAME}__inner`}>
 				<p className="eyebrow">Sites internet de communes</p>
 				<h1 className={`${CLASS_NAME}__title`}>
-					Le site de votre commune,{' '}
+					Création de site internet pour les communes rurales,{' '}
 					<span className="text-gradient-accent">conforme et tenu à jour</span>.
 				</h1>
 				<p className={`${CLASS_NAME}__lead`}>
