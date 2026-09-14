@@ -1,41 +1,69 @@
 .footer {
 	border-top: 1px solid $color-border;
-	background: $color-background;
+	background: $color-sand;
 
 	&__inner {
 		display: flex;
 		flex-direction: column;
-		align-items: flex-start;
+		gap: 2rem;
+		padding-block: 3.5rem 2rem;
+	}
+
+	&__top {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	&__brand {
+		font-family: $font-display;
+		font-size: 1.5rem;
+		color: $color-foreground;
+		transition: opacity 0.2s ease;
+
+		&:hover {
+			opacity: 0.7;
+		}
+	}
+
+	&__tagline {
+		max-width: 24rem;
+		font-size: 0.9375rem;
+		line-height: 1.5;
+		color: $color-muted-foreground;
+	}
+
+	&__bottom {
+		display: flex;
+		flex-direction: column;
 		gap: 0.75rem;
-		padding-block: 3rem;
+		padding-top: 1.5rem;
+		border-top: 1px solid $color-border;
 
 		@media (min-width: $breakpoint-sm) {
 			flex-direction: row;
 			align-items: center;
 			justify-content: space-between;
-			gap: 1.5rem;
 		}
 	}
 
-	&__brand {
-		font-family: $font-display;
-		font-size: 1.25rem;
-		color: $color-foreground;
+	&__credit,
+	&__legal-link {
+		font-size: 0.8125rem;
+		color: $color-muted-foreground;
 	}
 
-	&__tagline {
-		font-size: 0.875rem;
-		color: $color-ink-soft;
+	&__credit a {
+		color: $color-muted-foreground;
+		text-decoration: underline;
+		text-underline-offset: 3px;
 
-		@media (min-width: $breakpoint-sm) {
-			margin-inline-end: auto;
-			margin-inline-start: 1.5rem;
+		&:hover {
+			color: $color-copper;
 		}
 	}
 
 	&__legal-link {
-		font-size: 0.875rem;
-		color: $color-ink-soft;
 		text-decoration: underline;
 		text-underline-offset: 3px;
 
