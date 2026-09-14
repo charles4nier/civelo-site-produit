@@ -18,6 +18,13 @@ export default function Accessibilite() {
 						dans ses obligations.
 					</p>
 					<p>
+						En tant que service public, le site de votre commune est soumis au RGAA
+						(Référentiel Général d&apos;Amélioration de l&apos;Accessibilité) : nous nous
+						appuyons sur ses critères pour construire les gabarits (contrastes, navigation au
+						clavier, structure des pages) et vous accompagnons dans la déclaration
+						d&apos;accessibilité à publier.
+					</p>
+					<p>
 						Le site est conçu pour faciliter la consultation par le plus grand nombre, quels
 						que soient l&apos;appareil ou les modalités de navigation utilisés.
 					</p>
