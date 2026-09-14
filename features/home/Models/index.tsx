@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Section from '@shared/components/Section';
@@ -29,11 +29,11 @@ const MODELS = [
 		href: 'https://accueillant.civelo.fr/'
 	},
 	{
-		slug: 'app',
+		slug: 'moderne',
 		image: 'prestige',
-		name: 'App',
+		name: 'Moderne',
 		text: 'Une navigation directe et moderne, pensée pour permettre aux habitants de trouver rapidement l’information recherchée.',
-		href: 'https://app.civelo.fr/'
+		href: 'https://moderne.civelo.fr/'
 	},
 	{
 		slug: 'classique',
@@ -46,6 +46,47 @@ const MODELS = [
 
 export default function Models() {
 	const trackRef = useRef<HTMLDivElement>(null);
+	const [activeIndex, setActiveIndex] = useState(0);
+	const [atStart, setAtStart] = useState(true);
+	const [atEnd, setAtEnd] = useState(false);
+
+	const step = () => {
+		const track = trackRef.current;
+		if (!track) return 0;
+		const card = track.querySelector<HTMLElement>(`.${CLASS_NAME}`);
+		if (!card) return 0;
+		const gap = parseFloat(getComputedStyle(track).columnGap || '0');
+		return card.offsetWidth + gap;
+	};
+
+	// Synchronise l'index actif et la visibilité des flèches sur la position
+	// réelle de défilement — couvre aussi bien les clics sur les flèches/dots
+	// que le glisser tactile ou le trackpad, sans dupliquer la logique.
+	useEffect(() => {
+		const track = trackRef.current;
+		if (!track) return;
+		let raf = 0;
+		const onScroll = () => {
+			cancelAnimationFrame(raf);
+			raf = requestAnimationFrame(() => {
+				const s = step();
+				if (s > 0) {
+					const index = Math.round(track.scrollLeft / s);
+					setActiveIndex(Math.min(Math.max(index, 0), MODELS.length - 1));
+				}
+				setAtStart(track.scrollLeft <= 2);
+				setAtEnd(track.scrollLeft >= track.scrollWidth - track.clientWidth - 2);
+			});
+		};
+		onScroll();
+		track.addEventListener('scroll', onScroll, { passive: true });
+		window.addEventListener('resize', onScroll);
+		return () => {
+			track.removeEventListener('scroll', onScroll);
+			window.removeEventListener('resize', onScroll);
+			cancelAnimationFrame(raf);
+		};
+	}, []);
 
 	// Fait défiler d'exactement une carte (largeur de la première carte +
 	// l'écart entre cartes), pas d'une page entière — cohérent avec « 3
@@ -54,10 +95,13 @@ export default function Models() {
 	const scrollByOneCard = (direction: 1 | -1) => {
 		const track = trackRef.current;
 		if (!track) return;
-		const card = track.querySelector<HTMLElement>(`.${CLASS_NAME}`);
-		if (!card) return;
-		const gap = parseFloat(getComputedStyle(track).columnGap || '0');
-		track.scrollBy({ left: direction * (card.offsetWidth + gap), behavior: 'smooth' });
+		track.scrollBy({ left: direction * step(), behavior: 'smooth' });
+	};
+
+	const scrollToIndex = (index: number) => {
+		const track = trackRef.current;
+		if (!track) return;
+		track.scrollTo({ left: index * step(), behavior: 'smooth' });
 	};
 
 	return (
@@ -69,22 +113,26 @@ export default function Models() {
 						<SectionTitle>Choisissez le site qui ressemble à votre commune.</SectionTitle>
 					</div>
 					<div className={`${CLASS_NAME}__nav`}>
-						<button
-							type="button"
-							className={`${CLASS_NAME}__nav-btn`}
-							onClick={() => scrollByOneCard(-1)}
-							aria-label="Modèle précédent"
-						>
-							<ChevronLeft size={18} aria-hidden="true" />
-						</button>
-						<button
-							type="button"
-							className={`${CLASS_NAME}__nav-btn`}
-							onClick={() => scrollByOneCard(1)}
-							aria-label="Modèle suivant"
-						>
-							<ChevronRight size={18} aria-hidden="true" />
-						</button>
+						{!atStart && (
+							<button
+								type="button"
+								className={`${CLASS_NAME}__nav-btn`}
+								onClick={() => scrollByOneCard(-1)}
+								aria-label="Modèle précédent"
+							>
+								<ChevronLeft size={18} aria-hidden="true" />
+							</button>
+						)}
+						{!atEnd && (
+							<button
+								type="button"
+								className={`${CLASS_NAME}__nav-btn`}
+								onClick={() => scrollByOneCard(1)}
+								aria-label="Modèle suivant"
+							>
+								<ChevronRight size={18} aria-hidden="true" />
+							</button>
+						)}
 					</div>
 				</div>
 			</Reveal>
@@ -113,6 +161,20 @@ export default function Models() {
 							</div>
 						</a>
 					</Reveal>
+				))}
+			</div>
+
+			<div className={`${CLASS_NAME}__dots`} role="tablist" aria-label="Aller au modèle">
+				{MODELS.map((model, i) => (
+					<button
+						key={model.slug}
+						type="button"
+						role="tab"
+						aria-selected={i === activeIndex}
+						aria-label={model.name}
+						className={`${CLASS_NAME}__dot${i === activeIndex ? ` ${CLASS_NAME}__dot--active` : ''}`}
+						onClick={() => scrollToIndex(i)}
+					/>
 				))}
 			</div>
 
