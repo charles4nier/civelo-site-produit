@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Section from '@shared/components/Section';
 import Eyebrow from '@shared/components/Eyebrow';
 import SectionTitle from '@shared/components/SectionTitle';
@@ -36,6 +39,14 @@ const QUESTIONS = [
 ];
 
 export default function FAQ() {
+	// Pattern "Disclosure" du WAI-ARIA Authoring Practices : un bouton natif
+	// (focusable et activable au clavier sans rien ajouter) portant
+	// aria-expanded + aria-controls, plutôt que <details>/<summary> — l'état
+	// est ainsi explicite pour les lecteurs d'écran quel que soit le
+	// navigateur, et l'icône +/− peut suivre l'état réel au lieu du
+	// sélecteur CSS [open].
+	const [openIndex, setOpenIndex] = useState<number | null>(null);
+
 	return (
 		<Section id="faq">
 			<Reveal>
@@ -43,19 +54,35 @@ export default function FAQ() {
 				<SectionTitle>Ce que demandent les secrétaires de mairie.</SectionTitle>
 			</Reveal>
 			<div className="faq-list">
-				{QUESTIONS.map((item, i) => (
-					<Reveal key={item.q} delay={i * 60}>
-						<details className="faq-item">
-							<summary>
-								<span>{item.q}</span>
-								<span className="faq-item__icon" aria-hidden>
-									+
-								</span>
-							</summary>
-							<p>{item.a}</p>
-						</details>
-					</Reveal>
-				))}
+				{QUESTIONS.map((item, i) => {
+					const isOpen = openIndex === i;
+					const panelId = `faq-panel-${i}`;
+					const buttonId = `faq-button-${i}`;
+					return (
+						<Reveal key={item.q} delay={i * 60}>
+							<div className="faq-item">
+								<h3 className="faq-item__heading">
+									<button
+										type="button"
+										id={buttonId}
+										className="faq-item__trigger"
+										aria-expanded={isOpen}
+										aria-controls={panelId}
+										onClick={() => setOpenIndex(isOpen ? null : i)}
+									>
+										<span>{item.q}</span>
+										<span className={`faq-item__icon${isOpen ? ' faq-item__icon--open' : ''}`} aria-hidden="true">
+											+
+										</span>
+									</button>
+								</h3>
+								<div id={panelId} role="region" aria-labelledby={buttonId} hidden={!isOpen}>
+									<p>{item.a}</p>
+								</div>
+							</div>
+						</Reveal>
+					);
+				})}
 			</div>
 		</Section>
 	);

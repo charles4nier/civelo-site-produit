@@ -1,0 +1,29 @@
+.legal {
+	max-width: 42rem;
+
+	h1 {
+		font-size: 2rem;
+		line-height: 1.2;
+	}
+
+	h2 {
+		margin-top: 2.5rem;
+		font-size: 1.25rem;
+	}
+
+	p {
+		margin-top: 1rem;
+		line-height: 1.625;
+		color: $color-muted-foreground;
+	}
+
+	a {
+		color: $color-copper;
+		text-decoration: underline;
+		text-underline-offset: 3px;
+
+		&:hover {
+			color: $color-foreground;
+		}
+	}
+}

@@ -7,9 +7,10 @@ export default function Footer() {
 		<footer className={CLASS_NAME}>
 			<div className={`container ${CLASS_NAME}__inner`}>
 				<span className={`${CLASS_NAME}__brand`}>Civelo</span>
-				<p className={`${CLASS_NAME}__tagline`}>
-					Accessibilité : partiellement conforme · Hébergement en France
-				</p>
+				<p className={`${CLASS_NAME}__tagline`}>Sites hébergés en France pour les communes</p>
+				<a className={`${CLASS_NAME}__legal-link`} href="/mentions-legales">
+					Mentions légales
+				</a>
 			</div>
 		</footer>
 	);

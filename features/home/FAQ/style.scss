@@ -12,22 +12,22 @@
 .faq-item {
 	background: $color-background;
 
-	summary {
+	&__heading {
+		font: inherit;
+	}
+
+	&__trigger {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		gap: 1.5rem;
+		width: 100%;
 		padding: 1.5rem 2rem;
-		cursor: pointer;
-		list-style: none;
+		text-align: left;
 		font-family: $font-display;
 		font-size: 1.25rem;
 		color: $color-foreground;
 		transition: color 0.2s ease;
-
-		&::-webkit-details-marker {
-			display: none;
-		}
 
 		&:hover {
 			color: $color-copper;
@@ -39,10 +39,10 @@
 		font-size: 1.25rem;
 		color: $color-copper;
 		transition: transform 0.3s ease;
-	}
 
-	&[open] &__icon {
-		transform: rotate(45deg);
+		&--open {
+			transform: rotate(45deg);
+		}
 	}
 
 	p {

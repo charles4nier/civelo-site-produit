@@ -5,7 +5,12 @@
 $color-background: oklch(1 0 0);
 $color-foreground: oklch(0.24 0.045 255); // ink
 $color-ink-soft: oklch(0.42 0.03 255);
-$color-copper: oklch(0.62 0.11 62);
+// L=0.62 à l'origine ne passait pas le contraste AA (3.75:1 sur blanc) en
+// tant que couleur de texte (eyebrows, liens) — assombri à L=0.54 (5.2:1
+// sur blanc, 4.9:1 sur $color-sand), même teinte/chroma pour rester dans
+// la même famille de couleur. $color-copper-soft (contexte fond sombre)
+// n'est pas concerné : 11.4:1 sur $color-foreground, large marge.
+$color-copper: oklch(0.54 0.11 62);
 $color-copper-soft: oklch(0.88 0.04 70);
 $color-sand: oklch(0.975 0.006 80);
 $color-slate-line: oklch(0.9 0.008 255);
