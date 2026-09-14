@@ -8,8 +8,65 @@
 	background: $color-background;
 	transition: $transition-smooth;
 
-	&__grid {
+	&__header {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-end;
+		justify-content: space-between;
+		gap: 1.5rem;
+	}
+
+	&__nav {
+		display: flex;
+		flex-shrink: 0;
+		gap: 0.75rem;
+	}
+
+	&__nav-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 2.75rem;
+		height: 2.75rem;
+		border: 1px solid $color-border;
+		border-radius: $radius-full;
+		background: $color-background;
+		color: $color-foreground;
+		transition: $transition-smooth;
+
+		&:hover {
+			border-color: color-mix(in oklch, $color-copper 40%, transparent);
+			background: $color-copper-soft;
+		}
+
+		&:focus-visible {
+			outline: 2px solid $color-copper;
+			outline-offset: 2px;
+		}
+	}
+
+	&__track {
+		display: flex;
+		gap: 1.75rem;
 		margin-top: 4rem;
+		overflow-x: auto;
+		scroll-snap-type: x mandatory;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+	}
+
+	&__slide {
+		flex: 0 0 calc((100% - 2 * 1.75rem) / 3);
+		min-width: 0;
+		scroll-snap-align: start;
+
+		@media (max-width: $breakpoint-md) {
+			flex: 0 0 100%;
+		}
 	}
 
 	&:hover {

@@ -1,4 +1,8 @@
+'use client';
+
+import { useRef } from 'react';
 import Image from 'next/image';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Section from '@shared/components/Section';
 import Eyebrow from '@shared/components/Eyebrow';
 import SectionTitle from '@shared/components/SectionTitle';
@@ -30,19 +34,64 @@ const MODELS = [
 		name: 'App',
 		text: 'Une navigation directe et moderne, pensée pour permettre aux habitants de trouver rapidement l’information recherchée.',
 		href: 'https://app.civelo.fr/'
+	},
+	{
+		slug: 'classique',
+		image: 'classique',
+		name: 'Classique',
+		text: 'Une présentation épurée et intemporelle, pensée pour rester lisible et sobre quelle que soit l’évolution du site.',
+		href: 'https://classique.civelo.fr/'
 	}
 ];
 
 export default function Models() {
+	const trackRef = useRef<HTMLDivElement>(null);
+
+	// Fait défiler d'exactement une carte (largeur de la première carte +
+	// l'écart entre cartes), pas d'une page entière — cohérent avec « 3
+	// visibles, un défilement de 1 en 1 » sur desktop comme sur mobile (où
+	// une seule carte est visible à la fois).
+	const scrollByOneCard = (direction: 1 | -1) => {
+		const track = trackRef.current;
+		if (!track) return;
+		const card = track.querySelector<HTMLElement>(`.${CLASS_NAME}`);
+		if (!card) return;
+		const gap = parseFloat(getComputedStyle(track).columnGap || '0');
+		track.scrollBy({ left: direction * (card.offsetWidth + gap), behavior: 'smooth' });
+	};
+
 	return (
 		<Section id="modeles" tinted>
 			<Reveal>
-				<Eyebrow>Les modèles</Eyebrow>
-				<SectionTitle>Choisissez le site qui ressemble à votre commune.</SectionTitle>
+				<div className={`${CLASS_NAME}__header`}>
+					<div>
+						<Eyebrow>Les modèles</Eyebrow>
+						<SectionTitle>Choisissez le site qui ressemble à votre commune.</SectionTitle>
+					</div>
+					<div className={`${CLASS_NAME}__nav`}>
+						<button
+							type="button"
+							className={`${CLASS_NAME}__nav-btn`}
+							onClick={() => scrollByOneCard(-1)}
+							aria-label="Modèle précédent"
+						>
+							<ChevronLeft size={18} aria-hidden="true" />
+						</button>
+						<button
+							type="button"
+							className={`${CLASS_NAME}__nav-btn`}
+							onClick={() => scrollByOneCard(1)}
+							aria-label="Modèle suivant"
+						>
+							<ChevronRight size={18} aria-hidden="true" />
+						</button>
+					</div>
+				</div>
 			</Reveal>
-			<div className={`grid grid--3 ${CLASS_NAME}__grid`}>
+
+			<div className={`${CLASS_NAME}__track`} ref={trackRef}>
 				{MODELS.map((model, i) => (
-					<Reveal key={model.slug} as="article" delay={i * 110}>
+					<Reveal key={model.slug} as="article" delay={i * 110} className={`${CLASS_NAME}__slide`}>
 						<a
 							className={CLASS_NAME}
 							href={model.href}
@@ -66,9 +115,10 @@ export default function Models() {
 					</Reveal>
 				))}
 			</div>
+
 			<Reveal delay={120}>
 				<p className={`${CLASS_NAME}__note`}>
-					Les trois modèles disposent des mêmes fonctionnalités. La différence se trouve
+					Les quatre modèles disposent des mêmes fonctionnalités. La différence se trouve
 					principalement dans leur présentation et leur navigation.
 				</p>
 			</Reveal>
