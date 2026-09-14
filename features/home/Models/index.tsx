@@ -47,6 +47,13 @@ const MODELS = [
 export default function Models() {
 	const trackRef = useRef<HTMLDivElement>(null);
 	const [activeIndex, setActiveIndex] = useState(0);
+	// Nombre de positions de défilement réellement atteignables — pas un par
+	// modèle : avec 3 cartes visibles sur desktop pour 4 modèles, il n'y a
+	// que 2 positions possibles (0 et 1), donc 2 dots ; en mobile (1 carte
+	// visible), les 4 positions existent, donc 4 dots. Mesuré dynamiquement
+	// plutôt que codé en dur par breakpoint, pour rester juste à toute
+	// largeur d'écran.
+	const [dotsCount, setDotsCount] = useState(MODELS.length);
 	const [atStart, setAtStart] = useState(true);
 	const [atEnd, setAtEnd] = useState(false);
 
@@ -71,8 +78,10 @@ export default function Models() {
 			raf = requestAnimationFrame(() => {
 				const s = step();
 				if (s > 0) {
+					const maxIndex = Math.max(0, Math.round((track.scrollWidth - track.clientWidth) / s));
+					setDotsCount(maxIndex + 1);
 					const index = Math.round(track.scrollLeft / s);
-					setActiveIndex(Math.min(Math.max(index, 0), MODELS.length - 1));
+					setActiveIndex(Math.min(Math.max(index, 0), maxIndex));
 				}
 				setAtStart(track.scrollLeft <= 2);
 				setAtEnd(track.scrollLeft >= track.scrollWidth - track.clientWidth - 2);
@@ -150,7 +159,7 @@ export default function Models() {
 									src={`/${model.image}.jpg`}
 									alt={`Aperçu du modèle ${model.name}`}
 									fill
-									sizes="(min-width: 640px) 640px, 100vw"
+									sizes="(min-width: 1024px) 33vw, 100vw"
 								/>
 							</div>
 							<div className={`${CLASS_NAME}__body`}>
@@ -164,13 +173,13 @@ export default function Models() {
 			</div>
 
 			<div className={`${CLASS_NAME}__dots`} role="tablist" aria-label="Aller au modèle">
-				{MODELS.map((model, i) => (
+				{Array.from({ length: dotsCount }, (_, i) => (
 					<button
-						key={model.slug}
+						key={i}
 						type="button"
 						role="tab"
 						aria-selected={i === activeIndex}
-						aria-label={model.name}
+						aria-label={`Modèles, position ${i + 1} sur ${dotsCount}`}
 						className={`${CLASS_NAME}__dot${i === activeIndex ? ` ${CLASS_NAME}__dot--active` : ''}`}
 						onClick={() => scrollToIndex(i)}
 					/>
