@@ -89,9 +89,8 @@ export default function Models() {
 	}, []);
 
 	// Fait défiler d'exactement une carte (largeur de la première carte +
-	// l'écart entre cartes), pas d'une page entière — cohérent avec « 3
-	// visibles, un défilement de 1 en 1 » sur desktop comme sur mobile (où
-	// une seule carte est visible à la fois).
+	// l'écart entre cartes) — une seule carte visible à la fois, sur tous
+	// les écrans.
 	const scrollByOneCard = (direction: 1 | -1) => {
 		const track = trackRef.current;
 		if (!track) return;
@@ -113,26 +112,26 @@ export default function Models() {
 						<SectionTitle>Choisissez le site qui ressemble à votre commune.</SectionTitle>
 					</div>
 					<div className={`${CLASS_NAME}__nav`}>
-						{!atStart && (
-							<button
-								type="button"
-								className={`${CLASS_NAME}__nav-btn`}
-								onClick={() => scrollByOneCard(-1)}
-								aria-label="Modèle précédent"
-							>
-								<ChevronLeft size={18} aria-hidden="true" />
-							</button>
-						)}
-						{!atEnd && (
-							<button
-								type="button"
-								className={`${CLASS_NAME}__nav-btn`}
-								onClick={() => scrollByOneCard(1)}
-								aria-label="Modèle suivant"
-							>
-								<ChevronRight size={18} aria-hidden="true" />
-							</button>
-						)}
+						<button
+							type="button"
+							className={`${CLASS_NAME}__nav-btn${atStart ? ` ${CLASS_NAME}__nav-btn--hidden` : ''}`}
+							onClick={() => scrollByOneCard(-1)}
+							aria-hidden={atStart}
+							tabIndex={atStart ? -1 : 0}
+							aria-label="Modèle précédent"
+						>
+							<ChevronLeft size={18} aria-hidden="true" />
+						</button>
+						<button
+							type="button"
+							className={`${CLASS_NAME}__nav-btn${atEnd ? ` ${CLASS_NAME}__nav-btn--hidden` : ''}`}
+							onClick={() => scrollByOneCard(1)}
+							aria-hidden={atEnd}
+							tabIndex={atEnd ? -1 : 0}
+							aria-label="Modèle suivant"
+						>
+							<ChevronRight size={18} aria-hidden="true" />
+						</button>
 					</div>
 				</div>
 			</Reveal>
@@ -151,7 +150,7 @@ export default function Models() {
 									src={`/${model.image}.jpg`}
 									alt={`Aperçu du modèle ${model.name}`}
 									fill
-									sizes="(min-width: 1024px) 33vw, 100vw"
+									sizes="(min-width: 640px) 640px, 100vw"
 								/>
 							</div>
 							<div className={`${CLASS_NAME}__body`}>
