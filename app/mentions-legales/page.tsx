@@ -17,12 +17,14 @@ export default function MentionsLegales() {
 
 				<h2>Éditeur du site</h2>
 				<p>
-					{/* À COMPLÉTER : raison sociale exacte, forme juridique, capital social le
-					cas échéant, adresse du siège, SIREN/SIRET, et le nom du directeur ou de
-					la directrice de la publication (généralement le gérant ou la gérante). */}
-					[À compléter — raison sociale, forme juridique, adresse du siège, SIRET]
+					Civelo est un produit édité par Studio Web15, entreprise individuelle
+					(micro-entrepreneur).
 					<br />
-					Directeur·rice de la publication : [à compléter]
+					Studio Web15 — 2 chemin de Patay, 15000 Aurillac
+					<br />
+					SIRET : 752 532 234 — TVA non applicable, art. 293 B du CGI
+					<br />
+					Directeur de la publication : Charles Fournier
 					<br />
 					Contact : <a href="mailto:contact@civelo.fr">contact@civelo.fr</a>
 				</p>
