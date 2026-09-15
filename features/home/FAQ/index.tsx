@@ -30,7 +30,7 @@ const QUESTIONS = [
 	},
 	{
 		q: 'Garantissez-vous une conformité RGAA totale ?',
-		a: "Nous garantissons un socle conçu selon le référentiel et audité, les documents réglementaires rédigés et publiés, et un contrôle automatique à chaque publication. En revanche, les contenus que la mairie ajoute relèvent d'elle : un PDF scanné ou une image sans description dégrade la conformité. C'est pourquoi nous bloquons ces cas à la saisie et formons votre secrétariat."
+		a: "Nous garantissons un socle conçu selon le référentiel et audité, les documents réglementaires rédigés et publiés, et un contrôle automatique à chaque publication. En revanche, les contenus que la mairie ajoute relèvent d'elle : une image sans description dégrade la conformité, c'est pourquoi ce champ est obligatoire à la saisie. Un contrôle équivalent pour les PDF scannés est en cours de déploiement ; en attendant, nous formons votre secrétariat à ce point de vigilance."
 	},
 	{
 		q: 'Que devient notre référencement Google ?',
