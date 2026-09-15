@@ -1,4 +1,5 @@
 import Logo from '@shared/components/Logo';
+import CopyEmailLink from '@shared/components/CopyEmailLink';
 import './style.scss';
 
 const CLASS_NAME = 'footer';
@@ -17,9 +18,9 @@ export default function Footer() {
 					<p className={`${CLASS_NAME}__tagline`}>
 						Des sites internet pour les communes, hébergés en France.
 					</p>
-					<a className={`${CLASS_NAME}__email`} href="mailto:contact@civelo.fr">
+					<CopyEmailLink email="contact@civelo.fr" className={`${CLASS_NAME}__email`}>
 						contact@civelo.fr
-					</a>
+					</CopyEmailLink>
 				</div>
 				<div className={`${CLASS_NAME}__bottom`}>
 					<p className={`${CLASS_NAME}__credit`}>

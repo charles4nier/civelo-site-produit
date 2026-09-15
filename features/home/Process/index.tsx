@@ -7,7 +7,7 @@ import './style.scss';
 const STEPS = [
 	{
 		title: 'Vous choisissez votre modèle',
-		text: 'Édito, Accueillant ou App : vous choisissez la présentation qui correspond le mieux à votre commune.'
+		text: 'Édito, Accueillant, Moderne ou Classique : vous choisissez la présentation qui correspond le mieux à votre commune.'
 	},
 	{
 		title: 'Nous préparons les contenus',
