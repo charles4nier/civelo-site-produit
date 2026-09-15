@@ -26,9 +26,6 @@ export default function FinalCTA() {
 					<CopyEmailLink email="contact@civelo.fr" className="link-underline">
 						Nous écrire
 					</CopyEmailLink>
-					<a className="link-underline" href="tel:+33000000000">
-						Nous appeler
-					</a>
 				</Reveal>
 				<Reveal delay={220}>
 					<p className="final-cta__note">Réponse sous 48 heures ouvrées</p>

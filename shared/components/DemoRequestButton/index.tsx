@@ -14,11 +14,12 @@ type Props = { className?: string; children: ReactNode };
 // réellement le message, exactement comme le lien mailto qu'il remplace.
 // Ça ne change donc rien à ce qu'annoncent les mentions légales ("vous
 // nous écrivez directement").
-function buildMailto(data: { prenom: string; nom: string; mairie: string; telephone: string }) {
+function buildMailto(data: { prenom: string; nom: string; mairie: string; email: string; telephone: string }) {
 	const body = [
 		`Prénom : ${data.prenom}`,
 		`Nom : ${data.nom}`,
 		`Mairie concernée : ${data.mairie}`,
+		`E-mail : ${data.email}`,
 		`Téléphone : ${data.telephone}`
 	].join('\n');
 	const params = new URLSearchParams({ subject: 'Demande de démonstration', body });
@@ -73,6 +74,7 @@ export default function DemoRequestButton({ className, children }: Props) {
 			prenom: String(form.get('prenom') || ''),
 			nom: String(form.get('nom') || ''),
 			mairie: String(form.get('mairie') || ''),
+			email: String(form.get('email') || ''),
 			telephone: String(form.get('telephone') || '')
 		});
 		close();
@@ -119,6 +121,10 @@ export default function DemoRequestButton({ className, children }: Props) {
 								<label className={`${CLASS_NAME}__field`}>
 									<span>Mairie concernée</span>
 									<input type="text" name="mairie" required autoComplete="organization" />
+								</label>
+								<label className={`${CLASS_NAME}__field`}>
+									<span>E-mail</span>
+									<input type="email" name="email" required autoComplete="email" />
 								</label>
 								<label className={`${CLASS_NAME}__field`}>
 									<span>Téléphone</span>
