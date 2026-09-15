@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Reveal from '@shared/components/Reveal';
+import DemoRequestButton from '@shared/components/DemoRequestButton';
 import './style.scss';
 
 const CLASS_NAME = 'hero';
@@ -40,9 +41,9 @@ export default function Hero() {
 					<a className="btn-primary btn-primary--on-dark" href="#modeles">
 						Découvrir les modèles
 					</a>
-					<a className="btn-outline btn-outline--on-dark" href="#contact">
+					<DemoRequestButton className="btn-outline btn-outline--on-dark">
 						Demander une présentation →
-					</a>
+					</DemoRequestButton>
 				</Reveal>
 			</div>
 		</section>

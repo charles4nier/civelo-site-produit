@@ -2,6 +2,7 @@ import Section from '@shared/components/Section';
 import Eyebrow from '@shared/components/Eyebrow';
 import SectionTitle from '@shared/components/SectionTitle';
 import Reveal from '@shared/components/Reveal';
+import DemoRequestButton from '@shared/components/DemoRequestButton';
 import './style.scss';
 
 const STEPS = [
@@ -49,9 +50,9 @@ export default function Process() {
 				<a className="btn-primary" href="#modeles">
 					Découvrir les modèles
 				</a>
-				<a className="btn-outline" href="#contact">
+				<DemoRequestButton className="btn-outline">
 					Demander une présentation →
-				</a>
+				</DemoRequestButton>
 			</Reveal>
 		</Section>
 	);
