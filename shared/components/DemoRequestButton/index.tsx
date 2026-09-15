@@ -129,16 +129,14 @@ export default function DemoRequestButton({ className, children }: Props) {
 										Quelques informations pour organiser une démonstration avec votre commune.
 									</p>
 									<form className={`${CLASS_NAME}__form`} onSubmit={onSubmit}>
-										<div className={`${CLASS_NAME}__row`}>
-											<label className={`${CLASS_NAME}__field`}>
-												<span>Prénom</span>
-												<input ref={firstFieldRef} type="text" name="prenom" required autoComplete="given-name" />
-											</label>
-											<label className={`${CLASS_NAME}__field`}>
-												<span>Nom</span>
-												<input type="text" name="nom" required autoComplete="family-name" />
-											</label>
-										</div>
+										<label className={`${CLASS_NAME}__field`}>
+											<span>Prénom</span>
+											<input ref={firstFieldRef} type="text" name="prenom" required autoComplete="given-name" />
+										</label>
+										<label className={`${CLASS_NAME}__field`}>
+											<span>Nom</span>
+											<input type="text" name="nom" required autoComplete="family-name" />
+										</label>
 										<label className={`${CLASS_NAME}__field`}>
 											<span>Mairie concernée</span>
 											<input type="text" name="mairie" required autoComplete="organization" />

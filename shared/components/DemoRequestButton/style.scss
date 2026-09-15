@@ -66,16 +66,6 @@
 		margin-top: 1.5rem;
 	}
 
-	&__row {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 1rem;
-
-		@media (max-width: $breakpoint-sm) {
-			grid-template-columns: 1fr;
-		}
-	}
-
 	&__field {
 		display: flex;
 		flex-direction: column;
