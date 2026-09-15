@@ -24,7 +24,7 @@ export default function Reversibilite() {
 				</Reveal>
 				<Reveal delay={120} className="prose-lead prose-lead--on-dark">
 					<p>Les 3 490 € ne correspondent pas à un simple droit d&apos;accès.</p>
-					<p className="text-strong-on-dark">Vous achetez réellement votre site.</p>
+					<p className="text-strong-on-dark">Vous achetez réellement votre site, vous en êtes propriétaire.</p>
 					<p>
 						La commune dispose du site complet, de son interface d&apos;administration, de
 						son code source et de ses données.
