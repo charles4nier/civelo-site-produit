@@ -13,6 +13,13 @@ const CLASS_NAME = 'model-card';
 
 const MODELS = [
 	{
+		slug: 'classique',
+		image: 'classique',
+		name: 'Classique',
+		text: 'Une présentation épurée et intemporelle, pensée pour rester lisible et sobre quelle que soit l’évolution du site.',
+		href: 'https://classique.civelo.fr/'
+	},
+	{
 		slug: 'edito',
 		// Image conservée sous son ancien nom de fichier (public/civique.jpg) —
 		// seuls le nom affiché et le lien de démo changent.
@@ -34,13 +41,6 @@ const MODELS = [
 		name: 'Moderne',
 		text: 'Une navigation directe et moderne, pensée pour permettre aux habitants de trouver rapidement l’information recherchée.',
 		href: 'https://moderne.civelo.fr/'
-	},
-	{
-		slug: 'classique',
-		image: 'classique',
-		name: 'Classique',
-		text: 'Une présentation épurée et intemporelle, pensée pour rester lisible et sobre quelle que soit l’évolution du site.',
-		href: 'https://classique.civelo.fr/'
 	}
 ];
 

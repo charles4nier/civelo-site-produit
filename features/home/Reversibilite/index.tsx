@@ -23,7 +23,7 @@ export default function Reversibilite() {
 					<SectionTitle dark>Et ce site appartient à votre commune.</SectionTitle>
 				</Reveal>
 				<Reveal delay={120} className="prose-lead prose-lead--on-dark">
-					<p>Les 2 900 € ne correspondent pas à un simple droit d&apos;accès.</p>
+					<p>Les 3 490 € ne correspondent pas à un simple droit d&apos;accès.</p>
 					<p className="text-strong-on-dark">Vous achetez réellement votre site.</p>
 					<p>
 						La commune dispose du site complet, de son interface d&apos;administration, de

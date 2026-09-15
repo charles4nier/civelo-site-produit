@@ -20,8 +20,8 @@ const DELIVERABLES = [
 		text: 'Nous préparons le site, effectuons les vérifications prévues dans la prestation et assurons sa mise en ligne.'
 	},
 	{
-		title: 'La formation de votre secrétariat',
-		text: 'Votre équipe apprend à publier une actualité, ajouter un document, modifier une page ou mettre à jour une information.'
+		title: 'La formation et l’accompagnement de votre secrétariat',
+		text: 'Votre équipe apprend à publier une actualité, ajouter un document, modifier une page ou mettre à jour une information — autonome et opérationnelle dès la mise en ligne.'
 	}
 ];
 
@@ -30,7 +30,7 @@ export default function Offer() {
 		<Section id="prestation">
 			<Reveal>
 				<Eyebrow>Ce que comprend la prestation</Eyebrow>
-				<SectionTitle>2 900 € TTC pour créer votre nouveau site.</SectionTitle>
+				<SectionTitle>3 490 € TTC pour créer votre nouveau site.</SectionTitle>
 				<p className="section-intro">
 					Un tarif clair pour passer de votre site actuel à un nouveau site prêt à être
 					utilisé par la commune.
