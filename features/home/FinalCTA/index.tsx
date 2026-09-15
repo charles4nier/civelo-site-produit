@@ -1,6 +1,7 @@
 import Section from '@shared/components/Section';
 import Reveal from '@shared/components/Reveal';
 import DemoRequestButton from '@shared/components/DemoRequestButton';
+import CopyEmailLink from '@shared/components/CopyEmailLink';
 import './style.scss';
 
 export default function FinalCTA() {
@@ -22,6 +23,9 @@ export default function FinalCTA() {
 					<DemoRequestButton className="btn-primary btn-primary--on-dark">
 						Demander une démonstration
 					</DemoRequestButton>
+					<CopyEmailLink email="contact@civelo.fr" className="link-underline">
+						Nous écrire
+					</CopyEmailLink>
 					<a className="link-underline" href="tel:+33000000000">
 						Nous appeler
 					</a>
