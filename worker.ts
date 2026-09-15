@@ -9,8 +9,6 @@ export interface Env {
 }
 
 type ContactPayload = {
-	prenom?: string;
-	nom?: string;
 	mairie?: string;
 	email?: string;
 	telephone?: string;
@@ -49,8 +47,8 @@ async function handleContact(request: Request, env: Env): Promise<Response> {
 		return json({ ok: true });
 	}
 
-	const { prenom, nom, mairie, email, telephone } = data;
-	if (!prenom?.trim() || !nom?.trim() || !mairie?.trim() || !email?.trim() || !telephone?.trim()) {
+	const { mairie, email, telephone } = data;
+	if (!mairie?.trim() || !email?.trim() || !telephone?.trim()) {
 		return json({ error: 'Tous les champs sont requis.' }, 400);
 	}
 	if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -68,13 +66,7 @@ async function handleContact(request: Request, env: Env): Promise<Response> {
 			to: 'contact@civelo.fr',
 			reply_to: email,
 			subject: `Demande de démonstration — ${mairie}`,
-			text: [
-				`Prénom : ${prenom}`,
-				`Nom : ${nom}`,
-				`Mairie concernée : ${mairie}`,
-				`E-mail : ${email}`,
-				`Téléphone : ${telephone}`
-			].join('\n')
+			text: [`Mairie concernée : ${mairie}`, `E-mail : ${email}`, `Téléphone : ${telephone}`].join('\n')
 		})
 	});
 

@@ -51,8 +51,8 @@ export default function MentionsLegales() {
 				<p>
 					Ce site ne dépose aucun cookie et n&apos;utilise aucun outil de mesure
 					d&apos;audience. La seule donnée personnelle traitée est celle que vous
-					transmettez volontairement via le formulaire de demande de démonstration (prénom,
-					nom, mairie concernée, e-mail, téléphone).
+					transmettez volontairement via le formulaire de demande de démonstration (mairie
+					concernée, e-mail, téléphone).
 				</p>
 				<p>
 					Ces informations sont utilisées uniquement pour répondre à votre demande. Elles

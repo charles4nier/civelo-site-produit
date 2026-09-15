@@ -4,6 +4,7 @@ out/
 .wrangler/
 .env
 .env.local
+.dev.vars
 *.log
 .DS_Store
 tsconfig.tsbuildinfo

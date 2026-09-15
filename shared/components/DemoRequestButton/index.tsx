@@ -68,8 +68,6 @@ export default function DemoRequestButton({ className, children }: Props) {
 				method: 'POST',
 				headers: { 'content-type': 'application/json' },
 				body: JSON.stringify({
-					prenom: String(form.get('prenom') || ''),
-					nom: String(form.get('nom') || ''),
 					mairie: String(form.get('mairie') || ''),
 					email: String(form.get('email') || ''),
 					telephone: String(form.get('telephone') || ''),
@@ -130,16 +128,8 @@ export default function DemoRequestButton({ className, children }: Props) {
 									</p>
 									<form className={`${CLASS_NAME}__form`} onSubmit={onSubmit}>
 										<label className={`${CLASS_NAME}__field`}>
-											<span>Prénom</span>
-											<input ref={firstFieldRef} type="text" name="prenom" required autoComplete="given-name" />
-										</label>
-										<label className={`${CLASS_NAME}__field`}>
-											<span>Nom</span>
-											<input type="text" name="nom" required autoComplete="family-name" />
-										</label>
-										<label className={`${CLASS_NAME}__field`}>
 											<span>Mairie concernée</span>
-											<input type="text" name="mairie" required autoComplete="organization" />
+											<input ref={firstFieldRef} type="text" name="mairie" required autoComplete="organization" />
 										</label>
 										<label className={`${CLASS_NAME}__field`}>
 											<span>E-mail</span>
