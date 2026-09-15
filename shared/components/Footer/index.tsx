@@ -10,6 +10,7 @@ export default function Footer() {
 			<div className={`container ${CLASS_NAME}__inner`}>
 				<div className={`${CLASS_NAME}__top`}>
 					<a className={`${CLASS_NAME}__brand`} href="/">
+						<img src="/logo.svg" alt="" width={24} height={24} />
 						Civelo
 					</a>
 					<p className={`${CLASS_NAME}__tagline`}>

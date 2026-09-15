@@ -32,6 +32,9 @@ export const defaultMetadata = {
 	alternates: {
 		canonical: '/'
 	},
+	icons: {
+		icon: '/logo.svg'
+	},
 	openGraph: {
 		type: 'website',
 		locale: 'fr_FR',
