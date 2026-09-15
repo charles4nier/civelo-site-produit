@@ -6,8 +6,7 @@ const CLASS_NAME = 'header';
 const NAV_LINKS = [
 	{ href: '#modeles', label: 'Modèles' },
 	{ href: '#prestation', label: 'Prestation' },
-	{ href: '#faq', label: 'Questions' },
-	{ href: '#contact', label: 'Contact' }
+	{ href: '#faq', label: 'Questions' }
 ];
 
 export default function Header() {
