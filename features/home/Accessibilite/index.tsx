@@ -28,9 +28,6 @@ export default function Accessibilite() {
 						Le site est conçu pour faciliter la consultation par le plus grand nombre, quels
 						que soient l&apos;appareil ou les modalités de navigation utilisés.
 					</p>
-					<a className="link-arrow" href="#accessibilite">
-						Voir notre démarche d&apos;accessibilité →
-					</a>
 				</Reveal>
 			</div>
 		</Section>
