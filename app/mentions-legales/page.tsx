@@ -49,11 +49,21 @@ export default function MentionsLegales() {
 
 				<h2>Données personnelles</h2>
 				<p>
-					Ce site ne collecte aucune donnée personnelle : il ne contient ni formulaire, ni
-					cookie, ni traceur, ni outil de mesure d&apos;audience. Nous ne recevons vos
-					coordonnées que si vous nous écrivez directement, par exemple à l&apos;adresse{' '}
-					<a href="mailto:contact@civelo.fr">contact@civelo.fr</a>, auquel cas elles ne
-					servent qu&apos;à vous répondre et ne sont transmises à personne d&apos;autre.
+					Ce site ne dépose aucun cookie et n&apos;utilise aucun outil de mesure
+					d&apos;audience. La seule donnée personnelle traitée est celle que vous
+					transmettez volontairement via le formulaire de demande de démonstration (prénom,
+					nom, mairie concernée, e-mail, téléphone).
+				</p>
+				<p>
+					Ces informations sont utilisées uniquement pour répondre à votre demande. Elles
+					sont transmises par e-mail via Resend (prestataire d&apos;envoi d&apos;e-mails,
+					basé aux États-Unis), et conservées le temps nécessaire au traitement de votre
+					demande puis à la relation commerciale, sans être cédées à un tiers.
+				</p>
+				<p>
+					Conformément au RGPD, vous disposez d&apos;un droit d&apos;accès, de
+					rectification et d&apos;effacement de vos données : il vous suffit d&apos;en
+					faire la demande à <a href="mailto:contact@civelo.fr">contact@civelo.fr</a>.
 				</p>
 				<p>
 					Le traitement des données des habitants et des agents sur le site propre à

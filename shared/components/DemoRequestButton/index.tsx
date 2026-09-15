@@ -7,27 +7,12 @@ import './style.scss';
 const CLASS_NAME = 'demo-modal';
 
 type Props = { className?: string; children: ReactNode };
-
-// Pas de backend sur ce site (export statique, aucune route API) : le
-// formulaire ne fait qu'assembler un mailto: pré-rempli vers
-// contact@civelo.fr — c'est le client mail du visiteur qui envoie
-// réellement le message, exactement comme le lien mailto qu'il remplace.
-// Ça ne change donc rien à ce qu'annoncent les mentions légales ("vous
-// nous écrivez directement").
-function buildMailto(data: { prenom: string; nom: string; mairie: string; email: string; telephone: string }) {
-	const body = [
-		`Prénom : ${data.prenom}`,
-		`Nom : ${data.nom}`,
-		`Mairie concernée : ${data.mairie}`,
-		`E-mail : ${data.email}`,
-		`Téléphone : ${data.telephone}`
-	].join('\n');
-	const params = new URLSearchParams({ subject: 'Demande de démonstration', body });
-	return `mailto:contact@civelo.fr?${params.toString().replace(/\+/g, '%20')}`;
-}
+type Status = 'idle' | 'sending' | 'success' | 'error';
 
 export default function DemoRequestButton({ className, children }: Props) {
 	const [open, setOpen] = useState(false);
+	const [status, setStatus] = useState<Status>('idle');
+	const [errorMessage, setErrorMessage] = useState('');
 	const dialogRef = useRef<HTMLDivElement>(null);
 	const triggerRef = useRef<HTMLButtonElement>(null);
 	const firstFieldRef = useRef<HTMLInputElement>(null);
@@ -36,6 +21,12 @@ export default function DemoRequestButton({ className, children }: Props) {
 	const close = () => {
 		setOpen(false);
 		triggerRef.current?.focus();
+		// Laisse le temps à la transition de fermeture avant de réinitialiser,
+		// pour ne pas voir le formulaire "sauter" pendant qu'il disparaît.
+		setTimeout(() => {
+			setStatus('idle');
+			setErrorMessage('');
+		}, 200);
 	};
 
 	useEffect(() => {
@@ -67,17 +58,33 @@ export default function DemoRequestButton({ className, children }: Props) {
 		return () => document.removeEventListener('keydown', onKeyDown);
 	}, [open]);
 
-	const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+	const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 		const form = new FormData(e.currentTarget);
-		window.location.href = buildMailto({
-			prenom: String(form.get('prenom') || ''),
-			nom: String(form.get('nom') || ''),
-			mairie: String(form.get('mairie') || ''),
-			email: String(form.get('email') || ''),
-			telephone: String(form.get('telephone') || '')
-		});
-		close();
+		setStatus('sending');
+		setErrorMessage('');
+		try {
+			const res = await fetch('/api/contact', {
+				method: 'POST',
+				headers: { 'content-type': 'application/json' },
+				body: JSON.stringify({
+					prenom: String(form.get('prenom') || ''),
+					nom: String(form.get('nom') || ''),
+					mairie: String(form.get('mairie') || ''),
+					email: String(form.get('email') || ''),
+					telephone: String(form.get('telephone') || ''),
+					site: String(form.get('site') || '')
+				})
+			});
+			if (!res.ok) {
+				const data = await res.json().catch(() => null);
+				throw new Error(data?.error || "L'envoi a échoué.");
+			}
+			setStatus('success');
+		} catch (err) {
+			setStatus('error');
+			setErrorMessage(err instanceof Error ? err.message : "L'envoi a échoué.");
+		}
 	};
 
 	return (
@@ -99,41 +106,67 @@ export default function DemoRequestButton({ className, children }: Props) {
 							<button type="button" className={`${CLASS_NAME}__close`} onClick={close} aria-label="Fermer">
 								×
 							</button>
-							<h2 id={titleId} className={`${CLASS_NAME}__title`}>
-								Demander une démonstration
-							</h2>
-							<p className={`${CLASS_NAME}__lead`}>
-								Ces informations ouvriront un e-mail pré-rempli vers{' '}
-								<span className={`${CLASS_NAME}__email`}>contact@civelo.fr</span>, à envoyer depuis
-								votre messagerie.
-							</p>
-							<form className={`${CLASS_NAME}__form`} onSubmit={onSubmit}>
-								<div className={`${CLASS_NAME}__row`}>
-									<label className={`${CLASS_NAME}__field`}>
-										<span>Prénom</span>
-										<input ref={firstFieldRef} type="text" name="prenom" required autoComplete="given-name" />
-									</label>
-									<label className={`${CLASS_NAME}__field`}>
-										<span>Nom</span>
-										<input type="text" name="nom" required autoComplete="family-name" />
-									</label>
-								</div>
-								<label className={`${CLASS_NAME}__field`}>
-									<span>Mairie concernée</span>
-									<input type="text" name="mairie" required autoComplete="organization" />
-								</label>
-								<label className={`${CLASS_NAME}__field`}>
-									<span>E-mail</span>
-									<input type="email" name="email" required autoComplete="email" />
-								</label>
-								<label className={`${CLASS_NAME}__field`}>
-									<span>Téléphone</span>
-									<input type="tel" name="telephone" required autoComplete="tel" />
-								</label>
-								<button type="submit" className="btn-primary">
-									Envoyer la demande
-								</button>
-							</form>
+
+							{status === 'success' ? (
+								<>
+									<h2 id={titleId} className={`${CLASS_NAME}__title`}>
+										Demande envoyée
+									</h2>
+									<p className={`${CLASS_NAME}__lead`}>
+										Merci, votre demande nous est bien parvenue. Nous revenons vers vous sous 48
+										heures ouvrées.
+									</p>
+									<button type="button" className="btn-primary" onClick={close}>
+										Fermer
+									</button>
+								</>
+							) : (
+								<>
+									<h2 id={titleId} className={`${CLASS_NAME}__title`}>
+										Demander une démonstration
+									</h2>
+									<p className={`${CLASS_NAME}__lead`}>
+										Quelques informations pour organiser une démonstration avec votre commune.
+									</p>
+									<form className={`${CLASS_NAME}__form`} onSubmit={onSubmit}>
+										<div className={`${CLASS_NAME}__row`}>
+											<label className={`${CLASS_NAME}__field`}>
+												<span>Prénom</span>
+												<input ref={firstFieldRef} type="text" name="prenom" required autoComplete="given-name" />
+											</label>
+											<label className={`${CLASS_NAME}__field`}>
+												<span>Nom</span>
+												<input type="text" name="nom" required autoComplete="family-name" />
+											</label>
+										</div>
+										<label className={`${CLASS_NAME}__field`}>
+											<span>Mairie concernée</span>
+											<input type="text" name="mairie" required autoComplete="organization" />
+										</label>
+										<label className={`${CLASS_NAME}__field`}>
+											<span>E-mail</span>
+											<input type="email" name="email" required autoComplete="email" />
+										</label>
+										<label className={`${CLASS_NAME}__field`}>
+											<span>Téléphone</span>
+											<input type="tel" name="telephone" required autoComplete="tel" />
+										</label>
+										{/* Piège à bots : jamais visible ni annoncé, un humain ne le remplit jamais. */}
+										<label className={`${CLASS_NAME}__honeypot`} aria-hidden="true">
+											<span>Site web</span>
+											<input type="text" name="site" tabIndex={-1} autoComplete="off" />
+										</label>
+										{status === 'error' && (
+										<p className={`${CLASS_NAME}__error`} role="alert">
+											{errorMessage}
+										</p>
+									)}
+										<button type="submit" className="btn-primary" disabled={status === 'sending'}>
+											{status === 'sending' ? 'Envoi…' : 'Envoyer la demande'}
+										</button>
+									</form>
+								</>
+							)}
 						</div>
 					</div>,
 					document.body

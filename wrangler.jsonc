@@ -1,12 +1,14 @@
 {
-	// Worker "assets-only" : pas de script serveur (`main`), juste les
-	// fichiers statiques générés par `next build` (output: 'export', voir
-	// next.config.mjs) servis directement par Cloudflare — gratuit et
-	// illimité en requêtes sur le plan Workers Free.
+	// Worker "assets + API" : sert les fichiers statiques générés par
+	// `next build` (output: 'export', voir next.config.mjs) pour toutes les
+	// routes, sauf POST /api/contact intercepté par worker.ts pour appeler
+	// Resend côté serveur (formulaire de demande de démonstration).
 	"name": "civelo-site-produit",
+	"main": "worker.ts",
 	"compatibility_date": "2026-09-11",
 	"assets": {
 		"directory": "./out",
+		"binding": "ASSETS",
 		// Sert le vrai fichier 404.html généré par Next (page non trouvée),
 		// plutôt que de retomber sur index.html (ce dernier comportement,
 		// "single-page-application", ne convient qu'à une SPA côté client).
