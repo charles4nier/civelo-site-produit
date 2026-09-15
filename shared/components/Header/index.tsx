@@ -1,3 +1,4 @@
+import DemoRequestButton from '@shared/components/DemoRequestButton';
 import './style.scss';
 
 const CLASS_NAME = 'header';
@@ -23,9 +24,9 @@ export default function Header() {
 						</a>
 					))}
 				</nav>
-				<a className="btn-primary btn-primary--sm" href="#contact">
+				<DemoRequestButton className="btn-primary btn-primary--sm">
 					Demander une démonstration
-				</a>
+				</DemoRequestButton>
 			</div>
 		</header>
 	);

@@ -15,6 +15,9 @@ export default function Footer() {
 					<p className={`${CLASS_NAME}__tagline`}>
 						Des sites internet pour les communes, hébergés en France.
 					</p>
+					<a className={`${CLASS_NAME}__email`} href="mailto:contact@civelo.fr">
+						contact@civelo.fr
+					</a>
 				</div>
 				<div className={`${CLASS_NAME}__bottom`}>
 					<p className={`${CLASS_NAME}__credit`}>

@@ -1,5 +1,6 @@
 import Section from '@shared/components/Section';
 import Reveal from '@shared/components/Reveal';
+import DemoRequestButton from '@shared/components/DemoRequestButton';
 import './style.scss';
 
 export default function FinalCTA() {
@@ -18,9 +19,9 @@ export default function FinalCTA() {
 					</p>
 				</Reveal>
 				<Reveal delay={150} className="actions-row final-cta__actions">
-					<a className="btn-primary btn-primary--on-dark" href="mailto:contact@civelo.fr">
+					<DemoRequestButton className="btn-primary btn-primary--on-dark">
 						Demander une démonstration
-					</a>
+					</DemoRequestButton>
 					<a className="link-underline" href="tel:+33000000000">
 						Nous appeler
 					</a>
