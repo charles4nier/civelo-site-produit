@@ -24,8 +24,11 @@
 		color: $color-foreground;
 		transition: opacity 0.2s ease;
 
-		img {
+		svg {
 			display: block;
+			width: 1.75rem;
+			height: 1.75rem;
+			flex-shrink: 0;
 		}
 
 		&:hover {
