@@ -1,7 +1,7 @@
 export const siteConfig = {
 	name: 'Civelo',
 	description:
-		"Un site complet pour votre commune : 3 490 € TTC à la mise en ligne, puis 59 € TTC par mois pour l'hébergement en France, les mises à jour et la veille réglementaire.",
+		"Un site complet pour votre commune : 3 490 € TTC à la mise en ligne, puis 70 € TTC par mois pour l'hébergement en France, les mises à jour et la veille réglementaire.",
 	url: process.env.NEXT_PUBLIC_SITE_URL || 'https://civelo.fr',
 	keywords: [
 		'site internet commune',

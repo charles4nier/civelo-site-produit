@@ -28,7 +28,7 @@ export default function Subscription() {
 		<Section tinted>
 			<Reveal>
 				<Eyebrow>Les services inclus</Eyebrow>
-				<SectionTitle>Puis 59 € TTC / mois.</SectionTitle>
+				<SectionTitle>Puis 70 € TTC / mois.</SectionTitle>
 				<p className="section-intro">
 					Une fois le site en ligne, Civelo assure les services techniques nécessaires à son
 					fonctionnement.
@@ -46,7 +46,7 @@ export default function Subscription() {
 			</div>
 			<Reveal delay={120}>
 				<p className="section-intro section-intro--sm">
-					Le site vous appartient. Les 59 € / mois correspondent aux services que Civelo
+					Le site vous appartient. Les 70 € / mois correspondent aux services que Civelo
 					assure autour de lui.
 				</p>
 			</Reveal>
