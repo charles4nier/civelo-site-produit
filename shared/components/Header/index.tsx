@@ -1,6 +1,5 @@
 import DemoRequestButton from '@shared/components/DemoRequestButton';
 import Logo from '@shared/components/Logo';
-import ToFill from '@shared/components/ToFill';
 import './style.scss';
 
 const CLASS_NAME = 'header';
@@ -29,9 +28,9 @@ export default function Header() {
 					))}
 				</nav>
 				<div className={`${CLASS_NAME}__actions`}>
-					<span className={`${CLASS_NAME}__phone`}>
-						<ToFill>numéro à ajouter</ToFill>
-					</span>
+					<a className={`${CLASS_NAME}__phone`} href="tel:+33649303664">
+						06 49 30 36 64
+					</a>
 					<DemoRequestButton className="btn-primary btn-primary--sm" variant="call">
 						Réserver un appel
 					</DemoRequestButton>
