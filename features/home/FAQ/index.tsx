@@ -5,16 +5,31 @@ import Section from '@shared/components/Section';
 import Eyebrow from '@shared/components/Eyebrow';
 import SectionTitle from '@shared/components/SectionTitle';
 import Reveal from '@shared/components/Reveal';
+import ToFill from '@shared/components/ToFill';
 import './style.scss';
 
-const QUESTIONS = [
+const QUESTIONS: { q: string; a: React.ReactNode }[] = [
 	{
-		q: "Comment la commune règle-t-elle l'abonnement ?",
-		a: "Par mandat administratif, sur facture émise en euros avec TVA française. L'abonnement est facturé à terme échu — mensuellement ou trimestriellement, selon ce qui arrange votre secrétariat — conformément au principe du paiement après service fait."
+		q: 'Combien de temps faut-il pour créer notre site ?',
+		a: (
+			<>
+				En moyenne <ToFill>X semaines</ToFill> entre le choix du modèle et la mise en ligne.
+				Le calendrier dépend surtout du rythme de vos validations : nous nous adaptons aux
+				disponibilités de la mairie.
+			</>
+		)
+	},
+	{
+		q: 'Le prix peut-il varier selon notre commune ?',
+		a: 'Non. Le tarif de 3 490 € TTC est le même pour toutes les communes, sans supplément.'
+	},
+	{
+		q: 'Comment la commune règle-t-elle ?',
+		a: "Par mandat administratif, sur facture émise en euros avec TVA française. Nos factures sont déposées sur Chorus Pro. L'abonnement est facturé à terme échu — mensuellement ou trimestriellement, selon ce qui arrange votre secrétariat — conformément au principe du paiement après service fait."
 	},
 	{
 		q: 'Faut-il passer par une mise en concurrence ?',
-		a: "Les montants en jeu se situent très en deçà des seuils de procédure formalisée de la commande publique. Nous vous fournissons un devis détaillé et les pièces habituellement demandées ; votre secrétariat vérifiera le seuil applicable à votre situation."
+		a: 'Le seuil de 40 000 € HT s’apprécie sur toute la durée du contrat. Même sur quatre ans, notre offre représente 6 850 € TTC, très en dessous. Pour ces montants, le Code de la commande publique n’impose ni publicité ni mise en concurrence préalables. La commune doit toutefois choisir une offre pertinente, faire une bonne utilisation des deniers publics et ne pas contracter systématiquement avec le même prestataire lorsque plusieurs offres peuvent répondre au besoin. Nous vous remettons un devis détaillé pour votre dossier.'
 	},
 	{
 		q: "Que se passe-t-il si nous arrêtons l'abonnement ?",
@@ -30,11 +45,23 @@ const QUESTIONS = [
 	},
 	{
 		q: 'Garantissez-vous une conformité RGAA totale ?',
-		a: "Nous garantissons un socle conçu selon le référentiel et audité, les documents réglementaires rédigés et publiés, et un contrôle automatique à chaque publication. En revanche, les contenus que la mairie ajoute relèvent d'elle : une image sans description dégrade la conformité, c'est pourquoi ce champ est obligatoire à la saisie. Un contrôle équivalent pour les PDF scannés est en cours de déploiement ; en attendant, nous formons votre secrétariat à ce point de vigilance."
+		a: "Aucun prestataire honnête ne peut la garantir, car la conformité dépend aussi des contenus publiés au fil du temps (documents, images, vidéos). Nos modèles sont conçus et testés selon les critères du RGAA, votre secrétariat est formé aux bons réflexes, et nous vous accompagnons pour publier la déclaration d'accessibilité."
 	},
 	{
 		q: 'Que devient notre référencement Google ?',
 		a: "Nous mettons en place les redirections depuis les adresses de votre ancien site, afin que les pages déjà indexées et les liens présents sur d'autres sites continuent de fonctionner."
+	},
+	{
+		q: 'Notre commune est à la fois rurale et touristique : quel modèle choisir ?',
+		a: 'Les quatre modèles ont exactement les mêmes fonctionnalités. Choisissez celui dont la présentation met le mieux en valeur ce qui compte le plus pour vous. Nous en parlons ensemble lors du premier échange.'
+	},
+	{
+		q: 'Sur quelle technologie le site est-il construit ?',
+		a: "Sur Next.js, une technologie open source largement utilisée. Nous vous transmettons la documentation nécessaire pour qu'un autre professionnel puisse reprendre le site si besoin."
+	},
+	{
+		q: 'Qui met à jour le site après la mise en ligne ?',
+		a: 'Votre secrétariat, en toute autonomie, grâce à l’interface d’administration et à la formation incluse. Civelo reste disponible en cas de question.'
 	}
 ];
 
@@ -51,7 +78,7 @@ export default function FAQ() {
 		<Section id="faq">
 			<Reveal>
 				<Eyebrow>Questions fréquentes</Eyebrow>
-				<SectionTitle>Ce que demandent les secrétaires de mairie.</SectionTitle>
+				<SectionTitle>Les questions des maires et des secrétaires de mairie.</SectionTitle>
 			</Reveal>
 			<div className="faq-list">
 				{QUESTIONS.map((item, i) => {

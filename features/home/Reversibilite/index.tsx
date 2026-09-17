@@ -20,19 +20,20 @@ export default function Reversibilite() {
 			<div className="grid grid--split">
 				<Reveal>
 					<Eyebrow dark>La propriété du site</Eyebrow>
-					<SectionTitle dark>Et ce site appartient à votre commune.</SectionTitle>
+					<SectionTitle dark>Ce site appartient à votre commune. Pas à nous.</SectionTitle>
 				</Reveal>
 				<Reveal delay={120} className="prose-lead prose-lead--on-dark">
-					<p>Les 3 490 € ne correspondent pas à un simple droit d&apos;accès.</p>
-					<p className="text-strong-on-dark">Vous achetez réellement votre site, vous en êtes propriétaire.</p>
-					<p>
-						La commune dispose du site complet, de son interface d&apos;administration, de
+					<p>Les 3 490 € ne paient pas un droit d&apos;accès : vous achetez réellement votre site.</p>
+					<p className="text-strong-on-dark">
+						La commune est propriétaire du site, de son interface d&apos;administration, de
 						son code source et de ses données.
 					</p>
-					<p>Votre nom de domaine reste également sous le contrôle de la commune.</p>
+					<p>Le nom de domaine reste enregistré au nom de la commune.</p>
 					<p>
-						Civelo peut ensuite assurer son hébergement et sa maintenance, mais le site reste
-						celui de votre mairie.
+						Et si un jour vous souhaitez changer de prestataire, nous vous remettons le code
+						source, la base de données, les fichiers et la documentation technique. Le site
+						est développé avec Next.js, une technologie open source largement utilisée, ce
+						qui permet à un autre professionnel de le reprendre.
 					</p>
 				</Reveal>
 			</div>

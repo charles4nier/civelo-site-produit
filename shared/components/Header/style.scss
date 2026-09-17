@@ -40,9 +40,9 @@
 	&__nav {
 		display: none;
 		align-items: center;
-		gap: 2.25rem;
+		gap: 1.75rem;
 
-		@media (min-width: $breakpoint-md) {
+		@media (min-width: $breakpoint-lg) {
 			display: flex;
 		}
 
@@ -70,6 +70,23 @@
 					width: 100%;
 				}
 			}
+		}
+	}
+
+	&__actions {
+		display: flex;
+		align-items: center;
+		gap: 1.25rem;
+	}
+
+	&__phone {
+		display: none;
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: $color-foreground;
+
+		@media (min-width: $breakpoint-sm) {
+			display: inline-flex;
 		}
 	}
 }

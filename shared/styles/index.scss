@@ -388,3 +388,13 @@ h3 {
 	gap: 1rem;
 	margin-top: 3rem;
 }
+
+// Repère visuel pour une information encore à compléter avant publication
+// (numéro de téléphone, délai...) — voir shared/components/ToFill.
+.to-fill {
+	background: color-mix(in oklch, $color-copper-soft 55%, transparent);
+	color: $color-foreground;
+	padding: 0.05em 0.4em;
+	border-radius: 0.25rem;
+	font-style: normal;
+}

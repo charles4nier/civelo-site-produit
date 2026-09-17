@@ -2,37 +2,75 @@ import Section from '@shared/components/Section';
 import Eyebrow from '@shared/components/Eyebrow';
 import SectionTitle from '@shared/components/SectionTitle';
 import Reveal from '@shared/components/Reveal';
+import ToFill from '@shared/components/ToFill';
 import './style.scss';
 
 const ITEMS = [
 	{
 		title: 'Hébergement en France',
-		text: 'Votre site est hébergé sur une infrastructure située en France selon les conditions prévues dans l’offre.'
+		text: (
+			<>
+				Votre site est hébergé sur une infrastructure certifiée SecNumCloud par l&apos;ANSSI,
+				en France. Les données de la commune restent sur le territoire national.
+			</>
+		)
 	},
 	{
-		title: 'Maintenance technique',
-		text: 'Nous assurons les mises à jour techniques et la maintenance prévues dans votre abonnement.'
+		title: 'Sécurité et mises à jour',
+		text: (
+			<>
+				Nous appliquons les mises à jour de sécurité en continu et surveillons la
+				disponibilité de votre site. Vous n&apos;avez jamais à vous en préoccuper.
+			</>
+		)
 	},
 	{
-		title: 'Sécurité et sauvegardes',
-		text: 'Nous assurons les mesures techniques et sauvegardes comprises dans la prestation.'
+		title: 'Sauvegardes',
+		text: (
+			<>
+				Votre site est sauvegardé <ToFill>chaque jour</ToFill>, et chaque sauvegarde est
+				conservée <ToFill>30 jours</ToFill>. En cas de problème, nous le restaurons.
+			</>
+		)
 	},
 	{
-		title: 'Accompagnement',
-		text: 'Une question ou un besoin concernant votre site ? Votre mairie peut contacter Civelo dans le cadre de l’accompagnement prévu.'
+		title: 'Veille réglementaire',
+		text: (
+			<>
+				Accessibilité, données personnelles, publication des actes : quand les règles
+				évoluent, nous vous prévenons et adaptons le site dans le cadre de l&apos;abonnement.
+			</>
+		)
+	},
+	{
+		title: 'Un interlocuteur qui connaît votre site',
+		text: (
+			<>
+				Une question ? Écrivez-nous ou appelez le <ToFill>numéro à ajouter</ToFill>. Réponse
+				sous 48 h ouvrées, par une personne qui connaît votre commune, pas par une plateforme
+				anonyme.
+			</>
+		)
+	},
+	{
+		title: 'Liberté',
+		text: (
+			<>
+				Résiliable avec <ToFill>X mois</ToFill> de préavis. Si vous arrêtez, vous repartez
+				avec votre site, son code et vos données.
+			</>
+		)
 	}
 ];
 
 export default function Subscription() {
 	return (
-		<Section tinted>
+		<Section id="inclus" tinted>
 			<Reveal>
 				<Eyebrow>Les services inclus</Eyebrow>
-				<SectionTitle>Puis 70 € TTC / mois.</SectionTitle>
-				<p className="section-intro">
-					Une fois le site en ligne, Civelo assure les services techniques nécessaires à son
-					fonctionnement.
-				</p>
+				<SectionTitle>
+					Puis 70 € TTC par mois. Nous gérons la technique, vous gérez votre commune.
+				</SectionTitle>
 			</Reveal>
 			<div className="services-grid">
 				{ITEMS.map((item, i) => (
@@ -46,8 +84,8 @@ export default function Subscription() {
 			</div>
 			<Reveal delay={120}>
 				<p className="section-intro section-intro--sm">
-					Le site vous appartient. Les 70 € / mois correspondent aux services que Civelo
-					assure autour de lui.
+					Sur un mandat complet de six ans, création et services compris : 8 530 € TTC, soit
+					moins de 120 € par mois.
 				</p>
 			</Reveal>
 		</Section>

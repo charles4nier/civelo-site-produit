@@ -1,0 +1,29 @@
+.elus-item {
+	height: 100%;
+	border: 1px solid $color-border;
+	border-radius: $radius-md;
+	background: $color-background;
+	padding: 2rem;
+	transition: $transition-smooth;
+
+	&__grid {
+		margin-top: 4rem;
+	}
+
+	&:hover {
+		transform: translateY(-4px);
+		border-color: color-mix(in oklch, $color-copper 40%, transparent);
+		background: $color-sand;
+	}
+
+	h3 {
+		font-size: 1.5rem;
+		line-height: 1.35;
+	}
+
+	p {
+		margin-top: 0.75rem;
+		line-height: 1.625;
+		color: $color-muted-foreground;
+	}
+}

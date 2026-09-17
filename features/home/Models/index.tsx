@@ -13,34 +13,38 @@ const CLASS_NAME = 'model-card';
 
 const MODELS = [
 	{
-		slug: 'classique',
+		slug: 'clocher',
+		// Image conservée sous son ancien nom de fichier (public/classique.jpg)
+		// — seuls le nom affiché et la description changent.
 		image: 'classique',
-		name: 'Classique',
-		text: 'Une présentation épurée et intemporelle, pensée pour rester lisible et sobre quelle que soit l’évolution du site.',
+		name: 'Le Clocher',
+		subtitle: 'Pour les villages ruraux où la mairie reste le cœur de la vie locale.',
+		text: 'Le Clocher va à l’essentiel : horaires, démarches, conseil municipal, vie associative. Une présentation sobre et très lisible, pensée pour tous les habitants.',
 		href: 'https://classique.civelo.fr/'
 	},
 	{
-		slug: 'edito',
-		// Image conservée sous son ancien nom de fichier (public/civique.jpg) —
-		// seuls le nom affiché et le lien de démo changent.
-		image: 'civique',
-		name: 'Édito',
-		text: 'Une présentation sobre et institutionnelle qui met en avant les informations municipales et les actualités.',
-		href: 'https://edito.civelo.fr/'
-	},
-	{
-		slug: 'accueillant',
+		slug: 'belvedere',
 		image: 'ludique',
-		name: 'Accueillant',
-		text: 'Une présentation plus visuelle pour mettre en valeur la commune, sa vie locale et ses services.',
+		name: 'Le Belvédère',
+		subtitle: 'Pour les communes touristiques et de patrimoine, qui ont une histoire à raconter.',
+		text: 'Une large place à l’image et au récit : patrimoine, histoire, balades, marchés, hébergements. Un site qui donne envie de venir, sans oublier les services du quotidien.',
 		href: 'https://accueillant.civelo.fr/'
 	},
 	{
-		slug: 'moderne',
+		slug: 'preau',
 		image: 'prestige',
-		name: 'Moderne',
-		text: 'Une navigation directe et moderne, pensée pour permettre aux habitants de trouver rapidement l’information recherchée.',
+		name: 'Le Préau',
+		subtitle: 'Pour les communes résidentielles où les familles s’installent.',
+		text: 'Le Préau va droit au but, avec une navigation pensée pour le mobile : inscription à l’école, cantine, périscolaire, urbanisme, démarches en ligne.',
 		href: 'https://moderne.civelo.fr/'
+	},
+	{
+		slug: 'atelier',
+		image: 'civique',
+		name: 'L’Atelier',
+		subtitle: 'Pour les bourgs actifs, pôles d’emploi et de services de leur territoire.',
+		text: 'L’Atelier met en avant les projets municipaux, la vie économique et les informations institutionnelles, avec une présentation structurée.',
+		href: 'https://edito.civelo.fr/'
 	}
 ];
 
@@ -118,7 +122,12 @@ export default function Models() {
 				<div className={`${CLASS_NAME}__header`}>
 					<div>
 						<Eyebrow>Les modèles</Eyebrow>
-						<SectionTitle>Choisissez le site qui ressemble à votre commune.</SectionTitle>
+						<SectionTitle>Quelle commune êtes-vous ?</SectionTitle>
+						<p className={`${CLASS_NAME}__intro`}>
+							Chaque commune a sa propre histoire. Nos quatre modèles partent de ce que vos
+							habitants viennent chercher, selon que vous êtes un village, une destination,
+							une commune familiale ou un bourg actif.
+						</p>
 					</div>
 					<div className={`${CLASS_NAME}__nav`}>
 						<button
@@ -164,6 +173,7 @@ export default function Models() {
 							</div>
 							<div className={`${CLASS_NAME}__body`}>
 								<h3>{model.name}</h3>
+								<p className={`${CLASS_NAME}__subtitle`}>{model.subtitle}</p>
 								<p>{model.text}</p>
 								<span className="link-arrow">Voir la démo →</span>
 							</div>
@@ -188,8 +198,9 @@ export default function Models() {
 
 			<Reveal delay={120}>
 				<p className={`${CLASS_NAME}__note`}>
-					Les quatre modèles disposent des mêmes fonctionnalités. La différence se trouve
-					principalement dans leur présentation et leur navigation.
+					Les quatre modèles offrent exactement les mêmes fonctionnalités. Beaucoup de
+					communes se reconnaissent dans plusieurs profils : choisissez simplement celui qui
+					met le mieux en valeur ce qui compte pour vous.
 				</p>
 			</Reveal>
 		</Section>

@@ -9,24 +9,27 @@ export default function Accessibilite() {
 			<div className="grid grid--split">
 				<Reveal>
 					<Eyebrow>Accessibilité numérique</Eyebrow>
-					<SectionTitle>L&apos;accessibilité intégrée au projet.</SectionTitle>
+					<SectionTitle>Un site que tous vos habitants peuvent utiliser.</SectionTitle>
 				</Reveal>
 				<Reveal delay={120} className="prose-lead">
 					<p>
-						Nous prenons en compte l&apos;accessibilité numérique dans la conception du site
-						et réalisons les travaux prévus dans l&apos;offre pour accompagner la commune
-						dans ses obligations.
+						Votre doyenne qui agrandit les textes. Un habitant malvoyant qui utilise un
+						lecteur d&apos;écran. Un parent qui consulte le site d&apos;une main, sur son
+						téléphone. Le site de la commune doit fonctionner pour chacun d&apos;eux.
 					</p>
 					<p>
-						En tant que service public, le site de votre commune est soumis au RGAA
-						(Référentiel Général d&apos;Amélioration de l&apos;Accessibilité) : nous nous
-						appuyons sur ses critères pour construire les gabarits (contrastes, navigation au
-						clavier, structure des pages) et vous accompagnons dans la déclaration
-						d&apos;accessibilité à publier.
+						Nos modèles sont construits et testés selon les critères du RGAA : contrastes,
+						navigation au clavier, structure des pages, compatibilité avec les lecteurs
+						d&apos;écran.
 					</p>
 					<p>
-						Le site est conçu pour faciliter la consultation par le plus grand nombre, quels
-						que soient l&apos;appareil ou les modalités de navigation utilisés.
+						L&apos;accessibilité se joue aussi au quotidien, dans les contenus que vous
+						publiez. C&apos;est pourquoi la formation de votre secrétariat inclut les bons
+						réflexes : description des images, documents lisibles, titres clairs.
+					</p>
+					<p>
+						Nous vous accompagnons enfin pour rédiger et publier la déclaration
+						d&apos;accessibilité, obligatoire pour toute commune.
 					</p>
 				</Reveal>
 			</div>

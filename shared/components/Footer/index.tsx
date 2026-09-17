@@ -1,5 +1,6 @@
 import Logo from '@shared/components/Logo';
 import CopyEmailLink from '@shared/components/CopyEmailLink';
+import ToFill from '@shared/components/ToFill';
 import './style.scss';
 
 const CLASS_NAME = 'footer';
@@ -16,11 +17,16 @@ export default function Footer() {
 						Civelo
 					</a>
 					<p className={`${CLASS_NAME}__tagline`}>
-						Des sites internet pour les communes, hébergés en France.
+						Le site internet des petites communes, hébergé en France.
 					</p>
-					<CopyEmailLink email="contact@civelo.fr" className={`${CLASS_NAME}__email`}>
-						contact@civelo.fr
-					</CopyEmailLink>
+					<div className={`${CLASS_NAME}__contact`}>
+						<CopyEmailLink email="contact@civelo.fr" className={`${CLASS_NAME}__email`}>
+							contact@civelo.fr
+						</CopyEmailLink>
+						<span className={`${CLASS_NAME}__phone`}>
+							<ToFill>numéro à ajouter</ToFill>
+						</span>
+					</div>
 				</div>
 				<div className={`${CLASS_NAME}__bottom`}>
 					<p className={`${CLASS_NAME}__credit`}>

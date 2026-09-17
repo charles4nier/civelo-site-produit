@@ -11,25 +11,26 @@ export default function SiteMairie() {
 			<div className="grid grid--split">
 				<Reveal>
 					<Eyebrow>Ce que vos habitants viennent chercher</Eyebrow>
-					<SectionTitle>Un vrai site de mairie, prêt à l&apos;emploi.</SectionTitle>
+					<SectionTitle>
+						Les horaires de la mairie à 22 h. Le menu de la cantine le dimanche soir.
+					</SectionTitle>
 				</Reveal>
 				<Reveal delay={120} className="prose-lead prose-lead--loose">
 					<p>
-						Actualités, agenda, démarches, documents municipaux, informations pratiques,
-						vie locale…
+						Vos habitants ne visitent pas le site de la commune par hasard. Ils cherchent
+						une information précise, souvent en dehors des heures d&apos;ouverture : un
+						horaire, un formulaire, la date du prochain conseil, les travaux prévus dans
+						leur rue.
 					</p>
 					<p>
-						Votre site est conçu autour des informations que les habitants viennent
-						réellement chercher.
+						Un site Civelo est construit autour de ces besoins réels : actualités, agenda,
+						démarches, documents municipaux, informations pratiques, vie associative,
+						location de salles.
 					</p>
-					<p>
-						Vous choisissez parmi trois modèles Civelo. Nous l&apos;adaptons ensuite à
-						l&apos;identité de votre commune et reprenons avec vous les contenus utiles de
-						votre site actuel.
-					</p>
+					<p>Des habitants mieux informés, et moins de questions répétitives au guichet.</p>
 					<p className="prose-highlight">
-						Pas besoin de partir d&apos;une page blanche ni de piloter un projet web
-						complexe.
+						Pas besoin de partir d&apos;une page blanche : vous choisissez le modèle qui
+						ressemble à votre commune, nous faisons le reste.
 					</p>
 				</Reveal>
 			</div>

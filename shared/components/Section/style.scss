@@ -1,4 +1,7 @@
 .section {
+	// Évite qu'une section ciblée par une ancre (nav du header) ne se
+	// retrouve masquée sous le header sticky (4.75rem, voir Header/style.scss).
+	scroll-margin-top: 4.75rem;
 	border-bottom: 1px solid $color-border;
 	background: $color-background;
 	padding-block: $section-padding-y-mobile;

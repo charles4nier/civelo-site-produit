@@ -4,10 +4,12 @@ import Models from './Models';
 import Offer from './Offer';
 import Reversibilite from './Reversibilite';
 import Subscription from './Subscription';
-import PenseMairie from './PenseMairie';
+import PourLesElus from './PourLesElus';
+import Obligations from './Obligations';
 import Accessibilite from './Accessibilite';
 import Secretariat from './Secretariat';
-import Process from './Process';
+import References from './References';
+import QuiSommesNous from './QuiSommesNous';
 import FAQ from './FAQ';
 import FinalCTA from './FinalCTA';
 
@@ -20,10 +22,12 @@ export default function Home() {
 			<Offer />
 			<Reversibilite />
 			<Subscription />
-			<PenseMairie />
+			<PourLesElus />
+			<Obligations />
 			<Accessibilite />
 			<Secretariat />
-			<Process />
+			<References />
+			<QuiSommesNous />
 			<FAQ />
 			<FinalCTA />
 		</>

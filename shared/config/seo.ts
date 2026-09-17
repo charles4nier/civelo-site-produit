@@ -1,7 +1,7 @@
 export const siteConfig = {
 	name: 'Civelo',
 	description:
-		"Un site complet pour votre commune : 3 490 € TTC à la mise en ligne, puis 70 € TTC par mois pour l'hébergement en France, les mises à jour et la veille réglementaire.",
+		'Site internet clé en main pour les communes de moins de 5 000 habitants : 3 490 € TTC, puis 70 € TTC/mois. Hébergé en France, accessible, tenu à jour.',
 	url: process.env.NEXT_PUBLIC_SITE_URL || 'https://civelo.fr',
 	keywords: [
 		'site internet commune',
@@ -16,7 +16,7 @@ export const siteConfig = {
 export const defaultMetadata = {
 	metadataBase: new URL(siteConfig.url),
 	title: {
-		default: 'Civelo — Création de sites internet pour communes',
+		default: 'Site internet pour mairie et petite commune | Civelo',
 		template: `%s | ${siteConfig.name}`
 	},
 	description: siteConfig.description,
@@ -39,7 +39,7 @@ export const defaultMetadata = {
 		type: 'website',
 		locale: 'fr_FR',
 		url: siteConfig.url,
-		title: siteConfig.name,
+		title: 'Civelo · Le site internet des petites communes',
 		description: siteConfig.description,
 		siteName: siteConfig.name
 	},

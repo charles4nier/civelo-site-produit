@@ -1,13 +1,16 @@
 import DemoRequestButton from '@shared/components/DemoRequestButton';
 import Logo from '@shared/components/Logo';
+import ToFill from '@shared/components/ToFill';
 import './style.scss';
 
 const CLASS_NAME = 'header';
 
 const NAV_LINKS = [
-	{ href: '#modeles', label: 'Modèles' },
-	{ href: '#prestation', label: 'Prestation' },
-	{ href: '#faq', label: 'Questions' }
+	{ href: '#modeles', label: 'Les modèles' },
+	{ href: '#inclus', label: 'Ce qui est inclus' },
+	{ href: '#elus', label: 'Pour les élus' },
+	{ href: '#faq', label: 'Questions' },
+	{ href: '#qui-sommes-nous', label: 'Qui sommes-nous' }
 ];
 
 export default function Header() {
@@ -25,9 +28,14 @@ export default function Header() {
 						</a>
 					))}
 				</nav>
-				<DemoRequestButton className="btn-primary btn-primary--sm">
-					Demander une démonstration
-				</DemoRequestButton>
+				<div className={`${CLASS_NAME}__actions`}>
+					<span className={`${CLASS_NAME}__phone`}>
+						<ToFill>numéro à ajouter</ToFill>
+					</span>
+					<DemoRequestButton className="btn-primary btn-primary--sm" variant="call">
+						Réserver un appel
+					</DemoRequestButton>
+				</div>
 			</div>
 		</header>
 	);

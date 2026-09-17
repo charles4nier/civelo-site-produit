@@ -1,0 +1,9 @@
+.obligations__heading {
+	font-family: $font-display;
+	font-size: 1.25rem;
+	color: $color-foreground;
+
+	& + p {
+		margin-top: 0.5rem;
+	}
+}

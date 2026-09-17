@@ -9,6 +9,7 @@ export interface Env {
 }
 
 type ContactPayload = {
+	type?: 'demo' | 'call';
 	mairie?: string;
 	email?: string;
 	telephone?: string;
@@ -47,13 +48,16 @@ async function handleContact(request: Request, env: Env): Promise<Response> {
 		return json({ ok: true });
 	}
 
-	const { mairie, email, telephone } = data;
+	const { mairie, email, telephone, type } = data;
 	if (!mairie?.trim() || !email?.trim() || !telephone?.trim()) {
 		return json({ error: 'Tous les champs sont requis.' }, 400);
 	}
 	if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
 		return json({ error: 'Adresse e-mail invalide.' }, 400);
 	}
+
+	const subjectLabel = type === 'call' ? "Demande d'appel de 15 minutes" : 'Demande de démonstration';
+	const typeLabel = type === 'call' ? 'Appel de 15 minutes' : 'Démonstration';
 
 	const resendRes = await fetch('https://api.resend.com/emails', {
 		method: 'POST',
@@ -65,8 +69,10 @@ async function handleContact(request: Request, env: Env): Promise<Response> {
 			from: 'Civelo <contact@civelo.fr>',
 			to: 'contact@civelo.fr',
 			reply_to: email,
-			subject: `Demande de démonstration — ${mairie}`,
-			text: [`Mairie concernée : ${mairie}`, `E-mail : ${email}`, `Téléphone : ${telephone}`].join('\n')
+			subject: `${subjectLabel} — ${mairie}`,
+			text: [`Type de demande : ${typeLabel}`, `Mairie concernée : ${mairie}`, `E-mail : ${email}`, `Téléphone : ${telephone}`].join(
+				'\n'
+			)
 		})
 	});
 

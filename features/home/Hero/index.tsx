@@ -22,28 +22,31 @@ export default function Hero() {
 			</div>
 			<div className={`container ${CLASS_NAME}__inner`}>
 				<Reveal className={`${CLASS_NAME}__intro`}>
-					<p className={`${CLASS_NAME}__badge`}>Le premium, à la portée des petites communes</p>
+					<p className={`${CLASS_NAME}__badge`}>Pour les communes de moins de 5 000 habitants</p>
 					<h1 className={`${CLASS_NAME}__title`}>
-						Création de site internet pour les petites communes, conforme et tenu à jour.
+						Le site internet de votre commune, livré clé en main et tenu à jour.
 					</h1>
 					<p className={`${CLASS_NAME}__lead`}>
-						Un site moderne, simple à administrer et conçu pour les besoins des communes de
-						moins de 5 000 habitants.
-					</p>
-					<p className={`${CLASS_NAME}__lead ${CLASS_NAME}__lead--soft`}>
-						Civelo s&apos;occupe de la création, de la reprise de vos contenus et de la mise
-						en ligne. Votre secrétariat est formé pour gérer simplement les informations du
-						quotidien.
+						Nous créons votre site, reprenons vos contenus, formons votre secrétariat et
+						gérons toute la technique. Vous publiez une actualité en quelques minutes. Et le
+						site appartient à votre commune.
 					</p>
 				</Reveal>
 
 				<Reveal delay={150} className="actions-row">
 					<a className="btn-primary btn-primary--on-dark" href="#modeles">
-						Découvrir les modèles
+						Trouver le modèle de ma commune
 					</a>
-					<DemoRequestButton className="btn-outline btn-outline--on-dark">
-						Demander une présentation →
+					<DemoRequestButton className="btn-outline btn-outline--on-dark" variant="call">
+						Réserver un appel de 15 minutes →
 					</DemoRequestButton>
+				</Reveal>
+
+				<Reveal delay={220} className={`${CLASS_NAME}__meta`}>
+					<span>3 490 € TTC à la création</span>
+					<span>70 € TTC/mois</span>
+					<span>Hébergé en France</span>
+					<span>Un montant compatible avec un achat sans procédure formalisée</span>
 				</Reveal>
 			</div>
 		</section>

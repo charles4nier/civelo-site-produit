@@ -44,6 +44,13 @@
 		color: $color-muted-foreground;
 	}
 
+	&__contact {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.375rem 1rem;
+	}
+
 	&__email {
 		font-size: 0.9375rem;
 		font-weight: 600;
@@ -54,6 +61,12 @@
 		&:hover {
 			color: $color-copper;
 		}
+	}
+
+	&__phone {
+		font-size: 0.9375rem;
+		font-weight: 600;
+		color: $color-foreground;
 	}
 
 	&__bottom {

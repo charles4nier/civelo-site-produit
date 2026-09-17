@@ -6,10 +6,10 @@ import Reveal from '@shared/components/Reveal';
 import './style.scss';
 
 const ACTIONS = [
-	'publier une actualité',
+	'publier une actualité ou un arrêté',
 	'mettre à jour une page',
 	'ajouter un document',
-	'gérer l’agenda',
+	'gérer l’agenda des manifestations',
 	'modifier une information pratique'
 ];
 
@@ -19,7 +19,9 @@ export default function Secretariat() {
 			<div className="grid grid--split">
 				<Reveal>
 					<Eyebrow>Au quotidien</Eyebrow>
-					<SectionTitle>Votre secrétariat garde la main.</SectionTitle>
+					<SectionTitle>
+						Mardi, 11 h. L&apos;arrêté de fermeture de la route est en ligne.
+					</SectionTitle>
 					<div className="secretariat__figure">
 						<Image
 							src="/secretariat.jpg"
@@ -31,7 +33,7 @@ export default function Secretariat() {
 				</Reveal>
 				<Reveal delay={120}>
 					<p className="section-intro section-intro--flush secretariat__lines">
-						{`Une fois le site livré, vous n'avez pas besoin de nous contacter pour publier chaque information.\nDepuis l'interface d'administration, votre secrétariat peut notamment :`}
+						{`Entre deux dossiers d'état civil, votre secrétaire publie l'information. Cinq minutes plus tard, les habitants la trouvent sur le site. Pas besoin de nous appeler, pas besoin de compétence technique.\nDepuis l'interface d'administration, votre secrétariat peut :`}
 					</p>
 					<ul className="check-list">
 						{ACTIONS.map((action) => (
@@ -39,8 +41,7 @@ export default function Secretariat() {
 						))}
 					</ul>
 					<p className="section-intro section-intro--sm">
-						L&apos;objectif : que les mises à jour courantes restent simples à réaliser,
-						même sans compétence technique.
+						Et si un doute persiste, un message à contact@civelo.fr suffit.
 					</p>
 				</Reveal>
 			</div>

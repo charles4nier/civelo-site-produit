@@ -6,10 +6,22 @@ import './style.scss';
 
 const CLASS_NAME = 'demo-modal';
 
-type Props = { className?: string; children: ReactNode };
+type Variant = 'demo' | 'call';
+type Props = { className?: string; children: ReactNode; variant?: Variant };
 type Status = 'idle' | 'sending' | 'success' | 'error';
 
-export default function DemoRequestButton({ className, children }: Props) {
+const VARIANT_COPY: Record<Variant, { title: string; lead: string }> = {
+	demo: {
+		title: 'Demander une démonstration',
+		lead: 'Quelques informations pour organiser une démonstration avec votre commune.'
+	},
+	call: {
+		title: 'Réserver un appel de 15 minutes',
+		lead: 'Quelques informations pour organiser un appel de 15 minutes avec votre commune.'
+	}
+};
+
+export default function DemoRequestButton({ className, children, variant = 'demo' }: Props) {
 	const [open, setOpen] = useState(false);
 	const [status, setStatus] = useState<Status>('idle');
 	const [errorMessage, setErrorMessage] = useState('');
@@ -68,6 +80,7 @@ export default function DemoRequestButton({ className, children }: Props) {
 				method: 'POST',
 				headers: { 'content-type': 'application/json' },
 				body: JSON.stringify({
+					type: variant,
 					mairie: String(form.get('mairie') || ''),
 					email: String(form.get('email') || ''),
 					telephone: String(form.get('telephone') || ''),
@@ -121,11 +134,9 @@ export default function DemoRequestButton({ className, children }: Props) {
 							) : (
 								<>
 									<h2 id={titleId} className={`${CLASS_NAME}__title`}>
-										Demander une démonstration
+										{VARIANT_COPY[variant].title}
 									</h2>
-									<p className={`${CLASS_NAME}__lead`}>
-										Quelques informations pour organiser une démonstration avec votre commune.
-									</p>
+									<p className={`${CLASS_NAME}__lead`}>{VARIANT_COPY[variant].lead}</p>
 									<form className={`${CLASS_NAME}__form`} onSubmit={onSubmit}>
 										<label className={`${CLASS_NAME}__field`}>
 											<span>Mairie concernée</span>
