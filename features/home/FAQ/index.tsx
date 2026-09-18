@@ -5,7 +5,6 @@ import Section from '@shared/components/Section';
 import Eyebrow from '@shared/components/Eyebrow';
 import SectionTitle from '@shared/components/SectionTitle';
 import Reveal from '@shared/components/Reveal';
-import ToFill from '@shared/components/ToFill';
 import './style.scss';
 
 const QUESTIONS: { q: string; a: React.ReactNode }[] = [
@@ -13,9 +12,9 @@ const QUESTIONS: { q: string; a: React.ReactNode }[] = [
 		q: 'Combien de temps faut-il pour créer notre site ?',
 		a: (
 			<>
-				En moyenne <ToFill>X semaines</ToFill> entre le choix du modèle et la mise en ligne.
-				Le calendrier dépend surtout du rythme de vos validations : nous nous adaptons aux
-				disponibilités de la mairie.
+				En moyenne 3 semaines entre le choix du modèle et la mise en ligne. Le calendrier
+				dépend surtout du rythme de vos validations : nous nous adaptons aux disponibilités
+				de la mairie.
 			</>
 		)
 	},

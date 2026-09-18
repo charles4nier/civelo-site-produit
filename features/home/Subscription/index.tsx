@@ -2,7 +2,6 @@ import Section from '@shared/components/Section';
 import Eyebrow from '@shared/components/Eyebrow';
 import SectionTitle from '@shared/components/SectionTitle';
 import Reveal from '@shared/components/Reveal';
-import ToFill from '@shared/components/ToFill';
 import './style.scss';
 
 const ITEMS = [
@@ -28,8 +27,8 @@ const ITEMS = [
 		title: 'Sauvegardes',
 		text: (
 			<>
-				Votre site est sauvegardé <ToFill>chaque jour</ToFill>, et chaque sauvegarde est
-				conservée <ToFill>30 jours</ToFill>. En cas de problème, nous le restaurons.
+				Votre site est sauvegardé chaque jour, et chaque sauvegarde est conservée 30 jours.
+				En cas de problème, nous le restaurons.
 			</>
 		)
 	},
@@ -46,9 +45,9 @@ const ITEMS = [
 		title: 'Un interlocuteur qui connaît votre site',
 		text: (
 			<>
-				Une question ? Écrivez-nous ou appelez le <ToFill>numéro à ajouter</ToFill>. Réponse
-				sous 48 h ouvrées, par une personne qui connaît votre commune, pas par une plateforme
-				anonyme.
+				Une question ? Écrivez-nous ou appelez le{' '}
+				<a href="tel:+33649303664">06 49 30 36 64</a>. Réponse sous 48 h ouvrées, par une
+				personne qui connaît votre commune, pas par une plateforme anonyme.
 			</>
 		)
 	},
@@ -56,8 +55,8 @@ const ITEMS = [
 		title: 'Liberté',
 		text: (
 			<>
-				Résiliable avec <ToFill>X mois</ToFill> de préavis. Si vous arrêtez, vous repartez
-				avec votre site, son code et vos données.
+				Résiliable avec 1 mois de préavis. Si vous arrêtez, vous repartez avec votre site,
+				son code et vos données.
 			</>
 		)
 	}

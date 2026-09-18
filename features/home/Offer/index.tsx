@@ -2,7 +2,6 @@ import Section from '@shared/components/Section';
 import Eyebrow from '@shared/components/Eyebrow';
 import SectionTitle from '@shared/components/SectionTitle';
 import Reveal from '@shared/components/Reveal';
-import ToFill from '@shared/components/ToFill';
 import './style.scss';
 
 const STEPS = [
@@ -11,8 +10,8 @@ const STEPS = [
 		text: (
 			<>
 				Vous choisissez le modèle qui vous ressemble. Nous l&apos;adaptons à votre identité :
-				blason, couleurs, photos, rubriques. Vous validez chaque étape, avec{' '}
-				<ToFill>X</ToFill> séries d&apos;ajustements incluses.
+				blason, couleurs, photos, rubriques. Vous validez chaque étape, avec 2 séries
+				d&apos;ajustements incluses.
 			</>
 		)
 	},
@@ -40,9 +39,8 @@ const STEPS = [
 		title: 'Un secrétariat autonome dès le premier jour',
 		text: (
 			<>
-				Une formation de <ToFill>durée à préciser</ToFill>, pour publier une actualité,
-				ajouter un document ou mettre à jour l&apos;agenda. Un guide pas à pas reste à
-				disposition de votre équipe.
+				Une formation de 2 h, pour publier une actualité, ajouter un document ou mettre à
+				jour l&apos;agenda. Un guide pas à pas reste à disposition de votre équipe.
 			</>
 		)
 	}
@@ -72,8 +70,7 @@ export default function Offer() {
 			</ol>
 			<Reveal delay={120}>
 				<p className="offer-highlight">
-					En moyenne, <ToFill>X semaines</ToFill> entre le choix du modèle et la mise en
-					ligne.
+					En moyenne, 3 semaines entre le choix du modèle et la mise en ligne.
 				</p>
 			</Reveal>
 		</Section>
