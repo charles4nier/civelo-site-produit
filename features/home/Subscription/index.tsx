@@ -45,8 +45,7 @@ const ITEMS = [
 		title: 'Un interlocuteur qui connaît votre site',
 		text: (
 			<>
-				Une question ? Écrivez-nous ou appelez le{' '}
-				<a href="tel:+33649303664">06 49 30 36 64</a>. Réponse sous 48 h ouvrées, par une
+				Une question ? Écrivez-nous. Réponse sous 48 h ouvrées, par une
 				personne qui connaît votre commune, pas par une plateforme anonyme.
 			</>
 		)

@@ -22,9 +22,6 @@ export default function Footer() {
 						<CopyEmailLink email="contact@civelo.fr" className={`${CLASS_NAME}__email`}>
 							contact@civelo.fr
 						</CopyEmailLink>
-						<a className={`${CLASS_NAME}__phone`} href="tel:+33649303664">
-							06 49 30 36 64
-						</a>
 					</div>
 				</div>
 				<div className={`${CLASS_NAME}__bottom`}>
