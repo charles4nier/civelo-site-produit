@@ -36,7 +36,7 @@ const QUESTIONS: { q: string; a: React.ReactNode }[] = [
 	},
 	{
 		q: 'Où sont hébergées les données de la commune ?',
-		a: "En France, sur une infrastructure certifiée SecNumCloud par l'ANSSI — le niveau de certification recherché par les administrations les plus exigeantes en matière de cybersécurité. Aucun transfert hors de l'Union européenne, aucun sous-traitant soumis au CLOUD Act américain : votre chaîne de traitement s'arrête en France, ce qui simplifie votre registre des traitements."
+		a: "En France, sur une infrastructure qualifiée SecNumCloud par l'ANSSI — le niveau de qualification recherché par les administrations les plus exigeantes en matière de cybersécurité. Aucun transfert hors de l'Union européenne, aucun sous-traitant soumis au CLOUD Act américain : votre chaîne de traitement s'arrête en France, ce qui simplifie votre registre des traitements."
 	},
 	{
 		q: 'Disposez-vous des documents RGPD nécessaires ?',

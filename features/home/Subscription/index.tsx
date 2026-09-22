@@ -9,7 +9,7 @@ const ITEMS = [
 		title: 'Hébergement en France',
 		text: (
 			<>
-				Votre site est hébergé sur une infrastructure certifiée SecNumCloud par l&apos;ANSSI,
+				Votre site est hébergé sur une infrastructure qualifiée SecNumCloud par l&apos;ANSSI,
 				en France. Les données de la commune restent sur le territoire national.
 			</>
 		)

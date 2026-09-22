@@ -10,7 +10,7 @@ const CLASS_NAME = 'reversibilite';
 const POINTS = [
 	{ Icon: Landmark, label: 'Votre site.' },
 	{ Icon: Server, label: 'Votre administration.' },
-	{ Icon: Code2, label: 'Votre code.' },
+	{ Icon: Code2, label: 'Le code, remis.' },
 	{ Icon: Database, label: 'Vos données.' }
 ];
 
@@ -25,8 +25,9 @@ export default function Reversibilite() {
 				<Reveal delay={120} className="prose-lead prose-lead--on-dark">
 					<p>Les 3 490 € ne paient pas un droit d&apos;accès : vous achetez réellement votre site.</p>
 					<p className="text-strong-on-dark">
-						La commune est propriétaire du site, de son interface d&apos;administration, de
-						son code source et de ses données.
+						La commune est propriétaire de son site, de son interface d&apos;administration
+						et de ses données. Le code source vous est remis sous licence d&apos;utilisation
+						perpétuelle, sans dépendance à notre société.
 					</p>
 					<p>Le nom de domaine reste enregistré au nom de la commune.</p>
 					<p>
@@ -39,7 +40,7 @@ export default function Reversibilite() {
 			</div>
 			<Reveal delay={200}>
 				<p className={`${CLASS_NAME}__statement`}>
-					Votre site. Votre administration. Votre code. Vos données.
+					Votre site. Votre administration. Vos données. Le code, remis si besoin.
 				</p>
 			</Reveal>
 			<div className={`grid grid--4 ${CLASS_NAME}__grid`}>
