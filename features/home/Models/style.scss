@@ -75,7 +75,9 @@
 	}
 
 	&__slide {
-		flex: 0 0 calc((100% - 2 * 1.75rem) / 3);
+		// 2 cartes entières + la 3e coupée à moitié : l'aperçu tronqué signale
+		// qu'il y a plus à voir et invite à faire défiler/cliquer.
+		flex: 0 0 calc((100% - 2 * 1.75rem) / 2.5);
 		min-width: 0;
 		scroll-snap-align: start;
 

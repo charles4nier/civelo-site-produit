@@ -20,7 +20,7 @@ const MODELS = [
 		name: 'Le Clocher',
 		subtitle: 'Pour les villages ruraux où la mairie reste le cœur de la vie locale.',
 		text: 'Le Clocher va à l’essentiel : horaires, démarches, conseil municipal, vie associative. Une présentation sobre et très lisible, pensée pour tous les habitants.',
-		href: 'https://classique.civelo.fr/'
+		href: 'https://clocher.civelo.fr/'
 	},
 	{
 		slug: 'belvedere',
@@ -28,7 +28,7 @@ const MODELS = [
 		name: 'Le Belvédère',
 		subtitle: 'Pour les communes touristiques et de patrimoine, qui ont une histoire à raconter.',
 		text: 'Une large place à l’image et au récit : patrimoine, histoire, balades, marchés, hébergements. Un site qui donne envie de venir, sans oublier les services du quotidien.',
-		href: 'https://accueillant.civelo.fr/'
+		href: 'https://belvedere.civelo.fr/'
 	},
 	{
 		slug: 'preau',
@@ -36,7 +36,7 @@ const MODELS = [
 		name: 'Le Préau',
 		subtitle: 'Pour les communes résidentielles où les familles s’installent.',
 		text: 'Le Préau va droit au but, avec une navigation pensée pour le mobile : inscription à l’école, cantine, périscolaire, urbanisme, démarches en ligne.',
-		href: 'https://moderne.civelo.fr/'
+		href: 'https://preau.civelo.fr/'
 	},
 	{
 		slug: 'atelier',
@@ -44,7 +44,7 @@ const MODELS = [
 		name: 'L’Atelier',
 		subtitle: 'Pour les bourgs actifs, pôles d’emploi et de services de leur territoire.',
 		text: 'L’Atelier met en avant les projets municipaux, la vie économique et les informations institutionnelles, avec une présentation structurée.',
-		href: 'https://edito.civelo.fr/'
+		href: 'https://atelier.civelo.fr/'
 	}
 ];
 
